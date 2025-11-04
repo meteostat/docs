@@ -1,0 +1,332 @@
+[
+  {
+    "id": "hourly",
+    "name": "Meteostat Hourly",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "prcp",
+      "snwd",
+      "wdir",
+      "wspd",
+      "wpgt",
+      "pres",
+      "tsun",
+      "cldc",
+      "coco"
+    ]
+  },
+  {
+    "id": "daily",
+    "name": "Meteostat Daily",
+    "granularity": "daily",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "rhum",
+      "prcp",
+      "snwd",
+      "wspd",
+      "wpgt",
+      "pres",
+      "tsun",
+      "cldc"
+    ]
+  },
+  {
+    "id": "daily_derived",
+    "name": "Meteostat Daily Derived",
+    "granularity": "daily",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp",
+      "snow",
+      "wspd",
+      "wdir",
+      "wpgt",
+      "pres",
+      "tsun",
+      "cldc"
+    ]
+  },
+  {
+    "id": "monthly",
+    "name": "Meteostat Monthly",
+    "granularity": "monthly",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp",
+      "pres",
+      "tsun"
+    ]
+  },
+  {
+    "id": "monthly_derived",
+    "name": "Meteostat Monthly Derived",
+    "granularity": "monthly",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp",
+      "pres",
+      "tsun"
+    ]
+  },
+  {
+    "id": "dwd_hourly",
+    "name": "DWD Hourly",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "prcp",
+      "wdir",
+      "wspd",
+      "pres",
+      "tsun",
+      "vsby",
+      "coco"
+    ]
+  },
+  {
+    "id": "dwd_poi",
+    "name": "DWD POI",
+    "granularity": "hourly",
+    "parameters": [
+      "cldc",
+      "temp",
+      "vsby",
+      "wspd",
+      "wpgt",
+      "prcp",
+      "rhum",
+      "wdir",
+      "pres",
+      "tsun",
+      "coco",
+      "snwd"
+    ]
+  },
+  {
+    "id": "dwd_mosmix",
+    "name": "DWD MOSMIX",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "prcp",
+      "wdir",
+      "wspd",
+      "wpgt",
+      "pres",
+      "tsun",
+      "cldc",
+      "coco"
+    ]
+  },
+  {
+    "id": "dwd_daily",
+    "name": "DWD Daily",
+    "granularity": "daily",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "rhum",
+      "prcp",
+      "snwd",
+      "wspd",
+      "wpgt",
+      "pres",
+      "tsun",
+      "cldc"
+    ]
+  },
+  {
+    "id": "dwd_monthly",
+    "name": "DWD Monthly",
+    "granularity": "monthly",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp"
+    ]
+  },
+  {
+    "id": "eccc_hourly",
+    "name": "ECCC Hourly",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "prcp",
+      "wdir",
+      "wspd",
+      "vsby"
+    ]
+  },
+  {
+    "id": "eccc_daily",
+    "name": "ECCC Daily",
+    "granularity": "daily",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp",
+      "snow",
+      "snwd",
+      "wpgt"
+    ]
+  },
+  {
+    "id": "eccc_monthly",
+    "name": "ECCC Monthly",
+    "granularity": "monthly",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp",
+      "pday",
+      "snow"
+    ]
+  },
+  {
+    "id": "isd_lite",
+    "name": "NOAA ISD Lite",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "prcp",
+      "wdir",
+      "wspd",
+      "wpgt",
+      "pres",
+      "cldc"
+    ]
+  },
+  {
+    "id": "ghcnd",
+    "name": "NOAA GHCN-Daily",
+    "granularity": "daily",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp",
+      "snow",
+      "wspd",
+      "wdir",
+      "wpgt",
+      "tsun",
+      "cldc"
+    ]
+  },
+  {
+    "id": "climat",
+    "name": "DWD CLIMAT",
+    "granularity": "monthly",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "txmn",
+      "txmx",
+      "pres",
+      "prcp",
+      "tsun"
+    ]
+  },
+  {
+    "id": "metar",
+    "name": "METAR",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "wdir",
+      "wspd",
+      "pres",
+      "coco"
+    ]
+  },
+  {
+    "id": "metno_forecast",
+    "name": "MET Norway Forecast",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "prcp",
+      "wdir",
+      "wspd",
+      "wpgt",
+      "pres",
+      "cldc",
+      "coco"
+    ]
+  },
+  {
+    "id": "synop",
+    "name": "SYNOP Legacy",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "prcp",
+      "snow",
+      "snwd",
+      "wdir",
+      "wspd",
+      "wpgt",
+      "pres",
+      "tsun",
+      "sghi",
+      "sdni",
+      "sdhi",
+      "cldc",
+      "vsby",
+      "coco"
+    ]
+  },
+  {
+    "id": "metar_legacy",
+    "name": "METAR Legacy",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "wdir",
+      "wspd",
+      "pres",
+      "coco"
+    ]
+  },
+  {
+    "id": "model",
+    "name": "Legacy Model",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "prcp",
+      "wdir",
+      "wspd",
+      "wpgt",
+      "pres",
+      "tsun",
+      "cldc",
+      "coco"
+    ]
+  }
+]

@@ -32,15 +32,35 @@ jobs:
           python - <<'EOF'
           import json
           from meteostat.parameters import DEFAULT_PARAMETERS
-          from meteostat.providers import DEFAULT_PROVIDERS
+          from meteostat.providers.index import DEFAULT_PROVIDERS
+
+          PARAMETERS = []
+          PROVIDERS = []
+
+          for parameter in DEFAULT_PARAMETERS:
+              PARAMETERS.append({
+                  "id": parameter.id,
+                  "name": parameter.name,
+                  "granularity": parameter.granularity,
+                  "unit": parameter.unit,
+                  "dtype": parameter.dtype,
+              })
+
+          for provider in DEFAULT_PROVIDERS:
+              PROVIDERS.append({
+                  "id": provider.id,
+                  "name": provider.name,
+                  "granularity": provider.granularity,
+                  "parameters": provider.parameters
+              })
 
           # Convert parameters to JSON
-          with open('static/parameters.json', 'w') as f:
-              json.dump(DEFAULT_PARAMETERS, f, indent=2)
+          with open('./parameters.json', 'w') as f:
+              json.dump(PARAMETERS, f, indent=2)
 
           # Convert providers to JSON
-          with open('static/providers.json', 'w') as f:
-              json.dump(DEFAULT_PROVIDERS, f, indent=2)
+          with open('./providers.json', 'w') as f:
+              json.dump(PROVIDERS, f, indent=2)
           EOF
 
       - name: Commit and push changes

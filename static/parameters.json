@@ -1,0 +1,303 @@
+[
+  {
+    "id": "temp",
+    "name": "Air Temperature",
+    "granularity": "hourly",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "temp",
+    "name": "Mean Air Temperature",
+    "granularity": "daily",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "temp",
+    "name": "Mean Air Temperature",
+    "granularity": "monthly",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "temp",
+    "name": "Mean Air Temperature",
+    "granularity": "normals",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "tmin",
+    "name": "Minimum Air Temperature",
+    "granularity": "daily",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "tmin",
+    "name": "Mean Daily Minimum Air Temperature",
+    "granularity": "monthly",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "tmin",
+    "name": "Mean Daily Minimum Air Temperature",
+    "granularity": "normals",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "tmax",
+    "name": "Maximum Air Temperature",
+    "granularity": "daily",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "tmax",
+    "name": "Mean Daily Maximum Air Temperature",
+    "granularity": "monthly",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "tmax",
+    "name": "Mean Daily Maximum Air Temperature",
+    "granularity": "normals",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "txmn",
+    "name": "Absolute Minimum Air Temperature",
+    "granularity": "monthly",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "txmn",
+    "name": "Absolute Minimum Air Temperature",
+    "granularity": "normals",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "txmx",
+    "name": "Absolute Maximum Air Temperature",
+    "granularity": "monthly",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "txmx",
+    "name": "Absolute Maximum Air Temperature",
+    "granularity": "normals",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "dwpt",
+    "name": "Dew Point",
+    "granularity": "hourly",
+    "unit": "\u00b0C",
+    "dtype": "Float64"
+  },
+  {
+    "id": "rhum",
+    "name": "Relative Humidity",
+    "granularity": "hourly",
+    "unit": "%",
+    "dtype": "UInt8"
+  },
+  {
+    "id": "rhum",
+    "name": "Relative Humidity",
+    "granularity": "daily",
+    "unit": "%",
+    "dtype": "UInt8"
+  },
+  {
+    "id": "rhum",
+    "name": "Relative Humidity",
+    "granularity": "monthly",
+    "unit": "%",
+    "dtype": "UInt8"
+  },
+  {
+    "id": "rhum",
+    "name": "Relative Humidity",
+    "granularity": "normals",
+    "unit": "%",
+    "dtype": "UInt8"
+  },
+  {
+    "id": "prcp",
+    "name": "Total Precipitation",
+    "granularity": "hourly",
+    "unit": "mm",
+    "dtype": "Float64"
+  },
+  {
+    "id": "prcp",
+    "name": "Total Precipitation",
+    "granularity": "daily",
+    "unit": "mm",
+    "dtype": "Float64"
+  },
+  {
+    "id": "prcp",
+    "name": "Total Precipitation",
+    "granularity": "monthly",
+    "unit": "mm",
+    "dtype": "Float64"
+  },
+  {
+    "id": "prcp",
+    "name": "Total Precipitation",
+    "granularity": "normals",
+    "unit": "mm",
+    "dtype": "Float64"
+  },
+  {
+    "id": "snow",
+    "name": "Snowfall",
+    "granularity": "hourly",
+    "unit": "cm",
+    "dtype": "UInt8"
+  },
+  {
+    "id": "snwd",
+    "name": "Snow Depth",
+    "granularity": "hourly",
+    "unit": "cm",
+    "dtype": "UInt16"
+  },
+  {
+    "id": "snwd",
+    "name": "Snow Depth",
+    "granularity": "daily",
+    "unit": "cm",
+    "dtype": "UInt16"
+  },
+  {
+    "id": "wdir",
+    "name": "Wind Direction",
+    "granularity": "hourly",
+    "unit": "\u00b0",
+    "dtype": "UInt16"
+  },
+  {
+    "id": "wspd",
+    "name": "Wind Speed",
+    "granularity": "hourly",
+    "unit": "km/h",
+    "dtype": "Float64"
+  },
+  {
+    "id": "wspd",
+    "name": "Average Wind Speed",
+    "granularity": "daily",
+    "unit": "km/h",
+    "dtype": "Float64"
+  },
+  {
+    "id": "wpgt",
+    "name": "Peak Wind Gust",
+    "granularity": "hourly",
+    "unit": "km/h",
+    "dtype": "Float64"
+  },
+  {
+    "id": "wpgt",
+    "name": "Peak Wind Gust",
+    "granularity": "daily",
+    "unit": "km/h",
+    "dtype": "Float64"
+  },
+  {
+    "id": "pres",
+    "name": "Air Pressure (MSL)",
+    "granularity": "hourly",
+    "unit": "hPa",
+    "dtype": "Float64"
+  },
+  {
+    "id": "pres",
+    "name": "Average Air Pressure (MSL)",
+    "granularity": "daily",
+    "unit": "hPa",
+    "dtype": "Float64"
+  },
+  {
+    "id": "pres",
+    "name": "Average Air Pressure (MSL)",
+    "granularity": "monthly",
+    "unit": "hPa",
+    "dtype": "Float64"
+  },
+  {
+    "id": "pres",
+    "name": "Average Air Pressure (MSL)",
+    "granularity": "normals",
+    "unit": "hPa",
+    "dtype": "Float64"
+  },
+  {
+    "id": "tsun",
+    "name": "Sunshine Duration",
+    "granularity": "hourly",
+    "unit": "min",
+    "dtype": "UInt8"
+  },
+  {
+    "id": "tsun",
+    "name": "Sunshine Duration",
+    "granularity": "daily",
+    "unit": "min",
+    "dtype": "UInt16"
+  },
+  {
+    "id": "tsun",
+    "name": "Sunshine Duration",
+    "granularity": "monthly",
+    "unit": "min",
+    "dtype": "UInt16"
+  },
+  {
+    "id": "tsun",
+    "name": "Sunshine Duration",
+    "granularity": "normals",
+    "unit": "min",
+    "dtype": "UInt16"
+  },
+  {
+    "id": "cldc",
+    "name": "Cloud Cover",
+    "granularity": "hourly",
+    "unit": "okta",
+    "dtype": "UInt8"
+  },
+  {
+    "id": "cldc",
+    "name": "Average Cloud Cover",
+    "granularity": "daily",
+    "unit": "okta",
+    "dtype": "UInt8"
+  },
+  {
+    "id": "vsby",
+    "name": "Visibility",
+    "granularity": "hourly",
+    "unit": "m",
+    "dtype": "UInt16"
+  },
+  {
+    "id": "coco",
+    "name": "Weather Condition Code",
+    "granularity": "hourly",
+    "unit": null,
+    "dtype": "UInt8"
+  }
+]
