@@ -1,0 +1,52 @@
+name: Sync Metadata
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout docs repository
+        uses: actions/checkout@v4
+
+      - name: Clone meteostat-python repository
+        run: |
+          git clone https://github.com/meteostat/meteostat-python.git
+          cd meteostat-python
+          git checkout next
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          cd meteostat-python
+          pip install -e .
+
+      - name: Generate JSON files
+        run: |
+          python - <<'EOF'
+          import json
+          from meteostat.parameters import DEFAULT_PARAMETERS
+          from meteostat.providers import DEFAULT_PROVIDERS
+
+          # Convert parameters to JSON
+          with open('static/parameters.json', 'w') as f:
+              json.dump(DEFAULT_PARAMETERS, f, indent=2)
+
+          # Convert providers to JSON
+          with open('static/providers.json', 'w') as f:
+              json.dump(DEFAULT_PROVIDERS, f, indent=2)
+          EOF
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add static/parameters.json static/providers.json
+          git commit -m "Update parameters and providers data" || exit 0
+          git push
