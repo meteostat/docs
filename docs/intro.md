@@ -2,46 +2,25 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Meteostat is one of the largest vendors of open weather and climate data. Access long-term time series of thousands of weather stations and integrate Meteostat data into your products, applications and workflows. Thanks to our open data policy, Meteostat is an ideal data source for research and educational projects.
 
-## Getting Started
+## Our Services
 
-Get started by **creating a new site**.
+Meteostat provides multiple interfaces for retrieving weather and climate data. Please choose from one of the following options:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+* [JSON API](/api/): Simple and fast access of Meteostat data in JSON format
+* [Python Library](/python/): Analyze historical weather data for thousands of weather stations using Pandas
+* [Bulk Data](/bulk/): Download full data dumps of individual weather stations
 
-### What you'll need
+## About Meteostat
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+If you’re looking for climate data, there are plenty of governmental interfaces that provide open access to the weather data made available by national meteorological offices. The data provided by organizations like NOAA, DWD and Environment Canada is a valuable resource to science, education, businesses and every individual looking for weather and climate data.
 
-## Generate a new site
+However, all these interfaces use different data formats and procedures for accessing the information. It requires tremendous effort and maintenance to keep your own database of weather and climate statistics up-to-date. And that is what Meteostat is made for. Instead of running your own database, import routines and quality assurance measures you are ready to start developing weather and climate data driven applications in just a few minutes.
 
-Generate a new Docusaurus site using the **classic template**.
+Get the information you need with just one HTTP request or download full data dumps by weather station. Meteostat powers everything from a small data science project to the largest universities and businesses in the world.
 
-The classic template will automatically be added to your project after you run the command:
+In contrast to most other weather-related applications and APIs, Meteostat focuses on historical weather and climate data that was actually measured on-site by weather stations around the globe. You can either retrieve raw observations of individual weather stations which are free of interpolation or use our comfortable point data to query data by geographic location.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
