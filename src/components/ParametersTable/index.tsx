@@ -135,6 +135,7 @@ const ParametersTable: React.FC = () => {
         <thead>
           <tr>
             <th style={{ textAlign: 'left' }}>ID(s)</th>
+            <th style={{ textAlign: 'left' }}>Enumeration</th>
             <th style={{ textAlign: 'left' }}>Name</th>
             <th style={{ textAlign: 'left' }}>Granularity</th>
             <th style={{ textAlign: 'left' }}>Unit(s)</th>
@@ -145,6 +146,7 @@ const ParametersTable: React.FC = () => {
           {filteredItems.map((e) => (
             <tr key={e.name}>
               <td><code className={styles.code}>{joinUnique(e.ids)}</code></td>
+              <td><code className={styles.code}>Parameter.{joinUnique(e.ids).toUpperCase()}</code></td>
               <td>{e.name}</td>
               <td>{joinUnique(e.granularities)}</td>
               <td>{joinUnique(e.units)}</td>

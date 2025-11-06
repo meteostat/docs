@@ -35,6 +35,22 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
+/* Hide native search decorations (clear button) in WebKit browsers */
+.search::-webkit-search-decoration,
+.search::-webkit-search-cancel-button,
+.search::-webkit-search-results-button,
+.search::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* Hide IE/Edge clear/reveal buttons */
+.search::-ms-clear,
+.search::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .searchIcon {
   position: absolute;
   left: 0.75rem;
@@ -157,6 +173,7 @@
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 0.25rem;
+  z-index: 5;
 }
 
 .clearBtn:hover {
