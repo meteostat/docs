@@ -29,6 +29,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'license'
+    },
+    {
+      type: 'doc',
       id: 'quality'
     },
     {
@@ -38,6 +42,10 @@ const sidebars: SidebarsConfig = {
     {
       type: 'doc',
       id: 'parameters'
+    },
+    {
+      type: 'doc',
+      id: 'weather-stations'
     },
     {
       type: 'doc',
