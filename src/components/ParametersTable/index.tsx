@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
+import styles from './styles.module.css';
 import params from '@site/static/parameters.json';
 
 type Param = {
@@ -51,9 +52,73 @@ const ParametersTable: React.FC = () => {
   // Preserve original JSON order: Map preserves insertion order based on first occurrence
   const items = Array.from(map.values());
 
+  // collect all granularities for the filter (preserve insertion order)
+  const allGranularities = useMemo(() => {
+    const g = new Set<string>();
+    raw.forEach((p) => g.add(p.granularity));
+    return Array.from(g);
+  }, [raw]);
+
+  const [search, setSearch] = useState('');
+  const [granularityFilter, setGranularityFilter] = useState('all');
+
+  const filteredItems = useMemo(() => {
+    const s = search.trim().toLowerCase();
+
+    return items.filter((e) => {
+      // granularity filter
+      if (granularityFilter !== 'all') {
+        if (!e.granularities.has(granularityFilter)) return false;
+      }
+
+      if (!s) return true;
+
+      // match against name
+      if (e.name.toLowerCase().includes(s)) return true;
+
+      // match against any id
+      for (const id of e.ids) {
+        if (id.toLowerCase().includes(s)) return true;
+      }
+
+      return false;
+    });
+  }, [items, search, granularityFilter]);
+
   return (
-    <div>
-      <table className="table table--striped" style={{ width: '100%' }}>
+    <div className={styles.container}>
+      <div className={styles.controls}>
+        <div className={styles.searchLabel}>
+          <input
+            className={styles.search}
+            type="search"
+            aria-label="Search parameters by id or name"
+            placeholder="Search parameters by id or name…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          {search ? (
+            <button className={styles.clearBtn} onClick={() => setSearch('')} aria-label="Clear search">×</button>
+          ) : null}
+        </div>
+
+        <div>
+          <select
+            className={styles.select}
+            aria-label="Filter by granularity"
+            value={granularityFilter}
+            onChange={(e) => setGranularityFilter(e.target.value)}
+          >
+            <option value="all">All granularities</option>
+            {allGranularities.map((g) => (
+              <option key={g} value={g}>{g}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className={styles.tableWrapper}>
+        <table className={`table table--striped ${styles.table}`}>
         <caption style={{ captionSide: 'top', textAlign: 'left', fontWeight: 600, paddingBottom: '0.5rem' }}>
           Available meteorological parameters
         </caption>
@@ -67,9 +132,9 @@ const ParametersTable: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {items.map((e) => (
+          {filteredItems.map((e) => (
             <tr key={e.name}>
-              <td><code>{joinUnique(e.ids)}</code></td>
+              <td><code className={styles.code}>{joinUnique(e.ids)}</code></td>
               <td>{e.name}</td>
               <td>{joinUnique(e.granularities)}</td>
               <td>{joinUnique(e.units)}</td>
@@ -78,6 +143,8 @@ const ParametersTable: React.FC = () => {
           ))}
         </tbody>
       </table>
+
+      </div>
 
       <p style={{ marginTop: '0.5rem', fontSize: '0.9rem' }}>
         Note: parameters are grouped by <code>id</code> and <code>name</code>. Fields that vary across grouped entries (unit, type)
