@@ -21,21 +21,21 @@ const joinUnique = (vals: Set<string>) => {
 const ParametersTable: React.FC = () => {
   const raw = params as Param[];
 
-  // Group items by name and collect unique ids, granularities, units and dtypes
+  // Group items by id AND name and collect unique granularities, units and dtypes
   const map = new Map<string, {
+    id: string;
     name: string;
-    ids: Set<string>;
     granularities: Set<string>;
     units: Set<string>;
     dtypes: Set<string>;
   }>();
 
   raw.forEach((p) => {
-    const key = p.name || '—';
+    const key = `${p.id}::${p.name}`;
     if (!map.has(key)) {
       map.set(key, {
-        name: key,
-        ids: new Set(),
+        id: p.id,
+        name: p.name || '—',
         granularities: new Set(),
         units: new Set(),
         dtypes: new Set(),
@@ -43,7 +43,6 @@ const ParametersTable: React.FC = () => {
     }
 
     const entry = map.get(key)!;
-    if (p.id) entry.ids.add(p.id);
     entry.granularities.add(p.granularity);
     entry.units.add(normalizeUnit(p.unit));
     if (p.dtype) entry.dtypes.add(p.dtype);
@@ -76,10 +75,8 @@ const ParametersTable: React.FC = () => {
       // match against name
       if (e.name.toLowerCase().includes(s)) return true;
 
-      // match against any id
-      for (const id of e.ids) {
-        if (id.toLowerCase().includes(s)) return true;
-      }
+      // match against id
+      if (e.id && e.id.toLowerCase().includes(s)) return true;
 
       return false;
     });
@@ -134,7 +131,7 @@ const ParametersTable: React.FC = () => {
         </caption>
         <thead>
           <tr>
-            <th style={{ textAlign: 'left' }}>ID(s)</th>
+            <th style={{ textAlign: 'left' }}>ID</th>
             <th style={{ textAlign: 'left' }}>Enumeration</th>
             <th style={{ textAlign: 'left' }}>Name</th>
             <th style={{ textAlign: 'left' }}>Granularity</th>
@@ -145,8 +142,8 @@ const ParametersTable: React.FC = () => {
         <tbody>
           {filteredItems.map((e) => (
             <tr key={e.name}>
-              <td><code className={styles.code}>{joinUnique(e.ids)}</code></td>
-              <td><code className={styles.code}>Parameter.{joinUnique(e.ids).toUpperCase()}</code></td>
+              <td><code className={styles.code}>{e.id}</code></td>
+              <td><code className={styles.code}>Parameter.{e.id.toUpperCase()}</code></td>
               <td>{e.name}</td>
               <td>{joinUnique(e.granularities)}</td>
               <td>{joinUnique(e.units)}</td>
