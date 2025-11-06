@@ -1,6 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import styles from './styles.module.css';
 import params from '@site/static/parameters.json';
+import { normalizeUnit, joinUnique, joinAndCap, capitalize } from '../Shared/utils';
+import SearchInput from '../Shared/SearchInput';
+import SelectFilter from '../Shared/SelectFilter';
 
 type Param = {
   id: string;
@@ -8,22 +11,6 @@ type Param = {
   granularity: string;
   unit?: string | null;
   dtype: string;
-};
-
-const normalizeUnit = (u?: string | null) => (u === null || u === undefined ? '—' : u);
-
-const joinUnique = (vals: Set<string>) => {
-  const arr = Array.from(vals).filter(Boolean);
-  if (arr.length === 0) return '—';
-  return arr.join(', ');
-};
-
-const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
-
-const joinAndCap = (vals: Set<string>) => {
-  const arr = Array.from(vals).filter(Boolean);
-  if (arr.length === 0) return '—';
-  return arr.map(capitalize).join(', ');
 };
 
 const ParametersTable: React.FC = () => {
@@ -93,43 +80,14 @@ const ParametersTable: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.controls}>
-        <div className={styles.searchWrapper}>
-          <div className={styles.searchIcon}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-          <input
-            className={styles.search}
-            type="search"
-            aria-label="Search parameters by id or name"
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          {search ? (
-            <button className={styles.clearBtn} onClick={() => setSearch('')} aria-label="Clear search">×</button>
-          ) : null}
-        </div>
+        <SearchInput value={search} onChange={setSearch} placeholder="Search parameters by id or name…" ariaLabel="Search parameters" />
 
-        <div className={styles.selectWrapper}>
-          <select
-            className={styles.select}
-            aria-label="Filter by granularity"
-            value={granularityFilter}
-            onChange={(e) => setGranularityFilter(e.target.value)}
-          >
-            <option value="all">All granularities</option>
-            {allGranularities.map((g) => (
-              <option key={g} value={g}>{capitalize(g)}</option>
-            ))}
-          </select>
-          <div className={styles.chevron} aria-hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
-              <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.08 1.04l-4.25 4.25a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-            </svg>
-          </div>
-        </div>
+        <SelectFilter
+          value={granularityFilter}
+          onChange={setGranularityFilter}
+          options={[{ value: 'all', label: 'All granularities' }, ...allGranularities.map((g) => ({ value: g, label: capitalize(g) }))]}
+          ariaLabel="Filter by granularity"
+        />
       </div>
 
       <div className={styles.tableWrapper}>
