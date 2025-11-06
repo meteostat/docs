@@ -1,8 +1,9 @@
 ---
-sidebar_position: 2
+title: Hourly Weather
+sidebar_position: 1
 ---
 
-# Hourly Data
+# Hourly Weather Data
 
 This endpoint provides one GZ compressed CSV file per weather station and year. The provided data is being aggregated from historical databases, METAR reports and SYNOP data.
 

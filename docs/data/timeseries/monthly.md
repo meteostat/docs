@@ -1,8 +1,9 @@
 ---
-sidebar_position: 4
+title: Monthly Weather
+sidebar_position: 3
 ---
 
-# Monthly Data
+# Monthly Weather Data
 
 This endpoint provides one GZ compressed CSV file per weather station.
 
