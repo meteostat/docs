@@ -80,7 +80,7 @@ const ParametersTable: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.controls}>
-        <SearchInput value={search} onChange={setSearch} placeholder="Search parameters by id or name…" ariaLabel="Search parameters" />
+        <SearchInput value={search} onChange={setSearch} placeholder="Search" ariaLabel="Search parameters" />
 
         <SelectFilter
           value={granularityFilter}

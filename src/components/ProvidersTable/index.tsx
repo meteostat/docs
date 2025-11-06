@@ -50,7 +50,7 @@ const ProvidersTable: React.FC = () => {
   return (
     <div>
       <div className={styles.controls}>
-        <SearchInput value={search} onChange={setSearch} placeholder="Search providers by id or name…" />
+        <SearchInput value={search} onChange={setSearch} placeholder="Search" />
 
         <SelectFilter
           value={granularity}
