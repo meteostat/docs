@@ -140,7 +140,7 @@
 .table tbody td {
   padding: 0.6rem 0.5rem;
   border-bottom: 1px solid var(--ifm-color-emphasis-200, #eee);
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .table tbody tr:hover {
@@ -152,6 +152,14 @@
   padding: 0.12rem 0.35rem;
   border-radius: 4px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+}
+
+/* container for parameter code elements: allow wrapping / line breaks */
+.paramList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem; /* space between items, use gap instead of margin */
+  align-items: center;
 }
 
 .note {

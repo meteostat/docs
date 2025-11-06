@@ -68,7 +68,7 @@ const ProvidersTable: React.FC = () => {
       <div className={styles.tableWrapper}>
         <table className={`table table--striped ${styles.table}`}>
           <caption style={{ captionSide: 'top', textAlign: 'left', fontWeight: 600, paddingBottom: '0.5rem' }}>
-            Available providers (from static/providers.json)
+            Available data providers
           </caption>
           <thead>
             <tr>
@@ -86,7 +86,15 @@ const ProvidersTable: React.FC = () => {
                 <td><code className={styles.code}>Provider.{p.id.toUpperCase()}</code></td>
                 <td>{p.name}</td>
                 <td>{capitalize(p.granularity)}</td>
-                <td>{p.parameters.join(', ')}</td>
+                <td>
+                  <div className={styles.paramList}>
+                    {p.parameters.map((param) => (
+                      <code className={styles.code} key={param}>
+                        {param}
+                      </code>
+                    ))}
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>
