@@ -18,6 +18,14 @@ const joinUnique = (vals: Set<string>) => {
   return arr.join(', ');
 };
 
+const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+
+const joinAndCap = (vals: Set<string>) => {
+  const arr = Array.from(vals).filter(Boolean);
+  if (arr.length === 0) return '—';
+  return arr.map(capitalize).join(', ');
+};
+
 const ParametersTable: React.FC = () => {
   const raw = params as Param[];
 
@@ -113,7 +121,7 @@ const ParametersTable: React.FC = () => {
           >
             <option value="all">All granularities</option>
             {allGranularities.map((g) => (
-              <option key={g} value={g}>{g}</option>
+              <option key={g} value={g}>{capitalize(g)}</option>
             ))}
           </select>
           <div className={styles.chevron} aria-hidden>
@@ -145,7 +153,7 @@ const ParametersTable: React.FC = () => {
               <td><code className={styles.code}>{e.id}</code></td>
               <td><code className={styles.code}>Parameter.{e.id.toUpperCase()}</code></td>
               <td>{e.name}</td>
-              <td>{joinUnique(e.granularities)}</td>
+              <td>{joinAndCap(e.granularities)}</td>
               <td>{joinUnique(e.units)}</td>
               <td>{joinUnique(e.dtypes)}</td>
             </tr>
