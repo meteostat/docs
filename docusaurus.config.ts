@@ -119,11 +119,23 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Introduction',
+              to: '/docs/overview',
+            },
+            {
+              label: 'Python Library',
+              to: '/docs/python',
+            },
+            {
+              label: 'Bulk Data',
+              to: '/docs/data',
+            },
+            {
+              label: 'JSON API',
+              to: '/docs/api',
             },
           ],
         },
@@ -145,20 +157,32 @@ const config: Config = {
           ],
         },
         {
-          title: 'More',
+          title: 'Meteostat',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'License',
+              to: '/docs/license',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'Terms of Service',
+              to: '/docs/terms',
+            },
+            {
+              label: 'Privacy Policy',
+              to: '/docs/privacy',
+            },
+            {
+              label: 'Legal Notice',
+              to: '/docs/legal',
             },
           ],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Meteostat.`,
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
     },
     prism: {
       theme: prismThemes.github,

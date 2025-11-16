@@ -16,26 +16,11 @@ Many JSON API endpoints require the specification of a time range using the <cod
 
 ## Meteorological Parameters
 
-The Meteostat API uses abbreviations to describe meteorological parameters:
+Meteostat provides time series data for many different meteorological parameters and granularities. A comprehensive list is available [here](parameters.md).
 
-| **Code** | **Meaning**             |
-| :------- | :---------------------- |
-| TEMP     | Air Temperature         |
-| TAVG     | Average Temperature     |
-| TMIN     | Minimum Temperature     |
-| TMAX     | Maximum Temperature     |
-| DWPT     | Dew Point               |
-| PRCP     | Total Precipitation     |
-| WDIR     | Wind (From) Direction   |
-| WSPD     | Average Wind Speed      |
-| WPGT     | Wind Peak Gust          |
-| RHUM     | Relative Humidity       |
-| PRES     | Sea-Level Air Pressure  |
-| SNOW     | Snow Depth              |
-| TSUN     | Total Sunshine Duration |
-| COCO     | Weather Condition Code  |
+## Data Units
 
-## Meteorological Data Units
+Meteostat uses the metric system by default.
 
 | **Parameter(s)**           | **Unit** |
 | :------------------------- | :------- |

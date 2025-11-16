@@ -1,10 +1,12 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
+  to?: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
 };
@@ -12,6 +14,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Meteostat Python',
+    to: '/docs/python',
     Svg: require('@site/static/img/undraw_programmer_raqr.svg').default,
     description: (
       <>
@@ -21,6 +24,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Bulk Data',
+    to: '/docs/data',
     Svg: require('@site/static/img/undraw_visual-data_1eya.svg').default,
     description: (
       <>
@@ -30,6 +34,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'JSON API',
+    to: '/docs/api',
     Svg: require('@site/static/img/undraw_code-review_jdgp.svg').default,
     description: (
       <>
@@ -39,9 +44,9 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
-  return (
-    <div className={clsx('col col--4')}>
+function Feature({title, Svg, description, to}: FeatureItem) {
+  const content = (
+    <>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
@@ -49,6 +54,18 @@ function Feature({title, Svg, description}: FeatureItem) {
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
+    </>
+  );
+
+  return (
+    <div className={clsx('col col--4')}>
+      {to ? (
+        <Link to={to} className={styles.featureLink} aria-label={title}>
+          {content}
+        </Link>
+      ) : (
+        content
+      )}
     </div>
   );
 }

@@ -9,3 +9,21 @@
   height: 200px;
   width: 200px;
 }
+
+/* Make the entire feature card link inherit text color and remove underline on hover/focus */
+.featureLink {
+  color: inherit;
+  text-decoration: none;
+  display: block; /* ensure it covers the card area */
+}
+
+.featureLink:hover,
+.featureLink:focus {
+  text-decoration: none;
+}
+
+/* Visible focus style for keyboard users */
+.featureLink:focus-visible {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
