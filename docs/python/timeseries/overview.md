@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Meteostat provides access to time series data for thousands of weather stations worldwide. These time series are provided in different granularities and can be consumed through a single interface.
 
-## 🚀 Example
+## 🚀 Example {#example}
 
 <Tabs>
   <TabItem value="hourly" label="Hourly" default>
@@ -121,11 +121,11 @@ Meteostat provides access to time series data for thousands of weather stations 
   </TabItem>
 </Tabs>
 
-## 👀 Learn More
+## 👀 Learn More {#learn-more}
 
 <DocCardList />
 
-## 🔍 API
+## 🔍 API {#api}
 
 ### Interface
 
@@ -136,50 +136,157 @@ Through one of the following:
 - [`meteostat.monthly`](/docs/python/timeseries/monthly.md)
 - [`meteostat.normals`](/docs/python/timeseries/normals.md)
 
+### Parameters
+
+Please refer to the respective [interface documentation](#interface) for a list of accepted parameters.
+
 ### Properties
 
-#### `granularity`
+#### `granularity` {#property-granularity}
 
-The time series's granularity
+The time series's granularity.
 
-##### Data Type
+##### Data Type {#property-granularity-type}
 
 `Granularity`
 
 ---
 
-#### `stations`
+#### `stations` {#property-stations}
 
-Included weather stations
+Included weather stations.
 
-##### Data Type
+##### Data Type {#property-stations-type}
 
 [`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html)
 
-| **Parameter** | **Description**                                                                                           | **Type**                                                                        |
-| :------------ | :-------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
-| `granularity` | The time series's granularity                                                                             | `Granularity`                                                                   |
-| `stations`    | Included weather stations                                                                                 | [`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html)              |
-| `start`       | Start date of the requested period                                                                        | [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) |
-| `end`         | End date of the requested period                                                                          | [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) |
-| `timezone`    | Time zone of the period and records (only hourly granularity)                                             | `str`                                                                           |
-| `parameters`  | Included meteorological parameters                                                                        | `List[Parameter]`                                                               |
-| `freq`        | The time series's frequency (e.g. `1h` in case of hourly granularity)                                     | `str`                                                                           |
-| `empty`       | Is the time series empty?                                                                                 | `bool`                                                                          |
-| `providers`   | Included data providers                                                                                   | `List[Provider]`                                                                |
-| `licenses`    | Applicable licenses                                                                                       | `List[License]`                                                                 |
-| `attribution` | The attribution/copyright string                                                                          | `str`                                                                           |
-| `commercial`  | Can data be used for commercial purposes?                                                                 | `bool`                                                                          |
-| `is_valid`    | Does the time series pass all quality checks?                                                             | `bool`                                                                          |
-| `lapse_rate`  | The temperature's lapse rate, if applicable (at least two included weather stations with sufficient data) | `float` or `None`                                                               |
+---
+
+#### `start` {#property-start}
+
+Start date of the requested period.
+
+##### Data Type {#property-start-type}
+
+[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime)
+
+---
+
+#### `end` {#property-end}
+
+End date of the requested period.
+
+##### Data Type {#property-end-type}
+
+[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime)
+
+---
+
+#### `timezone` {#property-timezone}
+
+Time zone of the period and records (only hourly granularity).
+
+##### Data Type {#property-timezone-type}
+
+`str`
+
+---
+
+#### `parameters` {#property-parameters}
+
+Included meteorological parameters.
+
+##### Data Type {#property-parameters-type}
+
+`List[Parameter]`
+
+---
+
+#### `freq` {#property-freq}
+
+The time series's frequency (e.g. `1h` in case of hourly granularity).
+
+##### Data Type {#property-freq-type}
+
+`str`
+
+---
+
+#### `empty` {#property-empty}
+
+Is the time series empty?
+
+##### Data Type {#property-empty-type}
+
+`bool`
+
+---
+
+#### `providers` {#property-providers}
+
+Included data providers.
+
+##### Data Type {#property-providers-type}
+
+`List[Provider]`
+
+---
+
+#### `licenses` {#property-licenses}
+
+Applicable licenses.
+
+##### Data Type {#property-licenses-type}
+
+`List[License]`
+
+---
+
+#### `attribution` {#property-attribution}
+
+The attribution/copyright string.
+
+##### Data Type {#property-attribution-type}
+
+`str`
+
+---
+
+#### `commercial` {#property-commercial}
+
+Can data be used for commercial purposes?
+
+##### Data Type {#property-commercial-type}
+
+`bool`
+
+---
+
+#### `is_valid` {#property-is_valid}
+
+Does the time series pass all quality checks?
+
+##### Data Type {#property-is_valid-type}
+
+`bool`
+
+---
+
+#### `lapse_rate` {#property-lapse_rate}
+
+The temperature's lapse rate, if applicable (at least two included weather stations with sufficient data).
+
+##### Data Type {#property-lapse_rate-type}
+
+`float` or `None`
 
 ### Methods
 
-#### `fetch`
+#### `fetch` {#method-fetch}
 
 Fetch the actual weather/climate data.
 
-##### Attributes
+##### Attributes {#method-fetch-attributes}
 
 | **Attribute** | **Description**                                               | **Type** | **Default** |
 | :------------ | :------------------------------------------------------------ | :------- | :---------- |
@@ -189,11 +296,11 @@ Fetch the actual weather/climate data.
 | `location`    | Add location-related columns (latitude, longitude, elevation) | `bool`   | `False`     |
 | `clean`       | Remove inaccurate data                                        | `bool`   | `True`      |
 
-##### Return Value
+##### Return Value {#method-fetch-return}
 
 [`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html)
 
-##### Example
+##### Example {#method-fetch-example}
 
 ```python
 from datetime import date
@@ -214,21 +321,21 @@ print(df)
 
 ---
 
-#### `count`
+#### `count` {#method-count}
 
 Get the number of rows in the whole time series or by parameter. `NaN` values are excluded.
 
-##### Attributes
+##### Attributes {#method-count-attributes}
 
 | **Attribute** | **Description**                                                                      | **Type**             | **Default** |
 | :------------ | :----------------------------------------------------------------------------------- | :------------------- | :---------- |
 | `parameter`   | The parameter which should be counted, if `None` the whole time series is considered | `Parameter` or `str` | `None`      |
 
-##### Return Value
+##### Return Value {#method-count-return}
 
 `int`
 
-##### Example
+##### Example {#method-count-example}
 
 ```python
 from datetime import date
@@ -249,24 +356,24 @@ print(f'{count} rows with precipitation data')
 
 ---
 
-#### `completeness`
+#### `completeness` {#method-completeness}
 
 The share of non-`NaN` values of the time series's full length.
 
-##### Attributes
+##### Attributes {#method-completeness-attributes}
 
 | **Attribute** | **Description**                                                          | **Type**                     | **Default** |
 | :------------ | :----------------------------------------------------------------------- | :--------------------------- | :---------- |
 | `parameter`   | The parameter of interest, if `None` the whole time series is considered | `Parameter`, `str` or `None` | `None`      |
 
-##### Return Value
+##### Return Value {#method-completeness-return}
 
 `float`
 
 - `0` means all data is missing
 - `1` means all data is available
 
-##### Example
+##### Example {#method-completeness-example}
 
 ```python
 from datetime import date
