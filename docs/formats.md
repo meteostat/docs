@@ -12,7 +12,7 @@ Date and time statements follow the ISO 8601 standard (e.g. _2016-12-31_ for _De
 
 ### Time Ranges
 
-Many JSON API endpoints require the specification of a time range using the <code>start</code> and <code>end</code> parameters. For these parameters please always provide dates in this format: _YYYY-MM-DD_.
+Many JSON API endpoints require a time range specified with the <code>start</code> and <code>end</code> parameters. For these parameters, always provide dates in the format _YYYY-MM-DD_.
 
 ## Meteorological Parameters
 

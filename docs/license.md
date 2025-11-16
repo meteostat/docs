@@ -3,7 +3,7 @@
 Meteostat **does not own** any meteorological data. Weather and climate data is usually collected and distributed by public organizations, such as the National Oceanic and Atmospheric Administration (NOAA) in the United States.
 
 :::warning
-The following licensing information is only applicable to data redistributed by Meteostat. If you're pulling data directly from a weather service through [Meteostat Python](/docs/python), please review the respective licensing information carefully.
+The following licensing information is only applicable to data redistributed by Meteostat. If you obtain data directly from a weather service through [Meteostat Python](/docs/python), review the provider's licensing information carefully.
 :::
 
 ## Standard License
@@ -21,7 +21,7 @@ Meteostat aggregates weather and climate data from different public sources and 
 
 ## Attribution
 
-You must give credit to Meteostat and its meteorological data providers. Example:
+You must give credit to Meteostat and its meteorological data providers. Example attribution:
 
 > Source: [Meteostat](https://meteostat.net), [Deutscher Wetterdienst](https://www.dwd.de)
 

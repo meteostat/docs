@@ -14,10 +14,10 @@ Meteostat does not charge users for the data itself. All weather and climate dat
 
 ## Availability
 
-Meteostat may discontinue or block access to the services at any time without prior notification. Meteostat has no obligation to compensate users for any down time or discontinuation of the services.
+Meteostat may discontinue or block access to the services at any time without prior notice. Meteostat has no obligation to compensate users for any downtime or discontinuation of the services.
 
 ## Limitation of Liability
 
 The use of our services is at your sole risk. The data provided by Meteostat is not intended to be used in any context where human life or property may be at risk.
 
-We cannot guarantee for the accuracy and completeness of the information provided through our services. Moreover, Meteostat is not responsible for any infringement of a copyright committed by a third-party.
+We cannot guarantee the accuracy or completeness of the information provided through our services. Moreover, Meteostat is not responsible for any copyright infringement committed by a third party.

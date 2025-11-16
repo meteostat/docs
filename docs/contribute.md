@@ -8,52 +8,49 @@ Meteostat is an open initiative which does not operate on a primarily commercial
 
 This section contains information about how to contribute to Meteostat. It also defines general principles and concepts which serve as a foundation for the project and its architecture.
 
-If you want to support Meteostat on its mission of making weather and climate data available to everyone, you have multiple options to choose from:
+If you want to support Meteostat's mission of making weather and climate data freely available, you can help in several ways:
 
-* Contribute to our open source repositories on [GitHub](https://github.com/meteostat)
-* Spread the news about Meteostat on social media or your website
-* Make a [donation](/contributing.html#donations)
+- **Contribute code or documentation** on our open-source repositories on [GitHub](https://github.com/meteostat).
+- **Share Meteostat** on social media, blogs, or other channels to raise awareness.
+- **Donate** to support ongoing development and infrastructure costs.
 
-Meteostat's goal is to publish the majority of its coding under the MIT license on [GitHub](https://github.com/meteostat). Feel free to open an issue if you run into a bug or create a pull request for new features and fixes.
+We aim to publish most project code under the MIT license on [GitHub](https://github.com/meteostat). Please open issues for bugs or feature requests and submit pull requests for fixes and improvements.
 
 ## Weather Stations
 
 Meteostat provides an open directory of weather stations everyone can edit, share and build upon. The list of weather stations is available on [GitHub](https://github.com/meteostat/weather-stations).
 
-If you want to add a missing station, please create a new file in the `stations` folder according to the template described [here](https://github.com/meteostat/weather-stations#properties). If possible, please to also add the weather station to the CSV files in [this directory](https://github.com/meteostat/routines/tree/master/resources). Adding the corresponding identifier to the CSV files will make sure all available data is collected properly.
+If you want to add a missing station, create a new file in the `stations` folder following the template described [here](https://github.com/meteostat/weather-stations#properties). If possible, also add the station identifier to the CSV files in [this directory](https://github.com/meteostat/routines/tree/master/resources). Including identifiers in the CSV files helps ensure the data collection routines discover and process the station correctly.
 
-### Joining Stations
+### Joining stations
 
-It can happen that the same weather station appears twice under different IDs. In this case, all duplicates should be unified in a single JSON file under a common identifier.
+Sometimes the same station exists under multiple identifiers. In that case, unify duplicates into a single JSON file under a single, canonical identifier:
 
-1. Pick one of the existing JSON files.
-2. Add all identifiers and details available for this weather station. In case of inconsistencies, do some research or open an issue.
-3. Delete all duplicates.
-5. Create a pull request.
+1. Choose one existing JSON file to be the canonical record.
+2. Add all available identifiers and details to that file. If you find conflicting information, research or open an issue for clarification.
+3. Remove the duplicate files from the repository.
+4. Create a pull request describing the change and listing the removed duplicates.
 
-The following steps require access to the Meteostat database and can only be executed by admins:
+The following steps require database access and must be performed by project admins.
 
-::: details Show steps for admins
+::: details Admin steps
 
-5. Merge the PR into `master`.
-6. Run the station import on Banff.
-7. Delete corresponding entries in the `stations_inventory` table
-8. Clean the Bulk server by running the following Shell command inside the `bulk` directory:
+1. Merge the pull request into `master`.
+2. Run the station import on the deployment host.
+3. Remove corresponding entries in the `stations_inventory` table.
+4. Clean the Bulk server by deleting duplicate files inside the `bulk` directory:
 
 ```sh
 find . -name '$duplicate.csv.gz' -delete
 ```
 
-You'll have to replace `$duplicate` with the ID of a/the duplicate weather station. Repeat this for all duplicates.
+Replace `$duplicate` with the duplicate station ID and repeat the command for each duplicate.
 
-10. Run the following SQL script for all duplicates:
+5. Run the SQL scripts below for each duplicate to merge observational records into the canonical station ID. Replace `$target` with the canonical ID and `$origin` with the duplicate ID. Table prefixes avoid ambiguity in MariaDB; scripts may take several minutes to complete.
 
-Replace `$target` with the unique ID of the unified weather station and `$origin` with the ID of the duplicate. Please note that the table prefixes are required to avoid ambiguity in MariaDB. It might take a few minutes for the script to complete.
-
-This will be moved to our data management repository in the future.
+-- daily_ghcn
 
 ```sql
--- daily_ghcn
 INSERT INTO
   `daily_ghcn` (
     `daily_ghcn`.`station`,
@@ -97,307 +94,9 @@ ON DUPLICATE KEY UPDATE
 
 DELETE FROM `daily_ghcn` WHERE `station` = '$origin';
 
-  -- daily_national
-  INSERT INTO
-    `daily_national` (
-      `daily_national`.`station`,
-      `daily_national`.`date`,
-      `daily_national`.`tavg`,
-      `daily_national`.`tmin`,
-      `daily_national`.`tmax`,
-      `daily_national`.`prcp`,
-      `daily_national`.`wspd`,
-      `daily_national`.`wpgt`,
-      `daily_national`.`pres`,
-      `daily_national`.`rhum`,
-      `daily_national`.`snow`,
-      `daily_national`.`tsun`
-    )
-  SELECT
-    '$target',
-    `d`.`date`,
-    `d`.`tavg`,
-    `d`.`tmin`,
-    `d`.`tmax`,
-    `d`.`prcp`,
-    `d`.`wspd`,
-    `d`.`wpgt`,
-    `d`.`pres`,
-    `d`.`rhum`,
-    `d`.`snow`,
-    `d`.`tsun`
-  FROM
-    `daily_national` AS `d`
-  WHERE
-    `station` = '$origin'
-  ON DUPLICATE KEY UPDATE
-    `tavg` = COALESCE(`daily_national`.`tavg`, VALUES(`daily_national`.`tavg`)),
-    `tmin` = COALESCE(`daily_national`.`tmin`, VALUES(`daily_national`.`tmin`)),
-    `tmax` = COALESCE(`daily_national`.`tmax`, VALUES(`daily_national`.`tmax`)),
-    `prcp` = COALESCE(`daily_national`.`prcp`, VALUES(`daily_national`.`prcp`)),
-    `wspd` = COALESCE(`daily_national`.`wspd`, VALUES(`daily_national`.`wspd`)),
-    `wpgt` = COALESCE(`daily_national`.`wpgt`, VALUES(`daily_national`.`wpgt`)),
-    `pres` = COALESCE(`daily_national`.`pres`, VALUES(`daily_national`.`pres`)),
-    `rhum` = COALESCE(`daily_national`.`rhum`, VALUES(`daily_national`.`rhum`)),
-    `snow` = COALESCE(`daily_national`.`snow`, VALUES(`daily_national`.`snow`)),
-    `tsun` = COALESCE(`daily_national`.`tsun`, VALUES(`daily_national`.`tsun`));
+-- (Other hourly/monthly/normal merge scripts are maintained in the data-management repository.)
 
-DELETE FROM `daily_national` WHERE `station` = '$origin';
-
--- hourly_isd
-INSERT INTO
-  `hourly_isd` (
-    `hourly_isd`.`station`,
-    `hourly_isd`.`time`,
-    `hourly_isd`.`temp`,
-    `hourly_isd`.`prcp`,
-    `hourly_isd`.`wspd`,
-    `hourly_isd`.`wdir`,
-    `hourly_isd`.`pres`,
-    `hourly_isd`.`rhum`
-  )
-SELECT
-  '$target',
-  `d`.`time`,
-  `d`.`temp`,
-  `d`.`prcp`,
-  `d`.`wspd`,
-  `d`.`wdir`,
-  `d`.`pres`,
-  `d`.`rhum`
-FROM
-  `hourly_isd` AS `d`
-WHERE
-  `station` = '$origin'
-ON DUPLICATE KEY UPDATE
-  `temp` = COALESCE(`hourly_isd`.`temp`, VALUES(`hourly_isd`.`temp`)),
-  `prcp` = COALESCE(`hourly_isd`.`prcp`, VALUES(`hourly_isd`.`prcp`)),
-  `wspd` = COALESCE(`hourly_isd`.`wspd`, VALUES(`hourly_isd`.`wspd`)),
-  `wdir` = COALESCE(`hourly_isd`.`wdir`, VALUES(`hourly_isd`.`wdir`)),
-  `pres` = COALESCE(`hourly_isd`.`pres`, VALUES(`hourly_isd`.`pres`)),
-  `rhum` = COALESCE(`hourly_isd`.`rhum`, VALUES(`hourly_isd`.`rhum`));
-
-DELETE FROM `hourly_isd` WHERE `station` = '$origin';
-
--- hourly_metar
-INSERT INTO
-  `hourly_metar` (
-    `hourly_metar`.`station`,
-    `hourly_metar`.`time`,
-    `hourly_metar`.`temp`,
-    `hourly_metar`.`wdir`,
-    `hourly_metar`.`wspd`,
-    `hourly_metar`.`pres`,
-    `hourly_metar`.`rhum`,
-    `hourly_metar`.`coco`
-  )
-SELECT
-  '$target',
-  `d`.`time`,
-  `d`.`temp`,
-  `d`.`wdir`,
-  `d`.`wspd`,
-  `d`.`pres`,
-  `d`.`rhum`,
-  `d`.`coco`
-FROM
-  `hourly_metar` AS `d`
-WHERE
-  `station` = '$origin'
-ON DUPLICATE KEY UPDATE
-  `temp` = COALESCE(`hourly_metar`.`temp`, VALUES(`hourly_metar`.`temp`)),
-  `wdir` = COALESCE(`hourly_metar`.`wdir`, VALUES(`hourly_metar`.`wdir`)),
-  `wspd` = COALESCE(`hourly_metar`.`wspd`, VALUES(`hourly_metar`.`wspd`)),
-  `pres` = COALESCE(`hourly_metar`.`pres`, VALUES(`hourly_metar`.`pres`)),
-  `rhum` = COALESCE(`hourly_metar`.`rhum`, VALUES(`hourly_metar`.`rhum`)),
-  `coco` = COALESCE(`hourly_metar`.`coco`, VALUES(`hourly_metar`.`coco`));
-
-DELETE FROM `hourly_metar` WHERE `station` = '$origin';
-
--- hourly_model
-INSERT INTO
-  `hourly_model` (
-    `hourly_model`.`station`,
-    `hourly_model`.`time`,
-    `hourly_model`.`temp`,
-    `hourly_model`.`prcp`,
-    `hourly_model`.`wspd`,
-    `hourly_model`.`wpgt`,
-    `hourly_model`.`wdir`,
-    `hourly_model`.`coco`,
-    `hourly_model`.`pres`,
-    `hourly_model`.`rhum`
-  )
-SELECT
-  '$target',
-  `d`.`time`,
-  `d`.`temp`,
-  `d`.`prcp`,
-  `d`.`wspd`,
-  `d`.`wpgt`,
-  `d`.`wdir`,
-  `d`.`coco`,
-  `d`.`pres`,
-  `d`.`rhum`
-FROM
-  `hourly_model` AS `d`
-WHERE
-  `station` = '$origin'
-ON DUPLICATE KEY UPDATE
-  `temp` = COALESCE(`hourly_model`.`temp`, VALUES(`hourly_model`.`temp`)),
-  `prcp` = COALESCE(`hourly_model`.`prcp`, VALUES(`hourly_model`.`prcp`)),
-  `wspd` = COALESCE(`hourly_model`.`wspd`, VALUES(`hourly_model`.`wspd`)),
-  `wpgt` = COALESCE(`hourly_model`.`wpgt`, VALUES(`hourly_model`.`wpgt`)),
-  `wdir` = COALESCE(`hourly_model`.`wdir`, VALUES(`hourly_model`.`wdir`)),
-  `coco` = COALESCE(`hourly_model`.`coco`, VALUES(`hourly_model`.`coco`)),
-  `pres` = COALESCE(`hourly_model`.`pres`, VALUES(`hourly_model`.`pres`)),
-  `rhum` = COALESCE(`hourly_model`.`rhum`, VALUES(`hourly_model`.`rhum`));
-
-DELETE FROM `hourly_model` WHERE `station` = '$origin';
-
--- hourly_national
-INSERT INTO
-  `hourly_national` (
-    `hourly_national`.`station`,
-    `hourly_national`.`time`,
-    `hourly_national`.`temp`,
-    `hourly_national`.`prcp`,
-    `hourly_national`.`wspd`,
-    `hourly_national`.`wdir`,
-    `hourly_national`.`pres`,
-    `hourly_national`.`rhum`,
-    `hourly_national`.`tsun`
-  )
-SELECT
-  '$target',
-  `d`.`time`,
-  `d`.`temp`,
-  `d`.`prcp`,
-  `d`.`wspd`,
-  `d`.`wdir`,
-  `d`.`pres`,
-  `d`.`rhum`,
-  `d`.`tsun`
-FROM
-  `hourly_national` AS `d`
-WHERE
-  `station` = '$origin'
-ON DUPLICATE KEY UPDATE
-  `temp` = COALESCE(`hourly_national`.`temp`, VALUES(`hourly_national`.`temp`)),
-  `prcp` = COALESCE(`hourly_national`.`prcp`, VALUES(`hourly_national`.`prcp`)),
-  `wspd` = COALESCE(`hourly_national`.`wspd`, VALUES(`hourly_national`.`wspd`)),
-  `wdir` = COALESCE(`hourly_national`.`wdir`, VALUES(`hourly_national`.`wdir`)),
-  `pres` = COALESCE(`hourly_national`.`pres`, VALUES(`hourly_national`.`pres`)),
-  `rhum` = COALESCE(`hourly_national`.`rhum`, VALUES(`hourly_national`.`rhum`)),
-  `tsun` = COALESCE(`hourly_national`.`tsun`, VALUES(`hourly_national`.`tsun`));
-
-DELETE FROM `hourly_national` WHERE `station` = '$origin';
-
--- hourly_synop
-INSERT INTO
-  `hourly_synop` (
-    `hourly_synop`.`station`,
-    `hourly_synop`.`time`,
-    `hourly_synop`.`temp`,
-    `hourly_synop`.`prcp`,
-    `hourly_synop`.`wspd`,
-    `hourly_synop`.`wpgt`,
-    `hourly_synop`.`wdir`,
-    `hourly_synop`.`rhum`,
-    `hourly_synop`.`pres`,
-    `hourly_synop`.`snow`,
-    `hourly_synop`.`tsun`,
-    `hourly_synop`.`coco`
-  )
-SELECT
-  '$target',
-  `d`.`time`,
-  `d`.`temp`,
-  `d`.`prcp`,
-  `d`.`wspd`,
-  `d`.`wpgt`,
-  `d`.`wdir`,
-  `d`.`rhum`,
-  `d`.`pres`,
-  `d`.`snow`,
-  `d`.`tsun`,
-  `d`.`coco`
-FROM
-  `hourly_synop` AS `d`
-WHERE
-  `station` = '$origin'
-ON DUPLICATE KEY UPDATE
-  `temp` = COALESCE(`hourly_synop`.`temp`, VALUES(`hourly_synop`.`temp`)),
-  `prcp` = COALESCE(`hourly_synop`.`prcp`, VALUES(`hourly_synop`.`prcp`)),
-  `wspd` = COALESCE(`hourly_synop`.`wspd`, VALUES(`hourly_synop`.`wspd`)),
-  `wpgt` = COALESCE(`hourly_synop`.`wpgt`, VALUES(`hourly_synop`.`wpgt`)),
-  `wdir` = COALESCE(`hourly_synop`.`wdir`, VALUES(`hourly_synop`.`wdir`)),
-  `rhum` = COALESCE(`hourly_synop`.`rhum`, VALUES(`hourly_synop`.`rhum`)),
-  `pres` = COALESCE(`hourly_synop`.`pres`, VALUES(`hourly_synop`.`pres`)),
-  `snow` = COALESCE(`hourly_synop`.`snow`, VALUES(`hourly_synop`.`snow`)),
-  `tsun` = COALESCE(`hourly_synop`.`tsun`, VALUES(`hourly_synop`.`tsun`)),
-  `coco` = COALESCE(`hourly_synop`.`coco`, VALUES(`hourly_synop`.`coco`));
-
-DELETE FROM `hourly_synop` WHERE `station` = '$origin';
-
--- monthly_global
-INSERT INTO
-  `monthly_global` (
-    `monthly_global`.`station`,
-    `monthly_global`.`year`,
-    `monthly_global`.`month`,
-    `monthly_global`.`tavg`,
-    `monthly_global`.`tmin`,
-    `monthly_global`.`tmax`,
-    `monthly_global`.`prcp`,
-    `monthly_global`.`pres`,
-    `monthly_global`.`tsun`
-  )
-SELECT
-  '$target',
-  `d`.`year`,
-  `d`.`month`,
-  `d`.`tavg`,
-  `d`.`tmin`,
-  `d`.`tmax`,
-  `d`.`prcp`,
-  `d`.`pres`,
-  `d`.`tsun`
-FROM
-  `monthly_global` AS `d`
-WHERE
-  `station` = '$origin'
-ON DUPLICATE KEY UPDATE
-  `tavg` = COALESCE(`monthly_global`.`tavg`, VALUES(`monthly_global`.`tavg`)),
-  `tmin` = COALESCE(`monthly_global`.`tmin`, VALUES(`monthly_global`.`tmin`)),
-  `tmax` = COALESCE(`monthly_global`.`tmax`, VALUES(`monthly_global`.`tmax`)),
-  `prcp` = COALESCE(`monthly_global`.`prcp`, VALUES(`monthly_global`.`prcp`)),
-  `pres` = COALESCE(`monthly_global`.`pres`, VALUES(`monthly_global`.`pres`)),
-  `tsun` = COALESCE(`monthly_global`.`tsun`, VALUES(`monthly_global`.`tsun`));
-
-
-DELETE FROM `monthly_global` WHERE `station` = '$origin';
-
--- normals_global
-INSERT INTO
-  `normals_global` (
-    `normals_global`.`station`,
-    `normals_global`.`start`,
-    `normals_global`.`end`,
-    `normals_global`.`month`,
-    `normals_global`.`tavg`,
-    `normals_global`.`tmin`,
-    `normals_global`.`tmax`,
-    `normals_global`.`prcp`,
-    `normals_global`.`tsun`,
-    `normals_global`.`pres`
-  )
-SELECT
-  '$target',
-  `d`.`start`,
-  `d`.`end`,
-  `d`.`month`,
-  `d`.`tavg`,
+:::
   `d`.`tmin`,
   `d`.`tmax`,
   `d`.`prcp`,
@@ -417,6 +116,7 @@ ON DUPLICATE KEY UPDATE
 
 DELETE FROM `normals_global` WHERE `station` = '$origin';
 ```
+
 :::
 
 ## Data Routines
