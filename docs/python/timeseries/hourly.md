@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 If you want to investigate the weather on a particular day or a short period of time, hourly time series data is a great choice.
 
-## 🚀 Example
+## 🚀 Example {#example}
 
 Let's plot 2018 temperature data for Frankfurt, Germany:
 
@@ -36,7 +36,7 @@ df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
 plt.show()
 ```
 
-## 🌥 Default Parameters
+## 🌥 Default Parameters {#default-parameters}
 
 - `Parameter.TEMP`
 - `Parameter.RHUM`
@@ -52,7 +52,7 @@ plt.show()
 
 Learn more about the [different parameters](/docs/parameters.md).
 
-## 🔍 API
+## 🔍 API {#api}
 
 ### Interface
 
@@ -62,132 +62,93 @@ meteostat.hourly
 
 ### Parameters
 
-#### `station`
+#### `station` {#parameter-station}
 
 Weather station(s) or geographical point(s)
 
-##### Data Type
+##### Data Type {#parameter-station-type}
 
-`str`, `Station`, `Point`, `List[str]`, `List[Station]`, `List[Point]`, [`Index`](https://pandas.pydata.org/docs/reference/indexing.html) or [`Series`](https://pandas.pydata.org/docs/reference/series.html)
+`str`, `Station`, `Point`, `List[str]`, `List[Station]`, `List[Point]`, [`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html), [`Index`](https://pandas.pydata.org/docs/reference/indexing.html) or [`Series`](https://pandas.pydata.org/docs/reference/series.html)
 
-##### Examples
+##### Examples {#parameter-station-examples}
 
-<Tabs>
-  <TabItem value="single-station" label="Single Station" default>
-        Let's plot 2018 temperature data for Frankfurt, Germany:
+Please refer to the chapter ["Stations & Points"](/docs/python/timeseries/overview.md#stations-points) for detailed examples on how to specify the `station` parameter.
 
-        ```python
-        from datetime import date
-        import matplotlib.pyplot as plt
-        import meteostat as ms
+---
 
-        # Specify location and time range
-        POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-        START = date(2018, 1, 1)
-        END = date(2018, 12, 31)
+#### `start` {#parameter-start}
 
-        # Get nearby weather stations
-        stations = ms.stations.nearby(POINT, limit=4)
+Start date of the desired period
 
-        # Get daily data & perform interpolation
-        ts = ms.daily(stations, START, END)
-        df = ms.interpolate(ts, POINT)
+##### Data Type {#parameter-start-type}
 
-        # Plot line chart including average, minimum and maximum temperature
-        df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-        plt.show()
-        ```
+[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) or [`date`](https://docs.python.org/3/library/datetime.html#datetime.date)
 
-  </TabItem>
-  <TabItem value="daily" label="Daily">
-        Let's plot 2018 temperature data for Frankfurt, Germany:
+---
 
-        ```python
-        from datetime import date
-        import matplotlib.pyplot as plt
-        import meteostat as ms
+#### `end` {#parameter-end}
 
-        # Specify location and time range
-        POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-        START = date(2018, 1, 1)
-        END = date(2018, 12, 31)
+End date of the desired period
 
-        # Get nearby weather stations
-        stations = ms.stations.nearby(POINT, limit=4)
+##### Data Type {#parameter-end-type}
 
-        # Get daily data & perform interpolation
-        ts = ms.daily(stations, START, END)
-        df = ms.interpolate(ts, POINT)
+[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) or [`date`](https://docs.python.org/3/library/datetime.html#datetime.date)
 
-        # Plot line chart including average, minimum and maximum temperature
-        df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-        plt.show()
-        ```
+---
 
-  </TabItem>
-  <TabItem value="monthly" label="Monthly">
-        Let's plot 2018 temperature data for Frankfurt, Germany:
+#### `timezone` {#parameter-timezone}
 
-        ```python
-        from datetime import date
-        import matplotlib.pyplot as plt
-        import meteostat as ms
+Time zone of the period and records, if `None` UTC is used
 
-        # Specify location and time range
-        POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-        START = date(2018, 1, 1)
-        END = date(2018, 12, 31)
+##### Data Type {#parameter-timezone-type}
 
-        # Get nearby weather stations
-        stations = ms.stations.nearby(POINT, limit=4)
+`Optional[str]`
 
-        # Get daily data & perform interpolation
-        ts = ms.daily(stations, START, END)
-        df = ms.interpolate(ts, POINT)
+##### Default Value {#parameter-timezone-default}
 
-        # Plot line chart including average, minimum and maximum temperature
-        df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-        plt.show()
-        ```
+`None`
 
-  </TabItem>
-    <TabItem value="normals" label="Normals">
-        Let's plot 2018 temperature data for Frankfurt, Germany:
+---
 
-        ```python
-        from datetime import date
-        import matplotlib.pyplot as plt
-        import meteostat as ms
+#### `parameters` {#parameter-parameters}
 
-        # Specify location and time range
-        POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-        START = date(2018, 1, 1)
-        END = date(2018, 12, 31)
+Requested meteorological parameters
 
-        # Get nearby weather stations
-        stations = ms.stations.nearby(POINT, limit=4)
+##### Data Type {#parameter-parameters-type}
 
-        # Get daily data & perform interpolation
-        ts = ms.daily(stations, START, END)
-        df = ms.interpolate(ts, POINT)
+`List[Parameter]`
 
-        # Plot line chart including average, minimum and maximum temperature
-        df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-        plt.show()
-        ```
+##### Default Value {#parameter-parameters-default}
 
-  </TabItem>
-</Tabs>
+[Default parameters](#-default-parameters)
 
-| **Parameter** | **Description**                                            | **Type**                                                                                                                                                                                                      | **Default**                                |
-| :------------ | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------- |
-| `station`     | Weather station(s) or geographical point(s)                | `str`, `Station`, `Point`, `List[str]`, `List[Station]`, `List[Point]`, [`Index`](https://pandas.pydata.org/docs/reference/indexing.html) or [`Series`](https://pandas.pydata.org/docs/reference/series.html) |                                            |
-| `start`       | Start date of the desired period                           | [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) or [`date`](https://docs.python.org/3/library/datetime.html#datetime.date)                                                    |                                            |
-| `end`         | End date of the desired period                             | [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) or [`date`](https://docs.python.org/3/library/datetime.html#datetime.date)                                                    |                                            |
-| `timezone`    | Time zone of the period and records, if `None` UTC is used | `Optional[str]`                                                                                                                                                                                               | `None`                                     |
-| `parameters`  | Requested meteorological parameters                        | `List[Parameter]`                                                                                                                                                                                             | [Default parameters](#-default-parameters) |
-| `providers`   | Requested data providers                                   | `List[Provider]`                                                                                                                                                                                              | `Provider.HOURLY`                          |
-| `model`       | Include model data?                                        | `bool`                                                                                                                                                                                                        | `True`                                     |
+---
+
+#### `providers` {#parameter-providers}
+
+Requested data providers
+
+##### Data Type {#parameter-providers-type}
+
+`List[Provider]`
+
+##### Default Value {#parameter-providers-default}
+
+`Provider.HOURLY`
+
+---
+
+#### `model` {#parameter-model}
+
+Include model data?
+
+##### Data Type {#parameter-model-type}
+
+`bool`
+
+##### Default Value {#parameter-model-default}
+
+`True`
 
 ### Return Value
 

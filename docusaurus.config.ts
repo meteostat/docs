@@ -1,13 +1,14 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Meteostat Developers',
-  tagline: 'Meteostat is an open platform which provides free access to historical weather and climate data.',
-  favicon: 'img/favicon.ico',
+  title: "Meteostat Developers",
+  tagline:
+    "Meteostat is an open platform which provides free access to historical weather and climate data.",
+  favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -15,55 +16,55 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://dev.meteostat.net',
+  url: "https://dev.meteostat.net",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'meteostat', // Usually your GitHub org/user name.
-  projectName: 'documentation', // Usually your repo name.
+  organizationName: "meteostat", // Usually your GitHub org/user name.
+  projectName: "documentation", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
           feedOptions: {
-            type: ['rss', 'atom'],
+            type: ["rss", "atom"],
             xslt: true,
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
           // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onInlineTags: "warn",
+          onInlineAuthors: "warn",
+          onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -71,123 +72,119 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: 'Meteostat Developers',
+      title: "Meteostat Developers",
       logo: {
-        alt: 'Meteostat Logo',
-        src: 'img/logo.svg',
+        alt: "Meteostat Logo",
+        src: "img/logo.svg",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
-          position: 'left',
-          label: 'Docs',
+          type: "docSidebar",
+          sidebarId: "docsSidebar",
+          position: "left",
+          label: "Docs",
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'pythonSidebar',
-          position: 'left',
-          label: 'Python',
+          type: "docSidebar",
+          sidebarId: "pythonSidebar",
+          position: "left",
+          label: "Python",
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'dataSidebar',
-          position: 'left',
-          label: 'Data',
+          type: "docSidebar",
+          sidebarId: "dataSidebar",
+          position: "left",
+          label: "Data",
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'apiSidebar',
-          position: 'left',
-          label: 'API',
+          type: "docSidebar",
+          sidebarId: "apiSidebar",
+          position: "left",
+          label: "API",
         },
         {
-          href: 'https://meteostat.net',
-          label: 'Meteostat',
-          position: 'right',
+          href: "https://meteostat.net",
+          label: "Meteostat",
+          position: "right",
         },
         {
-          href: 'https://github.com/meteostat',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/meteostat",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Documentation',
+          title: "Documentation",
           items: [
             {
-              label: 'Introduction',
-              to: '/docs/overview',
+              label: "Introduction",
+              to: "/docs/overview",
             },
             {
-              label: 'Python Library',
-              to: '/docs/python',
+              label: "Python Library",
+              to: "/docs/python",
             },
             {
-              label: 'Bulk Data',
-              to: '/docs/data',
+              label: "Bulk Data",
+              to: "/docs/data",
             },
             {
-              label: 'JSON API',
-              to: '/docs/api',
+              label: "JSON API",
+              to: "/docs/api",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'LinkedIn',
-              href: 'https://www.linkedin.com/company/meteostat/',
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/company/meteostat/",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/meteostat',
+              label: "GitHub",
+              href: "https://github.com/meteostat",
             },
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/meteostat',
+              label: "Stack Overflow",
+              href: "https://stackoverflow.com/questions/tagged/meteostat",
             },
           ],
         },
         {
-          title: 'Meteostat',
+          title: "Meteostat",
           items: [
             {
-              label: 'License',
-              to: '/docs/license',
+              label: "License",
+              to: "/docs/license",
             },
             {
-              label: 'Terms of Service',
-              to: '/docs/terms',
+              label: "Terms of Service",
+              to: "/docs/terms",
             },
             {
-              label: 'Privacy Policy',
-              to: '/docs/privacy',
+              label: "Privacy Policy",
+              to: "/docs/privacy",
             },
             {
-              label: 'Legal Notice',
-              to: '/docs/legal',
+              label: "Legal Notice",
+              to: "/docs/legal",
             },
           ],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Meteostat.`,
     },
-    tableOfContents: {
-      minHeadingLevel: 2,
-      maxHeadingLevel: 4,
-    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash'],
+      additionalLanguages: ["bash"],
     },
   } satisfies Preset.ThemeConfig,
 };

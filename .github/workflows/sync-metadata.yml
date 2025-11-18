@@ -6,7 +6,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout docs repository
         uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install dependencies
         run: |
@@ -31,19 +31,38 @@ jobs:
         run: |
           python - <<'EOF'
           import json
+          import importlib
           from meteostat.parameters import DEFAULT_PARAMETERS
           from meteostat.providers.index import DEFAULT_PROVIDERS
+          from meteostat.enumerations import Granularity
 
           PARAMETERS = []
           PROVIDERS = []
 
+          # Cache granularity -> set(DEFAULT_PARAMETERS from meteostat.api.<granularity>)
+          _default_cache: dict[str, set] = {}
+
+          def _get_default_parameters_for_granularity(gran: Granularity) -> set:
+              name = gran.value if hasattr(gran, "value") else str(gran).lower()
+              if name in _default_cache:
+                  return _default_cache[name]
+              try:
+                  mod = importlib.import_module(f"meteostat.api.{name}")
+                  defaults = getattr(mod, "DEFAULT_PARAMETERS", [])
+                  _default_cache[name] = set(defaults)
+              except Exception:
+                  _default_cache[name] = set()
+              return _default_cache[name]
+
           for parameter in DEFAULT_PARAMETERS:
+              defaults = _get_default_parameters_for_granularity(parameter.granularity)
               PARAMETERS.append({
                   "id": parameter.id,
                   "name": parameter.name,
                   "granularity": parameter.granularity,
                   "unit": parameter.unit,
                   "dtype": parameter.dtype,
+                  "default": parameter.id in defaults,
               })
 
           for provider in DEFAULT_PROVIDERS:
@@ -51,7 +70,7 @@ jobs:
                   "id": provider.id,
                   "name": provider.name,
                   "granularity": provider.granularity,
-                  "parameters": provider.parameters
+                  "parameters": provider.parameters,
               })
 
           # Convert parameters to JSON
