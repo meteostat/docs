@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 import params from "@site/static/parameters.json";
 import {
@@ -68,6 +68,53 @@ const ParametersTable: React.FC = () => {
   const [search, setSearch] = useState("");
   const [granularityFilter, setGranularityFilter] = useState("all");
   const [defaultOnly, setDefaultOnly] = useState(false);
+
+  const initializedRef = useRef(false);
+
+  // Initialize state from URL search params (safe for SSR)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const sp = new URLSearchParams(window.location.search);
+    const q = sp.get("q") || "";
+    const g = sp.get("g") || sp.get("granularity") || "all";
+    const d =
+      sp.get("d") === "1" ||
+      sp.get("default") === "1" ||
+      sp.get("d") === "true";
+
+    setSearch(q);
+    setGranularityFilter(g);
+    setDefaultOnly(d);
+
+    initializedRef.current = true;
+  }, []);
+
+  // Sync state -> URL (preserve other existing params)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // Avoid writing the URL before initial parse
+    if (!initializedRef.current) return;
+
+    const url = new URL(window.location.href);
+    const sp = url.searchParams;
+
+    if (search) sp.set("q", search);
+    else sp.delete("q");
+
+    if (granularityFilter && granularityFilter !== "all")
+      sp.set("g", granularityFilter);
+    else sp.delete("g");
+
+    if (defaultOnly) sp.set("d", "1");
+    else sp.delete("d");
+
+    const searchString = sp.toString();
+    const newUrl = `${url.pathname}${searchString ? `?${searchString}` : ""}${
+      url.hash
+    }`;
+    window.history.replaceState({}, "", newUrl);
+  }, [search, granularityFilter, defaultOnly]);
 
   const filteredItems = useMemo(() => {
     const s = search.trim().toLowerCase();
