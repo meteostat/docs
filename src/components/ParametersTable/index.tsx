@@ -9,6 +9,7 @@ import {
 } from "../Shared/utils";
 import SearchInput from "../Shared/SearchInput";
 import SelectFilter from "../Shared/SelectFilter";
+import Switch from '../Shared/Switch';
 
 type Param = {
   id: string;
@@ -173,21 +174,12 @@ const ParametersTable: React.FC = () => {
           ]}
           ariaLabel="Filter by granularity"
         />
-        <label
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.35rem",
-          }}
-        >
-          <input
-            type="checkbox"
-            checked={defaultOnly}
-            onChange={(e) => setDefaultOnly(e.target.checked)}
-            aria-label="Show default parameters only"
-          />
-          <span style={{ fontSize: "0.9rem" }}>Default only</span>
-        </label>
+        <Switch
+          checked={defaultOnly}
+          onChange={setDefaultOnly}
+          label="Default only"
+          ariaLabel="Show default parameters only"
+        />
       </div>
 
       <div className={styles.tableWrapper}>
