@@ -38,19 +38,7 @@ plt.show()
 
 ## 🌥 Default Parameters {#default-parameters}
 
-- `Parameter.TEMP`
-- `Parameter.RHUM`
-- `Parameter.PRCP`
-- `Parameter.SNWD`
-- `Parameter.WDIR`
-- `Parameter.WSPD`
-- `Parameter.WPGT`
-- `Parameter.PRES`
-- `Parameter.TSUN`
-- `Parameter.CLDC`
-- `Parameter.COCO`
-
-Learn more about the [different parameters](/docs/parameters.md).
+The default parameters for hourly data requests are [listed here](/docs/parameters?g=hourly&d=1).
 
 ## 🔍 API {#api}
 
