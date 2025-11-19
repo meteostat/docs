@@ -238,9 +238,8 @@ const ParametersTable: React.FC = () => {
       </div>
 
       <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>
-        Note: parameters are grouped by <code>id</code> and <code>name</code>.
-        Fields that vary across grouped entries are shown as comma-separated
-        unique values.
+        <strong>Note:</strong> Bold granularity entries indicate that the
+        parameter is default for that granularity.
       </p>
     </div>
   );
