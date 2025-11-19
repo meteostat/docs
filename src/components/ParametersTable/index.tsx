@@ -9,7 +9,7 @@ import {
 } from "../Shared/utils";
 import SearchInput from "../Shared/SearchInput";
 import SelectFilter from "../Shared/SelectFilter";
-import Switch from '../Shared/Switch';
+import Switch from "../Shared/Switch";
 
 type Param = {
   id: string;
