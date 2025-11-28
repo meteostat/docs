@@ -2,38 +2,30 @@
 sidebar_position: 1
 ---
 
-import DocCardList from '@theme/DocCardList';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Hourly Weather
 
 If you want to investigate the weather on a particular day or a short period of time, hourly time series data is a great choice.
 
 ## 🚀 Example {#example}
 
-Let's plot 2018 temperature data for Frankfurt, Germany:
+Let's fetch some hourly data for Chicago O’Hare International Airport for January 1-2, 2021:
 
 ```python
 from datetime import date
-import matplotlib.pyplot as plt
 import meteostat as ms
 
-# Specify location and time range
-POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-START = date(2018, 1, 1)
-END = date(2018, 12, 31)
+# Get hourly time series
+ts = ms.hourly(
+    '72530',
+    start=date(2021, 1, 1),
+    end=date(2021, 1, 2),
+)
 
-# Get nearby weather stations
-stations = ms.stations.nearby(POINT, limit=4)
+# Fetch data as Pandas DataFrame
+df = ts.fetch()
 
-# Get daily data & perform interpolation
-ts = ms.daily(stations, START, END)
-df = ms.interpolate(ts, POINT)
-
-# Plot line chart including average, minimum and maximum temperature
-df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-plt.show()
+# Display first 48 hours
+print(df.head(48))
 ```
 
 ## 🌥 Default Parameters {#default-parameters}
@@ -60,7 +52,7 @@ Weather station(s) or geographical point(s)
 
 ##### Examples {#parameter-station-examples}
 
-Please refer to the chapter ["Stations & Points"](/docs/python/timeseries/overview.md#stations-points) for detailed examples on how to specify the `station` parameter.
+Please refer to the cookbook chapter ["Stations & Points"](/docs/cookbook/python/stations-points) for detailed examples on how to specify the `station` parameter.
 
 ---
 
@@ -108,7 +100,7 @@ Requested meteorological parameters
 
 ##### Default Value {#parameter-parameters-default}
 
-[Default parameters](#-default-parameters)
+[Default parameters](#default-parameters)
 
 ---
 
@@ -122,7 +114,7 @@ Requested data providers
 
 ##### Default Value {#parameter-providers-default}
 
-`Provider.HOURLY`
+`[Provider.HOURLY]`
 
 ---
 

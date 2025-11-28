@@ -105,6 +105,12 @@ const config: Config = {
           label: "API",
         },
         {
+          type: "docSidebar",
+          sidebarId: "cookbookSidebar",
+          position: "left",
+          label: "Cookbook",
+        },
+        {
           href: "https://meteostat.net",
           label: "Meteostat",
           position: "right",
