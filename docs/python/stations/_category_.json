@@ -4,7 +4,7 @@
   "collapsible": true,
   "collapsed": true,
   "link": {
-    "type": "generated-index",
-    "title": "Weather Stations"
+    "type": "doc",
+    "id": "python-stations-overview"
   }
 }

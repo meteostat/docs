@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Climate Normals
 
-If you want to investigate the weather on a particular day or a short period of time, hourly time series data is a great choice.
+Climate normals represent the average meteorological conditions, typically over a 30-year period. They are commonly used as a reference to compare current weather conditions against long-term averages. Climate normals are based on [monthly weather data](monthly.md) and can be requested for any period.
 
 ## 🚀 Example {#example}
 
@@ -30,7 +30,7 @@ print(df.head(48))
 
 ## 🌥 Default Parameters {#default-parameters}
 
-The default parameters for hourly data requests are [listed here](/docs/parameters?g=hourly&d=1).
+The default parameters for hourly data requests are [listed here](/docs/parameters?g=normals&d=1).
 
 ## 🔍 API {#api}
 
@@ -58,35 +58,29 @@ Please refer to the cookbook chapter ["Stations & Points"](/docs/cookbook/python
 
 #### `start` {#parameter-start}
 
-Start date of the desired period
+The start year of the desired period.
 
 ##### Data Type {#parameter-start-type}
 
-[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) or [`date`](https://docs.python.org/3/library/datetime.html#datetime.date)
+`int`
+
+#### Default Value {#parameter-start-default}
+
+`1961`
 
 ---
 
 #### `end` {#parameter-end}
 
-End date of the desired period
+The end year of the desired period.
 
 ##### Data Type {#parameter-end-type}
 
-[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) or [`date`](https://docs.python.org/3/library/datetime.html#datetime.date)
+`int`
 
----
+##### Default Value {#parameter-end-default}
 
-#### `timezone` {#parameter-timezone}
-
-Time zone of the period and records, if `None` UTC is used
-
-##### Data Type {#parameter-timezone-type}
-
-`Optional[str]`
-
-##### Default Value {#parameter-timezone-default}
-
-`None`
+`1990`
 
 ---
 
@@ -129,6 +123,20 @@ Include model data?
 ##### Default Value {#parameter-model-default}
 
 `True`
+
+---
+
+#### `max_missing` {#parameter-max_missing}
+
+Maximum number of missing monthly values in the normals period.
+
+##### Data Type {#parameter-max_missing-type}
+
+`int`
+
+##### Default Value {#parameter-max_missing-default}
+
+`3`
 
 ### Return Value
 

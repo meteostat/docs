@@ -238,8 +238,8 @@ const ParametersTable: React.FC = () => {
       </div>
 
       <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>
-        <strong>Note:</strong> Bold granularity entries indicate that the
-        parameter is default for that granularity.
+        <strong>Bold</strong> granularity entries indicate that the parameter is
+        default for that granularity.
       </p>
     </div>
   );
