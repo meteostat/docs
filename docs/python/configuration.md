@@ -18,9 +18,29 @@ ms.config.cache_directory = '/path/to/cache'
 # Your code here
 ```
 
-## ⚙️ Configuration Options {#configuration-options}
+## 🔍 API {#api}
 
-### Caching
+### Interface
+
+```
+meteostat.config
+```
+
+### Properties
+
+#### `prefix` {#config-prefix}
+
+The prefix (without the underscore) which is used when parsing environment variables.
+
+##### Data Type {#config-prefix-type}
+
+`str`
+
+##### Default Value {#config-prefix-default}
+
+`"MS"`
+
+---
 
 #### `cache_enable` {#config-cache-enable}
 
@@ -80,7 +100,7 @@ Automatically clean up expired cache files when accessing the cache.
 
 `True`
 
-### Network
+---
 
 #### `network_proxies` {#config-network-proxies}
 
@@ -94,7 +114,7 @@ Dictionary of proxy servers to use for network requests.
 
 `None`
 
-### Station Data
+---
 
 #### `stations_db_prefer` {#config-stations-db-prefer}
 
@@ -169,7 +189,7 @@ List of mirror URLs to download station metadata JSON files from. Multiple URLs 
 ]
 ```
 
-### Interpolation
+---
 
 #### `lapse_rate_parameters` {#config-interpolation-lapse-rate-parameters}
 
@@ -189,7 +209,7 @@ List of temperature parameters that will have lapse rate adjustment applied duri
 ]
 ```
 
-### Provider: DWD {#config-dwd}
+---
 
 Configuration options specific to the Deutscher Wetterdienst (DWD) data provider.
 
@@ -247,7 +267,7 @@ DWD differentiates between _recent_ and _historical_ monthly data. This setting 
 
 `None` (both modes if applicable)
 
-### Provider: NOAA {#config-noaa}
+---
 
 Configuration options specific to the National Oceanic and Atmospheric Administration (NOAA) data provider.
 
@@ -282,7 +302,7 @@ The use agent to send when accessing data from NOAA's Aviation Weather Center AP
 
 `None`
 
-### Provider: Met.no {#config-metno}
+---
 
 Configuration options specific to the Norwegian Meteorological Institute (Met.no) data provider.
 
@@ -320,18 +340,6 @@ You must send a user agent containing your contact information (e.g. E-Mail addr
 ##### Default Value {#config-metno-user-agent-default}
 
 `None`
-
-## 🔍 API {#api}
-
-### Interface
-
-```
-meteostat.config
-```
-
-### Properties
-
-The `config` interface provides a `prefix` property which defines the prefix (without the underscore) which is used when parsing environment variables. Otherwise, all [configuration options](#configuration-options) are exposed as properties.
 
 ### Methods
 
