@@ -52,7 +52,7 @@ Weather station(s) or geographical point(s)
 
 ##### Examples {#parameter-station-examples}
 
-Please refer to the cookbook chapter ["Stations & Points"](/docs/cookbook/python/stations-points) for detailed examples on how to specify the `station` parameter.
+Please refer to the chapter ["Stations & Points"](/docs/python/stations-points) for detailed examples on how to specify the `station` parameter.
 
 ---
 
