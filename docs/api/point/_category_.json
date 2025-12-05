@@ -1,0 +1,10 @@
+{
+  "position": 3,
+  "label": "Point Data",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "api-point-overview"
+  }
+}
