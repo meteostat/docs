@@ -1,4 +1,6 @@
 ---
+title: Climate Normals | Weather Station | JSON API
+sidebar_label: Climate Normals
 sidebar_position: 7
 ---
 

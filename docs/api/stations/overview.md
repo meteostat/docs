@@ -1,4 +1,6 @@
 ---
+title: Weather Station | JSON API
+sidebar_label: Weather Stations
 id: api-stations-overview
 slug: /api/stations
 sidebar_position: 1

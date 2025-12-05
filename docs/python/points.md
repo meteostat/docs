@@ -1,4 +1,6 @@
 ---
+title: Geographical Points | Python Library
+sidebar_label: Geographical Points
 sidebar_position: 6
 ---
 

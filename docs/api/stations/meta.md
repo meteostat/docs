@@ -1,4 +1,6 @@
 ---
+title: Meta Data | Weather Station | JSON API
+sidebar_label: Meta Data
 sidebar_position: 3
 ---
 

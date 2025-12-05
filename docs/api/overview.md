@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: JSON API
+sidebar_label: Overview
 id: api-overview
 slug: /api
 sidebar_position: 1

@@ -1,4 +1,6 @@
 ---
+title: Hourly Weather | Time Series | Python Library
+sidebar_label: Hourly Weather
 sidebar_position: 1
 ---
 

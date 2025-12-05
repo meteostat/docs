@@ -1,4 +1,6 @@
 ---
+title: Weather Stations | Python Library
+sidebar_label: Overview
 id: python-stations-overview
 slug: /python/stations
 sidebar_position: 1

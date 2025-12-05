@@ -1,4 +1,6 @@
 ---
+title: Configuration | Python Library
+sidebar_label: Configuration
 sidebar_position: 9
 ---
 

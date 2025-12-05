@@ -1,4 +1,6 @@
 ---
+title: Climate Normals | Point Data | JSON API
+sidebar_label: Climate Normals
 sidebar_position: 5
 ---
 

@@ -1,4 +1,6 @@
 ---
+title: Point Data | JSON API
+sidebar_label: Point Data
 id: api-point-overview
 slug: /api/point
 sidebar_position: 1

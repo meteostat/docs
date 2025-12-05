@@ -1,4 +1,6 @@
 ---
+title: Nearby Stations | Weather Stations | Python Library
+sidebar_label: Nearby Stations
 sidebar_position: 2
 ---
 

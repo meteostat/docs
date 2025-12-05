@@ -1,4 +1,6 @@
 ---
+title: Meta Data | Weather Stations | Python Library
+sidebar_label: Meta Data
 sidebar_position: 1
 ---
 

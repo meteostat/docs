@@ -1,4 +1,6 @@
 ---
+title: Climate Normals | Time Series | Python Library
+sidebar_label: Climate Normals
 sidebar_position: 4
 ---
 

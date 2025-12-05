@@ -1,4 +1,6 @@
 ---
+title: Daily Data | Weather Station | JSON API
+sidebar_label: Daily Data
 sidebar_position: 5
 ---
 

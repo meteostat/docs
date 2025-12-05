@@ -1,4 +1,6 @@
 ---
+title: Stations & Points | Python Library
+sidebar_label: Stations & Points
 sidebar_position: 5
 ---
 

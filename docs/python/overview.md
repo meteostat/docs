@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: Python Library
+sidebar_label: Overview
 id: python-overview
 slug: /python
 sidebar_position: 1

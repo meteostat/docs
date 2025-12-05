@@ -1,4 +1,6 @@
 ---
+title: Daily Weather | Time Series | Python Library
+sidebar_label: Daily Weather
 sidebar_position: 2
 ---
 

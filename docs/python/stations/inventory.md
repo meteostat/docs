@@ -1,4 +1,6 @@
 ---
+title: Inventory | Weather Stations | Python Library
+sidebar_label: Inventory
 sidebar_position: 3
 ---
 

@@ -1,9 +1,10 @@
 ---
-title: Monthly Weather
+title: Monthly Data | Bulk Data
+sidebar_label: Monthly Data
 sidebar_position: 3
 ---
 
-# Monthly Weather Data
+# Monthly Data
 
 This endpoint provides one GZ compressed CSV file per weather station.
 

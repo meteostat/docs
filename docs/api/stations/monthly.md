@@ -1,4 +1,6 @@
 ---
+title: Monthly Data | Weather Station | JSON API
+sidebar_label: Monthly Data
 sidebar_position: 6
 ---
 

@@ -1,4 +1,6 @@
 ---
+title: Daily Data | Point Data | JSON API
+sidebar_label: Daily Data
 sidebar_position: 3
 ---
 

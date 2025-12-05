@@ -1,4 +1,6 @@
 ---
+title: Monthly Data | Point Data | JSON API
+sidebar_label: Monthly Data
 sidebar_position: 4
 ---
 

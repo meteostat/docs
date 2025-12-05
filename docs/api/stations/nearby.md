@@ -1,4 +1,6 @@
 ---
+title: Nearby Stations | Weather Station | JSON API
+sidebar_label: Nearby Stations
 sidebar_position: 2
 ---
 

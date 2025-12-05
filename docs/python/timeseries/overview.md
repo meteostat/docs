@@ -1,4 +1,6 @@
 ---
+title: Time Series | Python Library
+sidebar_label: Overview
 id: python-ts-overview
 slug: /python/timeseries
 sidebar_position: 1

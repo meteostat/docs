@@ -1,4 +1,6 @@
 ---
+title: Hourly Data | Point Data | JSON API
+sidebar_label: Hourly Data
 sidebar_position: 2
 ---
 

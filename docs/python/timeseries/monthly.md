@@ -1,4 +1,6 @@
 ---
+title: Monthly Weather | Time Series | Python Library
+sidebar_label: Monthly Weather
 sidebar_position: 3
 ---
 

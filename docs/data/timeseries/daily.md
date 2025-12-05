@@ -1,9 +1,10 @@
 ---
-title: Daily Weather
+title: Daily Data | Bulk Data
+sidebar_label: Daily Data
 sidebar_position: 2
 ---
 
-# Daily Weather Data
+# Daily Data
 
 This endpoint provides one GZ compressed CSV file per weather station and year.
 

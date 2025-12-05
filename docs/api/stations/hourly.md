@@ -1,4 +1,6 @@
 ---
+title: Hourly Data | Weather Station | JSON API
+sidebar_label: Hourly Data
 sidebar_position: 4
 ---
 
