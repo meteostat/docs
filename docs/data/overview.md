@@ -1,7 +1,6 @@
 ---
 title: Bulk Data
 sidebar_label: Overview
-title: Overview
 id: data-overview
 slug: /data
 sidebar_position: 1

@@ -1,8 +1,10 @@
 {
-  "label": "Bulk Data",
   "position": 2,
+  "label": "Bulk Data",
+  "collapsible": true,
+  "collapsed": true,
   "link": {
-    "type": "doc",
-    "id": "data/data-overview"
+    "type": "generated-index",
+    "title": "Bulk Data"
   }
 }
