@@ -268,7 +268,7 @@ Can data be used for commercial purposes?
 
 ---
 
-#### `is_valid` {#property-is_valid}
+#### `valid` {#property-is_valid}
 
 Does the time series pass all quality checks?
 
@@ -288,19 +288,53 @@ The temperature's lapse rate, if applicable (at least two included weather stati
 
 ### Methods
 
+#### `validate` {#method-validate}
+
+Check if the time series passes all quality checks.
+
+##### Attributes {#method-validate-attributes}
+
+This method does not accept any attributes.
+
+##### Return Value {#method-validate-return}
+
+`bool`
+
+##### Example {#method-validate-example}
+
+```python
+from datetime import date
+import meteostat as ms
+
+# Specify time range
+START = date(2018, 1, 1)
+END = date(2018, 12, 31)
+
+# Get daily data
+ts = ms.daily('10637', START, END)
+# highlight-next-line
+is_valid = ts.validate()
+
+print(f'Time series valid: {is_valid}')
+```
+
+---
+
 #### `fetch` {#method-fetch}
 
 Fetch the actual weather/climate data.
 
 ##### Attributes {#method-fetch-attributes}
 
-| **Attribute** | **Description**                                               | **Type** | **Default** |
-| :------------ | :------------------------------------------------------------ | :------- | :---------- |
-| `squash`      | Squash data from different sources                            | `bool`   | `True`      |
-| `fill`        | Fill missing records                                          | `bool`   | `False`     |
-| `sources`     | Include source columns?                                       | `bool`   | `False`     |
-| `location`    | Add location-related columns (latitude, longitude, elevation) | `bool`   | `False`     |
-| `clean`       | Remove inaccurate data                                        | `bool`   | `True`      |
+| **Attribute** | **Description**                                               | **Type**     | **Default**         |
+| :------------ | :------------------------------------------------------------ | :----------- | :------------------ |
+| `squash`      | Squash data from different sources                            | `bool`       | `True`              |
+| `fill`        | Fill missing records                                          | `bool`       | `False`             |
+| `sources`     | Include source columns?                                       | `bool`       | `False`             |
+| `location`    | Add location-related columns (latitude, longitude, elevation) | `bool`       | `False`             |
+| `clean`       | Remove inaccurate data                                        | `bool`       | `True`              |
+| `humanize`    | Humanize data values for wind direction and condition code    | `bool`       | `False`             |
+| `units`       | Unit system for data values (e.g., metric or imperial)        | `UnitSystem` | `UnitSystem.METRIC` |
 
 ##### Return Value {#method-fetch-return}
 

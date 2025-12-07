@@ -1,7 +1,7 @@
 ---
 title: Configuration | Python Library
 sidebar_label: Configuration
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 # Configuration
@@ -146,7 +146,7 @@ The time-to-live for the local SQLite stations database in seconds. After this p
 
 ---
 
-#### `stations_db_url` {#config-stations-db-url}
+#### `stations_db_urls` {#config-stations-db-urls}
 
 URLs to download the local SQLite stations database from. Multiple URLs can be specified and will be tried in order if the download from the first URL fails.
 
@@ -158,7 +158,8 @@ URLs to download the local SQLite stations database from. Multiple URLs can be s
 
 ```
 [
-    "https://raw.githubusercontent.com/meteostat/weather-stations/master/stations.db"
+    "https://data.meteostat.net/stations.db",
+    "https://raw.githubusercontent.com/meteostat/weather-stations/main/stations.db"
 ]
 ```
 
@@ -186,6 +187,7 @@ List of mirror URLs to download station metadata JSON files from. Multiple URLs 
 
 ```
 [
+    "https://data.meteostat.net/stations/{id}.json",
     "https://cdn.jsdelivr.net/gh/meteostat/weather-stations/stations/{id}.json",
     "https://raw.githubusercontent.com/meteostat/weather-stations/master/stations/{id}.json"
 ]

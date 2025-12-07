@@ -125,19 +125,19 @@ const config: Config = {
           items: [
             {
               label: "Introduction",
-              to: "/docs/overview",
+              to: "/overview",
             },
             {
               label: "Python Library",
-              to: "/docs/python",
+              to: "/python",
             },
             {
               label: "Bulk Data",
-              to: "/docs/data",
+              to: "/data",
             },
             {
               label: "JSON API",
-              to: "/docs/api",
+              to: "/api",
             },
           ],
         },

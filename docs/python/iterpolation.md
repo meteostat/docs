@@ -1,7 +1,7 @@
 ---
 title: Interpolation | Python Library
 sidebar_label: Interpolation
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Interpolation
@@ -43,7 +43,7 @@ If no nearby stations meet the Nearest Neighbor criteria, IDW is used to calcula
 
 ## ⛰️ Lapse Rate Adjustment {#lapse-rate-adjustment}
 
-For temperature parameters, Meteostat applies a lapse rate adjustment based on the elevation difference between the point of interest and the nearby stations. The lapse rate is specified in °C per 1000 meters ([`lapse_rate`](#parameter-lapse-rate)). If the elevation difference is less than a specified threshold ([`lapse_rate_threshold`](#parameter-lapse-rate-threshold)), no adjustment is applied.
+For temperature parameters, Meteostat can apply a lapse rate adjustment based on the elevation difference between the point of interest and the nearby stations. The lapse rate is specified in °C per 1000 meters ([`lapse_rate`](#parameter-lapse-rate)). If the elevation difference is less than a specified threshold ([`lapse_rate_threshold`](#parameter-lapse-rate-threshold)), no adjustment is applied. The lapse rate can be calculated dynamically using the [`lapse_rate`](lapse-rate) function.
 
 ## 🔍 API {#api}
 
