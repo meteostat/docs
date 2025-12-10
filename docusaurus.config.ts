@@ -163,19 +163,19 @@ const config: Config = {
           items: [
             {
               label: "License",
-              to: "/docs/license",
+              to: "/license",
             },
             {
               label: "Terms of Service",
-              to: "/docs/terms",
+              to: "/terms",
             },
             {
               label: "Privacy Policy",
-              to: "/docs/privacy",
+              to: "/privacy",
             },
             {
               label: "Legal Notice",
-              to: "/docs/legal",
+              to: "/legal",
             },
           ],
         },

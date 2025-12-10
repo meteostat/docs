@@ -137,10 +137,10 @@ The source code of the `TimeSeries` class is available on [GitHub](#).
 
 Through one of the following:
 
-- [`meteostat.hourly`](/docs/python/timeseries/hourly.md)
-- [`meteostat.daily`](/docs/python/timeseries/daily.md)
-- [`meteostat.monthly`](/docs/python/timeseries/monthly.md)
-- [`meteostat.normals`](/docs/python/timeseries/normals.md)
+- [`meteostat.hourly`](/python/timeseries/hourly.md)
+- [`meteostat.daily`](/python/timeseries/daily.md)
+- [`meteostat.monthly`](/python/timeseries/monthly.md)
+- [`meteostat.normals`](/python/normals.md)
 
 ### Parameters
 

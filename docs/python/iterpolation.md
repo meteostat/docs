@@ -1,7 +1,7 @@
 ---
 title: Interpolation | Python Library
 sidebar_label: Interpolation
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 # Interpolation

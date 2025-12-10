@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Terms
 
-The following terms of service apply when using the Meteostat Python library, the Meteostat JSON API or the Meteostat bulk data interface (the “services”). Please review the terms and [license](/docs/license.md) carefully. By accessing or using the services, you signify your agreement to these terms.
+The following terms of service apply when using the Meteostat Python library, the Meteostat JSON API or the Meteostat bulk data interface (the “services”). Please review the terms and [license](/license.md) carefully. By accessing or using the services, you signify your agreement to these terms.
 
 If you do not agree to the terms, you may not access or use the services provided by Meteostat.
 

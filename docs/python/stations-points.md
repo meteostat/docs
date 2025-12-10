@@ -1,12 +1,12 @@
 ---
 title: Stations & Points | Python Library
 sidebar_label: Stations & Points
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Stations & Points
 
-When working with time series data in Meteostat, you can specify weather stations and geographical points as location input. We are using the [`hourly`](/docs/python/timeseries/hourly.md) function as an example, but the same options apply to other time series functions.
+When working with time series data in Meteostat, you can specify weather stations and geographical points as location input. We are using the [`hourly`](/python/timeseries/hourly.md) function as an example, but the same options apply to other time series functions.
 
 ## Station ID
 

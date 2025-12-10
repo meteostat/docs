@@ -10,7 +10,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Meteostat Python
 
-The Meteostat Python library offers an easy and efficient way to access open weather and climate data through Pandas. It retrieves historical observations and statistics from Meteostat’s [bulk data interface](/docs/data), which aggregates information from various public sources—primarily governmental agencies. Among Meteostat’s data providers are national weather services such as the **National Oceanic and Atmospheric Administration (NOAA)** and **Germany’s Meteorological Service (DWD)**.
+The Meteostat Python library offers an easy and efficient way to access open weather and climate data through Pandas. It retrieves historical observations and statistics from Meteostat’s [bulk data interface](/data), which aggregates information from various public sources—primarily governmental agencies. Among Meteostat’s data providers are national weather services such as the **National Oceanic and Atmospheric Administration (NOAA)** and **Germany’s Meteorological Service (DWD)**.
 
 ## 📚 Installation
 

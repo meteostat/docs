@@ -1,7 +1,7 @@
 ---
 title: Lapse Rate | Python Library
 sidebar_label: Lapse Rate
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Lapse Rate

@@ -36,7 +36,7 @@ plt.show()
 
 ## 🌥 Default Parameters {#default-parameters}
 
-The default parameters for daily data requests are [listed here](/docs/parameters?g=daily&d=1).
+The default parameters for daily data requests are [listed here](/parameters?g=daily&d=1).
 
 ## 🔍 API {#api}
 
@@ -58,7 +58,7 @@ Weather station(s) or geographical point(s)
 
 ##### Examples {#parameter-station-examples}
 
-Please refer to the chapter ["Stations & Points"](/docs/python/stations-points) for detailed examples on how to specify the `station` parameter.
+Please refer to the chapter ["Stations & Points"](/python/stations-points) for detailed examples on how to specify the `station` parameter.
 
 ---
 
@@ -124,4 +124,4 @@ Include model data?
 
 ### Return Value
 
-[TimeSeries](/docs/python/timeseries)
+[TimeSeries](/python/timeseries)

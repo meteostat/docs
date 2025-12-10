@@ -1,12 +1,12 @@
 ---
-title: Climate Normals | Time Series | Python Library
+title: Climate Normals | Python Library
 sidebar_label: Climate Normals
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Climate Normals
 
-Climate normals represent the average meteorological conditions, typically over a 30-year period. They are commonly used as a reference to compare current weather conditions against long-term averages. Climate normals are based on [monthly weather data](monthly.md) and can be requested for any period.
+Climate normals represent the average meteorological conditions, typically over a 30-year period. They are commonly used as a reference to compare current weather conditions against long-term averages. Climate normals are based on [monthly weather data](timeseries/monthly.md) and can be requested for any period.
 
 ## 🚀 Example {#example}
 
@@ -32,7 +32,7 @@ print(df.head(48))
 
 ## 🌥 Default Parameters {#default-parameters}
 
-The default parameters for hourly data requests are [listed here](/docs/parameters?g=normals&d=1).
+The default parameters for hourly data requests are [listed here](/parameters?g=normals&d=1).
 
 ## 🔍 API {#api}
 
@@ -54,7 +54,7 @@ Weather station(s) or geographical point(s)
 
 ##### Examples {#parameter-station-examples}
 
-Please refer to the chapter ["Stations & Points"](/docs/python/stations-points) for detailed examples on how to specify the `station` parameter.
+Please refer to the chapter ["Stations & Points"](/python/stations-points) for detailed examples on how to specify the `station` parameter.
 
 ---
 
@@ -142,4 +142,4 @@ Maximum number of missing monthly values in the normals period.
 
 ### Return Value
 
-[TimeSeries](/docs/python/timeseries)
+[TimeSeries](/python/timeseries)
