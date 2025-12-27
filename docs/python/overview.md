@@ -46,6 +46,10 @@ df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
 plt.show()
 ```
 
+This is how the resulting chart looks:
+
+![Temperature Chart](./example.png)
+
 ## 👀 Learn More
 
 <DocCardList />

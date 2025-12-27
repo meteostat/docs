@@ -8,6 +8,10 @@ sidebar_position: 6
 
 When working with time series data in Meteostat, you can specify weather stations and geographical points as location input. We are using the [`hourly`](/python/timeseries/hourly.md) function as an example, but the same options apply to other time series functions.
 
+:::tip[Performance Tip]
+When working with the default providers, you may specify a new [`Station`](#station-object) object with just the station ID. That will improve performance by avoiding unnecessary metadata lookups. Example: `ms.Station(id='10637')`.
+:::
+
 ## Station ID
 
 You can access time series data by specifying a weather station using its Meteostat ID:

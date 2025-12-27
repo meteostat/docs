@@ -6,7 +6,7 @@ sidebar_position: 8
 
 If you would like to support the project financially, you can donate using one of the following services:
 
-- [GitHub Sponsors](https://github.com/sponsors/clampr)
+- [GitHub Sponsors](https://github.com/sponsors/meteostat)
 - [Patreon](https://www.patreon.com/meteostat)
 - [PayPal](https://www.paypal.com/donate?hosted_button_id=MQ67WRDC8EW38)
 

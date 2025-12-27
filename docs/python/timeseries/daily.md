@@ -54,7 +54,7 @@ Weather station(s) or geographical point(s)
 
 ##### Data Type {#parameter-station-type}
 
-`str`, `Station`, `Point`, `List[str]`, `List[Station]`, `List[Point]`, [`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html), [`Index`](https://pandas.pydata.org/docs/reference/indexing.html) or [`Series`](https://pandas.pydata.org/docs/reference/series.html)
+`str`, `Station`, `Point`, `List[str]`, `List[Station]`, `List[Point]`, [`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html)
 
 ##### Examples {#parameter-station-examples}
 

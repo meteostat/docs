@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 Weather stations are the primary source of meteorological data for Meteostat. The Meteostat Python library provides access to a comprehensive database of weather stations worldwide, allowing users to retrieve station metadata and search for stations based on various criteria.
 
 :::info
-All `meteostat.stations.*` methods are using the Meteostat weather stations SQLite database. While this database can be loaded into memory, it is recommended to use the default on-disk database for most applications to conserve system memory. The `meteostat.station` method does not rely on the local database and can be used without caching.
+All `meteostat.stations.*` methods are using the Meteostat weather stations SQLite database. While this database can be loaded into memory, it is recommended to use the default on-disk database for most applications to conserve system memory.
 :::
 
 ## 🚀 Example {#example}
@@ -27,7 +27,7 @@ All `meteostat.stations.*` methods are using the Meteostat weather stations SQLi
         ```python
         import meteostat as ms
 
-        station = ms.station('72503')  # LaGuardia Airport
+        station = ms.stations.meta('72503')  # LaGuardia Airport
 
         print(station)
         ```

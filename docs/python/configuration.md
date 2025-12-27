@@ -44,6 +44,20 @@ The prefix (without the underscore) which is used when parsing environment varia
 
 ---
 
+#### `block_large_requests` {#config-block-large-requests}
+
+Block requests that are considered large (e.g., requesting data for a very long time period or many stations at once).
+
+##### Data Type {#config-block-large-requests-type}
+
+`bool`
+
+##### Default Value {#config-block-large-requests-default}
+
+`True`
+
+---
+
 #### `cache_enable` {#config-cache-enable}
 
 Enable or disable caching of data.
@@ -118,20 +132,6 @@ Dictionary of proxy servers to use for network requests.
 
 ---
 
-#### `stations_db_prefer` {#config-stations-db-prefer}
-
-If set to `True`, station metadata queried from the SQLite database (through `meteostat.stations.meta`) will be used when pulling a station's metadata in the background. If set to `False`, individual JSON files will be used instead (through `meteostat.station`).
-
-##### Data Type {#config-stations-db-prefer-type}
-
-`bool`
-
-##### Default Value {#config-stations-db-prefer-default}
-
-`False`
-
----
-
 #### `stations_db_ttl` {#config-stations-db-ttl}
 
 The time-to-live for the local SQLite stations database in seconds. After this period, the database will be refreshed upon the next request.
@@ -175,24 +175,6 @@ Path to the local SQLite stations database file.
 
 `~/.meteostat/stations.db`
 
-#### `stations_meta_mirrors` {#config-stations-meta-mirrors}
-
-List of mirror URLs to download station metadata JSON files from. Multiple URLs can be specified and will be tried in order if the download from the first URL fails.
-
-##### Data Type {#config-stations-meta-mirrors-type}
-
-`List[str]`
-
-##### Default Value {#config-stations-meta-mirrors-default}
-
-```
-[
-    "https://data.meteostat.net/stations/{id}.json",
-    "https://cdn.jsdelivr.net/gh/meteostat/weather-stations/stations/{id}.json",
-    "https://raw.githubusercontent.com/meteostat/weather-stations/master/stations/{id}.json"
-]
-```
-
 ---
 
 #### `lapse_rate_parameters` {#config-interpolation-lapse-rate-parameters}
@@ -214,8 +196,6 @@ List of temperature parameters that will have lapse rate adjustment applied duri
 ```
 
 ---
-
-Configuration options specific to the Deutscher Wetterdienst (DWD) data provider.
 
 #### `dwd_ftp_host` {#config-dwd-ftp-host}
 
@@ -273,8 +253,6 @@ DWD differentiates between _recent_ and _historical_ monthly data. This setting 
 
 ---
 
-Configuration options specific to the National Oceanic and Atmospheric Administration (NOAA) data provider.
-
 #### `aviationweather_endpoint` {#config-noaa-aviationweather-endpoint}
 
 The endpoint URL for NOAA's Aviation Weather Center API.
@@ -307,8 +285,6 @@ The use agent to send when accessing data from NOAA's Aviation Weather Center AP
 `None`
 
 ---
-
-Configuration options specific to the Norwegian Meteorological Institute (Met.no) data provider.
 
 #### `metno_forecast_endpoint` {#config-metno-forecast-endpoint}
 
