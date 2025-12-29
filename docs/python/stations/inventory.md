@@ -21,6 +21,12 @@ inventory = ms.stations.inventory(STATION)
 print(f"Data available from {inventory.start} to {inventory.end}.")
 ```
 
+This is the output you would get, depending on when you run the code:
+
+```
+Data available from 1937-11-01 to 2025-12-31.
+```
+
 ## 🔍 API {#api}
 
 ### Interface

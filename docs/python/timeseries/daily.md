@@ -10,28 +10,43 @@ Daily time series data is ideal for analyzing weather patterns over longer perio
 
 ## 🚀 Example {#example}
 
-Let's plot 2018 temperature data for Frankfurt, Germany:
+Let's fetch some daily temperature data for Frankfurt, Germany in 2018:
 
 ```python
+# Import Meteostat library and dependencies
 from datetime import date
-import matplotlib.pyplot as plt
 import meteostat as ms
 
-# Specify location and time range
-POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-START = date(2018, 1, 1)
-END = date(2018, 12, 31)
+# Set time period
+start = date(2018, 1, 1)
+end = date(2018, 12, 31)
 
-# Get nearby weather stations
-stations = ms.stations.nearby(POINT, limit=4)
+# Get daily data
+ts = ms.daily(ms.Station(id='10637'), start, end)
+df = ts.fetch()
 
-# Get daily data & perform interpolation
-ts = ms.daily(stations, START, END)
-df = ms.interpolate(ts, POINT)
+# Print DataFrame
+print(df)
+```
 
-# Plot line chart including average, minimum and maximum temperature
-df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-plt.show()
+This is the output you would get:
+
+```
+            temp  tmin  tmax  rhum  prcp  snwd  wspd  wpgt    pres  tsun  cldc
+time
+2018-01-01   8.1   6.6  11.2    70   1.1     0  26.6  59.8  1005.0    42     7
+2018-01-02   6.4   5.2   8.0    74   5.8     0  22.0  50.8  1011.9    12     7
+2018-01-03   8.1   5.3  10.4    72   6.3     0  36.4  83.9   999.1   144     6
+2018-01-04   7.6   5.9  10.9    83   8.4     0  20.9  58.7   999.9     0     6
+2018-01-05   8.5   7.1  10.2    83   4.8     0  18.7  59.4  1001.8     0     7
+...          ...   ...   ...   ...   ...   ...   ...   ...     ...   ...   ...
+2018-12-27  -1.4  -2.1  -0.4    96   0.0     0   6.5  22.3  1030.7     0     8
+2018-12-28  -0.5  -1.0   0.3    94   0.0     0   9.7  24.1  1031.8     0     8
+2018-12-29   1.3  -0.7   4.6    92   0.8     0  16.9  45.7  1033.8     0     8
+2018-12-30   7.2   4.5   8.3    76   0.0     0  17.3  48.6  1033.2     0     8
+2018-12-31   6.8   5.6   9.0    94   0.0     0   9.7  43.9  1034.5     0     8
+
+[365 rows x 11 columns]
 ```
 
 ## 🌥 Default Parameters {#default-parameters}
@@ -107,21 +122,3 @@ Requested data providers
 ##### Default Value {#parameter-providers-default}
 
 `[Provider.DAILY]`
-
----
-
-#### `model` {#parameter-model}
-
-Include model data?
-
-##### Data Type {#parameter-model-type}
-
-`bool`
-
-##### Default Value {#parameter-model-default}
-
-`True`
-
-### Return Value
-
-[TimeSeries](/python/timeseries)

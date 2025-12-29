@@ -26,6 +26,20 @@ A `TimeSeries` object containing weather data from multiple weather stations.
 
 [`TimeSeries`](timeseries)
 
+---
+
+#### `parameter` {#parameter-parameter}
+
+The meteorological parameter for which the lapse rate should be calculated. Only temperature parameters are supported.
+
+##### Data Type {#parameter-ts-type}
+
+`Parameter`
+
+##### Default Value {#parameter-parameter-default}
+
+`Parameter.TEMP`
+
 ### Return Value
 
 `float` or `None`

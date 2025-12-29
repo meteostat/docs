@@ -20,6 +20,30 @@ station = ms.stations.meta('72503')  # LaGuardia Airport
 print(station)
 ```
 
+This is the output you would get:
+
+```
+Station(
+    id='72503',
+    name='LaGuardia Airport',
+    country='US',
+    region='NY',
+    identifiers={
+        'wmo': '72503',
+        'icao': 'KLGA',
+        'iata': 'LGA',
+        'ghcn': 'USW00014732',
+        'wban': '14732',
+        'usaf': '725030',
+        'mosmix': '72503'
+    },
+    latitude=40.7833,
+    longitude=-73.05,
+    elevation=7,
+    timezone='America/New_York'
+)
+```
+
 ## 🔍 API {#api}
 
 ### Interface

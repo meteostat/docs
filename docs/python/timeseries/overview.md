@@ -18,106 +18,65 @@ Meteostat provides access to time series data for thousands of weather stations 
 
 <Tabs>
   <TabItem value="hourly" label="Hourly" default>
-        Let's plot 2018 temperature data for Frankfurt, Germany:
+        Let's fetch some hourly data for Atlanta, USA from January 1 to December 31, 2018:
 
         ```python
-        from datetime import date
-        import matplotlib.pyplot as plt
-        import meteostat as ms
+      # Import Meteostat library and dependencies
+      from datetime import datetime
+      import meteostat as ms
 
-        # Specify location and time range
-        POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-        START = date(2018, 1, 1)
-        END = date(2018, 12, 31)
+      # Set time period
+      start = datetime(2018, 1, 1)
+      end = datetime(2018, 12, 31, 23, 59)
 
-        # Get nearby weather stations
-        stations = ms.stations.nearby(POINT, limit=4)
+      # Get hourly data
+      ts = ms.hourly(ms.Station(id='72219'), start, end)
+      df = ts.fetch()
 
-        # Get daily data & perform interpolation
-        ts = ms.daily(stations, START, END)
-        df = ms.interpolate(ts, POINT)
-
-        # Plot line chart including average, minimum and maximum temperature
-        df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-        plt.show()
+      # Print DataFrame
+      print(df)
         ```
 
   </TabItem>
   <TabItem value="daily" label="Daily">
-        Let's plot 2018 temperature data for Frankfurt, Germany:
+        Let's fetch some daily temperature data for Frankfurt, Germany in 2018:
 
         ```python
-        from datetime import date
-        import matplotlib.pyplot as plt
-        import meteostat as ms
+      # Import Meteostat library and dependencies
+      from datetime import date
+      import meteostat as ms
 
-        # Specify location and time range
-        POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-        START = date(2018, 1, 1)
-        END = date(2018, 12, 31)
+      # Set time period
+      start = date(2018, 1, 1)
+      end = date(2018, 12, 31)
 
-        # Get nearby weather stations
-        stations = ms.stations.nearby(POINT, limit=4)
+      # Get daily data
+      ts = ms.daily(ms.Station(id='10637'), start, end)
+      df = ts.fetch()
 
-        # Get daily data & perform interpolation
-        ts = ms.daily(stations, START, END)
-        df = ms.interpolate(ts, POINT)
-
-        # Plot line chart including average, minimum and maximum temperature
-        df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-        plt.show()
+      # Print DataFrame
+      print(df)
         ```
 
   </TabItem>
   <TabItem value="monthly" label="Monthly">
-        Let's plot 2018 temperature data for Frankfurt, Germany:
+        Let's fetch some monthly data for Frankfurt, Germany from 2000 to 2018:
 
         ```python
-        from datetime import date
-        import matplotlib.pyplot as plt
-        import meteostat as ms
+      # Import Meteostat library and dependencies
+      from datetime import date
+      import meteostat as ms
 
-        # Specify location and time range
-        POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-        START = date(2018, 1, 1)
-        END = date(2018, 12, 31)
+      # Set time period
+      start = date(2000, 1, 1)
+      end = date(2018, 12, 31)
 
-        # Get nearby weather stations
-        stations = ms.stations.nearby(POINT, limit=4)
+      # Get monthly data
+      ts = ms.monthly(ms.Station(id='10637'), start, end)
+      df = ts.fetch()
 
-        # Get daily data & perform interpolation
-        ts = ms.daily(stations, START, END)
-        df = ms.interpolate(ts, POINT)
-
-        # Plot line chart including average, minimum and maximum temperature
-        df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-        plt.show()
-        ```
-
-  </TabItem>
-    <TabItem value="normals" label="Normals">
-        Let's plot 2018 temperature data for Frankfurt, Germany:
-
-        ```python
-        from datetime import date
-        import matplotlib.pyplot as plt
-        import meteostat as ms
-
-        # Specify location and time range
-        POINT = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-        START = date(2018, 1, 1)
-        END = date(2018, 12, 31)
-
-        # Get nearby weather stations
-        stations = ms.stations.nearby(POINT, limit=4)
-
-        # Get daily data & perform interpolation
-        ts = ms.daily(stations, START, END)
-        df = ms.interpolate(ts, POINT)
-
-        # Plot line chart including average, minimum and maximum temperature
-        df.plot(y=[ms.Parameter.TEMP, ms.Parameter.TMIN, ms.Parameter.TMAX])
-        plt.show()
+      # Print DataFrame
+      print(df)
         ```
 
   </TabItem>

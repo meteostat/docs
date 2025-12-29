@@ -10,29 +10,48 @@ Monthly time series data is perfect for examining long-term climate trends and s
 
 ## 🚀 Example {#example}
 
-Let's fetch some hourly data for Chicago O’Hare International Airport for January 1-2, 2021:
+Let's fetch some monthly data for Frankfurt, Germany from 2000 to 2018:
 
 ```python
+# Import Meteostat library and dependencies
 from datetime import date
 import meteostat as ms
 
-# Get hourly time series
-ts = ms.hourly(
-    '72530',
-    start=date(2021, 1, 1),
-    end=date(2021, 1, 2),
-)
+# Set time period
+start = date(2000, 1, 1)
+end = date(2018, 12, 31)
 
-# Fetch data as Pandas DataFrame
+# Get monthly data
+ts = ms.monthly(ms.Station(id='10637'), start, end)
 df = ts.fetch()
 
-# Display first 48 hours
-print(df.head(48))
+# Print DataFrame
+print(df)
+```
+
+This is the output you would get:
+
+```
+            temp  tmin  tmax  txmn  txmx  prcp    pres   tsun
+time
+2000-01-01   2.9  -0.1   5.0 -11.0  10.9  37.2  1025.3   2844
+2000-02-01   5.3   1.4   8.8  -4.7  16.4  51.5  1021.5   4884
+2000-03-01   7.6   4.5  11.3  -1.6  17.4  59.6  1019.6   5304
+2000-04-01  11.8   6.5  16.8  -1.1  26.7  27.1  1009.1  10890
+2000-05-01  16.5  10.9  21.9   5.1  28.9  99.0  1015.7  13002
+...          ...   ...   ...   ...   ...   ...     ...    ...
+2018-08-01  22.0  15.1  28.9   5.9  36.8  20.3  1016.7  16428
+2018-09-01  16.6  10.2  23.9   2.9  31.6  26.3  1021.2  13308
+2018-10-01  12.4   7.1  18.1   0.1  26.9   7.0  1018.3  10734
+2018-11-01   7.1   3.7  10.3  -1.6  18.1  25.9  1018.4   4974
+2018-12-01   4.7   2.2   7.0  -4.3  13.2  75.3  1020.8   1308
+
+[228 rows x 8 columns]
 ```
 
 ## 🌥 Default Parameters {#default-parameters}
 
-The default parameters for hourly data requests are [listed here](/parameters?g=monthly&d=1).
+The default parameters for monthly data requests are [listed here](/parameters?g=monthly&d=1).
 
 ## 🔍 API {#api}
 
@@ -103,21 +122,3 @@ Requested data providers
 ##### Default Value {#parameter-providers-default}
 
 `[Provider.MONTHLY]`
-
----
-
-#### `model` {#parameter-model}
-
-Include model data?
-
-##### Data Type {#parameter-model-type}
-
-`bool`
-
-##### Default Value {#parameter-model-default}
-
-`True`
-
-### Return Value
-
-[TimeSeries](/python/timeseries)
