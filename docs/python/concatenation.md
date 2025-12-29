@@ -1,7 +1,7 @@
 ---
 title: Concatenation | Python Library
 sidebar_label: Concatenation
-sidebar_position: 10
+sidebar_position: 11
 ---
 
 # Concatenation

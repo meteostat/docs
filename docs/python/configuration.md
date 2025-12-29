@@ -1,7 +1,7 @@
 ---
 title: Configuration | Python Library
 sidebar_label: Configuration
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 # Configuration
