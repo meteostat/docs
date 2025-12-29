@@ -6,6 +6,6 @@ sidebar_position: 5
 
 import ProvidersTable from '@site/src/components/ProvidersTable';
 
-Below is a generated table of available data providers (from `static/providers.json`).
+Below is a table listing all available data providers integrated into Meteostat, along with their descriptions, supported granularities, and parameters.
 
 <ProvidersTable />

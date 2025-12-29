@@ -1,12 +1,7 @@
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 import params from "@site/static/parameters.json";
-import {
-  normalizeUnit,
-  joinUnique,
-  joinAndCap,
-  capitalize,
-} from "../Shared/utils";
+import { normalizeUnit, joinUnique, capitalize } from "../Shared/utils";
 import SearchInput from "../Shared/SearchInput";
 import SelectFilter from "../Shared/SelectFilter";
 import Switch from "../Shared/Switch";
