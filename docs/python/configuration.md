@@ -163,6 +163,8 @@ URLs to download the local SQLite stations database from. Multiple URLs can be s
 ]
 ```
 
+---
+
 #### `stations_db_file` {#config-stations-db-file}
 
 Path to the local SQLite stations database file.
@@ -194,6 +196,62 @@ List of temperature parameters that will have lapse rate adjustment applied duri
     Parameter.TMAX
 ]
 ```
+
+---
+
+#### `include_model_data` {#config-include-model-data}
+
+Include model data (e.g. reanalysis or weather forecast models) when retrieving data from Meteostat's default data providers.
+
+##### Data Type {#config-include-model-data-type}
+
+`bool`
+
+##### Default Value {#config-include-model-data-default}
+
+`True`
+
+---
+
+#### `hourly_endpoint` {#config-hourly-endpoint}
+
+The endpoint URL for retrieving hourly data from Meteostat's default data providers.
+
+##### Data Type {#config-hourly-endpoint-type}
+
+`str`
+
+##### Default Value {#config-hourly-endpoint-default}
+
+`https://data.meteostat.net/hourly/{year}/{station}.csv.gz`
+
+---
+
+#### `daily_endpoint` {#config-daily-endpoint}
+
+The endpoint URL for retrieving daily data from Meteostat's default data providers.
+
+##### Data Type {#config-daily-endpoint-type}
+
+`str`
+
+##### Default Value {#config-daily-endpoint-default}
+
+`https://data.meteostat.net/daily/{year}/{station}.csv.gz`
+
+---
+
+#### `monthly_endpoint` {#config-monthly-endpoint}
+
+The endpoint URL for retrieving monthly data from Meteostat's default data providers.
+
+##### Data Type {#config-monthly-endpoint-type}
+
+`str`
+
+##### Default Value {#config-monthly-endpoint-default}
+
+`https://data.meteostat.net/monthly/{station}.csv.gz`
 
 ---
 
