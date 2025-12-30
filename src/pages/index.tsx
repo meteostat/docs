@@ -22,6 +22,9 @@ function HomepageHeader() {
             Documentation →
           </Link>
         </div>
+        <div className={styles.ads}>
+          <Ad />
+        </div>
       </div>
     </header>
   );
