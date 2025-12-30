@@ -22,7 +22,7 @@ https://data.meteostat.net
 The dumps of weather stations which didn't report data for the requested frequency or data type will return an HTTP `404` status code.
 :::
 
-In contrast to our JSON API the Bulk Data interface does not require an API key. However, when using this service you must comply with our [terms of service](/terms.html). Please make sure to cache data if possible and forbear from sending malicious calls to this service.
+In contrast to our JSON API the Bulk Data interface does not require an API key. However, when using this service you must comply with our [terms of service](/terms). Please make sure to cache data if possible and forbear from sending malicious calls to this service.
 
 ## 🚀 Quick Start
 

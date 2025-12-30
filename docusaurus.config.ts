@@ -171,11 +171,11 @@ const config: Config = {
             },
             {
               label: "Privacy Policy",
-              to: "/privacy",
+              href: "https://meteostat.net/en/privacy",
             },
             {
               label: "Legal Notice",
-              to: "/legal",
+              href: "https://meteostat.net/en/legal",
             },
           ],
         },

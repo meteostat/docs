@@ -20,9 +20,9 @@ Please replace `{year}` with the desired year number and `{station}` with the ID
 
 ## Structure
 
-CSV files provided through the Meteostat bulk data interface use commas as separators. Each file includes a header row containing the column names, which correspond to the parameter codes described [here](/formats.html#meteorological-parameters).
+CSV files provided through the Meteostat bulk data interface use commas as separators. Each file includes a header row containing the column names, which correspond to the parameter codes described [here](/formats#meteorological-parameters).
 
-More information on the data formats and weather condition codes is available [here](/formats.html).
+More information on the data formats and weather condition codes is available [here](/formats).
 
 ### Data Sources
 

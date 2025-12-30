@@ -13,7 +13,7 @@ Meteostat provides several interfaces for retrieving weather and climate data. C
 
 - [JSON API](/api/): Simple, fast access to Meteostat data in JSON format.
 - [Python Library](/python/): Analyze historical weather data for thousands of stations with Pandas.
-- [Bulk Data](/bulk/): Download full data dumps for individual weather stations.
+- [Bulk Data](/data/): Download full data dumps for individual weather stations.
 
 ## About Meteostat
 

@@ -71,7 +71,7 @@ Geographical point specifying latitude, longitude, and elevation.
 
 ##### Data Type {#parameter-point-type}
 
-[`Point`](point)
+[`Point`](points)
 
 ---
 
