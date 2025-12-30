@@ -19,7 +19,14 @@ export default function TOC({ className, ...props }: Props): ReactNode {
         linkClassName={LINK_CLASS_NAME}
         linkActiveClassName={LINK_ACTIVE_CLASS_NAME}
       />
-      {/* <Ad /> */}
+      <div style={{ position: "static" }}>
+        <script
+          async
+          type="text/javascript"
+          src="//cdn.carbonads.com/carbon.js?serve=CESDK2QN&placement=devmeteostatnet&format=responsive"
+          id="_carbonads_js"
+        ></script>
+      </div>
     </div>
   );
 }

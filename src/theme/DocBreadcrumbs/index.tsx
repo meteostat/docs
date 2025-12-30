@@ -10,7 +10,6 @@ import DocBreadcrumbsStructuredData from "@theme/DocBreadcrumbs/StructuredData";
 
 import styles from "./styles.module.css";
 import ContextRoot from "@site/src/components/ContextRoot";
-import Ad from "@site/src/components/Ad";
 
 // TODO move to design system folder
 function BreadcrumbsItemLink({
@@ -94,7 +93,6 @@ export default function DocBreadcrumbs(): ReactNode {
             );
           })}
         </ul>
-        <Ad />
       </nav>
     </>
   );
