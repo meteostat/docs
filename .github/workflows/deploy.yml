@@ -17,7 +17,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "pages-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.ref }}"
   cancel-in-progress: false
 
 jobs:
@@ -61,7 +61,10 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     needs: build
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref != 'refs/heads/next')
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Download artifact
@@ -75,16 +78,25 @@ jobs:
           cd preview
           tar -xvf artifact.tar
 
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v3.0
+      - name: Deploy preview
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          publish-dir: './preview'
-          production-deploy: false
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy preview for PR #${{ github.event.pull_request.number }}"
-          enable-pull-request-comment: true
-          enable-commit-comment: false
-          overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./preview
+          destination_dir: preview/${{ github.event.pull_request.number || github.ref_name }}
+          keep_files: true
+
+      - name: Comment PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const previewUrl = `https://dev.meteostat.net/preview/${prNumber}/`;
+
+            github.rest.issues.createComment({
+              issue_number: prNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 Preview deployed to: ${previewUrl}`
+            });
