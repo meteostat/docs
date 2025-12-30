@@ -11,9 +11,7 @@ export default function TOCCollapsibleWrapper(props: Props): ReactNode {
   return (
     <>
       <TOCCollapsible {...props} />
-      <div className={styles.adWrapper}>
-        <Ad />
-      </div>
+      <div className={styles.adWrapper}>{/* <Ad /> */}</div>
     </>
   );
 }
