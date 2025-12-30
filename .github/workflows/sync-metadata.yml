@@ -74,11 +74,11 @@ jobs:
               })
 
           # Convert parameters to JSON
-          with open('./parameters.json', 'w') as f:
+          with open('./static/parameters.json', 'w') as f:
               json.dump(PARAMETERS, f, indent=2)
 
           # Convert providers to JSON
-          with open('./providers.json', 'w') as f:
+          with open('./static/providers.json', 'w') as f:
               json.dump(PROVIDERS, f, indent=2)
           EOF
 

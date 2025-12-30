@@ -3,7 +3,7 @@ export default function Ad() {
     <script
       async
       type="text/javascript"
-      src="//cdn.carbonads.com/carbon.js?serve=CESDK2QN&placement=devmeteostatnet&format=cover"
+      src="//cdn.carbonads.com/carbon.js?serve=CESDK2QN&placement=devmeteostatnet"
       id="_carbonads_js"
     ></script>
   );
