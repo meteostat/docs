@@ -1,0 +1,10 @@
+{
+  "position": 2,
+  "label": "Bulk Data",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Bulk Data"
+  }
+}

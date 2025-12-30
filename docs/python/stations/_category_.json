@@ -1,0 +1,10 @@
+{
+  "position": 3,
+  "label": "Weather Stations",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "python-stations-overview"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "position": 2,
+  "label": "Meteostat Python",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Meteostat Python"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "position": 2,
+  "label": "JSON API",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "JSON API"
+  }
+}

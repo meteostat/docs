@@ -1,0 +1,392 @@
+---
+title: Time Series | Python Library
+sidebar_label: Overview
+id: python-ts-overview
+slug: /python/timeseries
+sidebar_position: 1
+---
+
+import DocCardList from '@theme/DocCardList';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Time Series
+
+Meteostat provides access to time series data for thousands of weather stations worldwide. These time series are provided in different granularities and can be consumed through a single interface.
+
+## 🚀 Example {#example}
+
+<Tabs>
+  <TabItem value="hourly" label="Hourly" default>
+        Let's fetch some hourly data for Atlanta, USA from January 1 to December 31, 2018:
+
+        ```python
+      # Import Meteostat library and dependencies
+      from datetime import datetime
+      import meteostat as ms
+
+      # Set time period
+      start = datetime(2018, 1, 1)
+      end = datetime(2018, 12, 31, 23, 59)
+
+      # Get hourly data
+      ts = ms.hourly(ms.Station(id='72219'), start, end)
+      df = ts.fetch()
+
+      # Print DataFrame
+      print(df)
+        ```
+
+  </TabItem>
+  <TabItem value="daily" label="Daily">
+        Let's fetch some daily temperature data for Frankfurt, Germany in 2018:
+
+        ```python
+      # Import Meteostat library and dependencies
+      from datetime import date
+      import meteostat as ms
+
+      # Set time period
+      start = date(2018, 1, 1)
+      end = date(2018, 12, 31)
+
+      # Get daily data
+      ts = ms.daily(ms.Station(id='10637'), start, end)
+      df = ts.fetch()
+
+      # Print DataFrame
+      print(df)
+        ```
+
+  </TabItem>
+  <TabItem value="monthly" label="Monthly">
+        Let's fetch some monthly data for Frankfurt, Germany from 2000 to 2018:
+
+        ```python
+      # Import Meteostat library and dependencies
+      from datetime import date
+      import meteostat as ms
+
+      # Set time period
+      start = date(2000, 1, 1)
+      end = date(2018, 12, 31)
+
+      # Get monthly data
+      ts = ms.monthly(ms.Station(id='10637'), start, end)
+      df = ts.fetch()
+
+      # Print DataFrame
+      print(df)
+        ```
+
+  </TabItem>
+</Tabs>
+
+## 👀 Learn More {#learn-more}
+
+<DocCardList />
+
+## 📄 Source Code {#source-code}
+
+The source code of the `TimeSeries` class is available on [GitHub](#).
+
+## 🔍 API {#api}
+
+### Interface
+
+Through one of the following:
+
+- [`meteostat.hourly`](/python/timeseries/hourly.md)
+- [`meteostat.daily`](/python/timeseries/daily.md)
+- [`meteostat.monthly`](/python/timeseries/monthly.md)
+- [`meteostat.normals`](/python/normals.md)
+
+### Parameters
+
+Please refer to the respective [interface documentation](#interface) for a list of accepted parameters.
+
+### Properties
+
+#### `granularity` {#property-granularity}
+
+The time series's granularity.
+
+##### Data Type {#property-granularity-type}
+
+`Granularity`
+
+---
+
+#### `stations` {#property-stations}
+
+Included weather stations.
+
+##### Data Type {#property-stations-type}
+
+[`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html)
+
+---
+
+#### `start` {#property-start}
+
+Start date of the requested period.
+
+##### Data Type {#property-start-type}
+
+[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime)
+
+---
+
+#### `end` {#property-end}
+
+End date of the requested period.
+
+##### Data Type {#property-end-type}
+
+[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime)
+
+---
+
+#### `timezone` {#property-timezone}
+
+Time zone of the period and records (only hourly granularity).
+
+##### Data Type {#property-timezone-type}
+
+`str`
+
+---
+
+#### `parameters` {#property-parameters}
+
+Included meteorological parameters.
+
+##### Data Type {#property-parameters-type}
+
+`List[Parameter]`
+
+---
+
+#### `freq` {#property-freq}
+
+The time series's frequency (e.g. `1h` in case of hourly granularity).
+
+##### Data Type {#property-freq-type}
+
+`str`
+
+---
+
+#### `empty` {#property-empty}
+
+Is the time series empty?
+
+##### Data Type {#property-empty-type}
+
+`bool`
+
+---
+
+#### `providers` {#property-providers}
+
+Included data providers.
+
+##### Data Type {#property-providers-type}
+
+`List[Provider]`
+
+---
+
+#### `licenses` {#property-licenses}
+
+Applicable licenses.
+
+##### Data Type {#property-licenses-type}
+
+`List[License]`
+
+---
+
+#### `attribution` {#property-attribution}
+
+The attribution/copyright string.
+
+##### Data Type {#property-attribution-type}
+
+`str`
+
+---
+
+#### `commercial` {#property-commercial}
+
+Can data be used for commercial purposes?
+
+##### Data Type {#property-commercial-type}
+
+`bool`
+
+---
+
+#### `valid` {#property-is_valid}
+
+Does the time series pass all quality checks?
+
+##### Data Type {#property-is_valid-type}
+
+`bool`
+
+---
+
+#### `lapse_rate` {#property-lapse_rate}
+
+The temperature's lapse rate, if applicable (at least two included weather stations with sufficient data).
+
+##### Data Type {#property-lapse_rate-type}
+
+`float` or `None`
+
+### Methods
+
+#### `validate` {#method-validate}
+
+Check if the time series passes all quality checks.
+
+##### Attributes {#method-validate-attributes}
+
+This method does not accept any attributes.
+
+##### Return Value {#method-validate-return}
+
+`bool`
+
+##### Example {#method-validate-example}
+
+```python
+from datetime import date
+import meteostat as ms
+
+# Specify time range
+START = date(2018, 1, 1)
+END = date(2018, 12, 31)
+
+# Get daily data
+ts = ms.daily('10637', START, END)
+# highlight-next-line
+is_valid = ts.validate()
+
+print(f'Time series valid: {is_valid}')
+```
+
+---
+
+#### `fetch` {#method-fetch}
+
+Fetch the actual weather/climate data.
+
+##### Attributes {#method-fetch-attributes}
+
+| **Attribute** | **Description**                                               | **Type**     | **Default**         |
+| :------------ | :------------------------------------------------------------ | :----------- | :------------------ |
+| `squash`      | Squash data from different sources                            | `bool`       | `True`              |
+| `fill`        | Fill missing records                                          | `bool`       | `False`             |
+| `sources`     | Include source columns?                                       | `bool`       | `False`             |
+| `location`    | Add location-related columns (latitude, longitude, elevation) | `bool`       | `False`             |
+| `clean`       | Remove inaccurate data                                        | `bool`       | `True`              |
+| `humanize`    | Humanize data values for wind direction and condition code    | `bool`       | `False`             |
+| `units`       | Unit system for data values (e.g., metric or imperial)        | `UnitSystem` | `UnitSystem.METRIC` |
+
+##### Return Value {#method-fetch-return}
+
+[`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html)
+
+##### Example {#method-fetch-example}
+
+```python
+from datetime import date
+import meteostat as ms
+
+# Specify time range
+START = date(2018, 1, 1)
+END = date(2018, 12, 31)
+
+# Get daily data
+ts = ms.daily('10637', START, END)
+# highlight-next-line
+df = ts.fetch()
+
+# Print the DataFrame
+print(df)
+```
+
+---
+
+#### `count` {#method-count}
+
+Get the number of rows in the whole time series or by parameter. `NaN` values are excluded.
+
+##### Attributes {#method-count-attributes}
+
+| **Attribute** | **Description**                                                                      | **Type**             | **Default** |
+| :------------ | :----------------------------------------------------------------------------------- | :------------------- | :---------- |
+| `parameter`   | The parameter which should be counted, if `None` the whole time series is considered | `Parameter` or `str` | `None`      |
+
+##### Return Value {#method-count-return}
+
+`int`
+
+##### Example {#method-count-example}
+
+```python
+from datetime import date
+import meteostat as ms
+
+# Specify time range
+START = date(2018, 1, 1)
+END = date(2018, 12, 31)
+
+# Get daily data
+ts = ms.daily('10637', START, END)
+# highlight-next-line
+count = ts.count(ms.Parameter.PRCP)
+
+# Print the DataFrame
+print(f'{count} rows with precipitation data')
+```
+
+---
+
+#### `completeness` {#method-completeness}
+
+The share of non-`NaN` values of the time series's full length.
+
+##### Attributes {#method-completeness-attributes}
+
+| **Attribute** | **Description**                                                          | **Type**                     | **Default** |
+| :------------ | :----------------------------------------------------------------------- | :--------------------------- | :---------- |
+| `parameter`   | The parameter of interest, if `None` the whole time series is considered | `Parameter`, `str` or `None` | `None`      |
+
+##### Return Value {#method-completeness-return}
+
+`float`
+
+- `0` means all data is missing
+- `1` means all data is available
+
+##### Example {#method-completeness-example}
+
+```python
+from datetime import date
+import meteostat as ms
+
+# Specify time range
+START = date(2018, 1, 1)
+END = date(2018, 12, 31)
+
+# Get daily data
+ts = ms.daily('10637', START, END)
+# highlight-next-line
+completeness = ts.completeness(ms.Parameter.PRCP)
+
+# Print the DataFrame
+print(f'Precipitation data completeness: {completeness * 100}%')
+```

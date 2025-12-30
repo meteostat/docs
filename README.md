@@ -1,14 +1,41 @@
-# Meteostat Developers
+# Website
 
-This repository holds the documentation for all developer interfaces and resources provided by Meteostat.
-The documentation is available on a [dedicated website](https://dev.meteostat.net/).
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-The documentation uses markdown files. All content is located in the `src` directory.
+## Installation
 
-## Contributing
+```bash
+npm ci
+```
 
-If you see something that's wrong or unclear, please feel free to propose changes by submitting a pull request.
+## Local Development
 
-## License
+```bash
+npm run start
+```
 
-The Meteostat Developers documentation is available under the [MIT license](https://opensource.org/licenses/MIT).
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+## Build
+
+```bash
+npm run build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+## Deployment
+
+Using SSH:
+
+```bash
+USE_SSH=true npm run deploy
+```
+
+Not using SSH:
+
+```bash
+GIT_USER=<Your GitHub username> npm run deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
