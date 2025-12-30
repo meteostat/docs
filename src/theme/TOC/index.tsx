@@ -21,7 +21,6 @@ export default function TOC({ className, ...props }: Props): ReactNode {
       />
       <div style={{ position: "static" }}>
         <script
-          async
           type="text/javascript"
           src="//cdn.carbonads.com/carbon.js?serve=CESDK2QN&placement=devmeteostatnet&format=responsive"
           id="_carbonads_js"
