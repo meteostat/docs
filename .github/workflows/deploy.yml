@@ -3,6 +3,12 @@ name: Deploy to GitHub Pages
 on:
   release:
     types: [published]
+  pull_request:
+    branches:
+      - next
+  push:
+    branches:
+      - next
   workflow_dispatch:
 
 permissions:
@@ -45,8 +51,49 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
 
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  preview:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref != 'refs/heads/next')
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ./preview
+
+      - name: Extract artifact
+        run: |
+          cd preview
+          tar -xvf artifact.tar
+
+      - name: Deploy preview
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./preview
+          destination_dir: preview/${{ github.event.pull_request.number || github.ref_name }}
+          keep_files: false
+
+      - name: Comment PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const previewUrl = `https://dev.meteostat.net/preview/${prNumber}/`;
+
+            github.rest.issues.createComment({
+              issue_number: prNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 Preview deployed to: ${previewUrl}`
+            });
