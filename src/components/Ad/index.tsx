@@ -20,10 +20,10 @@ const CarbonAds = () => {
     script.id = "_carbonads_js";
     script.async = true;
 
-    document.querySelectorAll("#carbon-container")[0].appendChild(script);
+    document.querySelectorAll(".carbon-ads")[0].appendChild(script);
   }, [location.pathname]);
 
-  return <div id="carbon-container"></div>;
+  return <div className="carbon-ads"></div>;
 };
 
 export default CarbonAds;

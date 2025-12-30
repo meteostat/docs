@@ -28,14 +28,40 @@
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
 }
 
-#carbonads {
-  position: static;
-  max-width: 400px;
-  padding: 0.5rem;
-  margin: 1rem 0;
-  overflow: hidden;
+.carbon-ads {
+  min-height: 102px;
+  padding: 1.5rem 1.5rem 0;
   font-size: 0.8125rem;
   line-height: 1.4;
   text-align: left;
   background-color: #f8f9fa;
+}
+
+.carbon-ads a {
+  color: #444;
+  font-weight: 400;
+  display: inline;
+}
+
+.carbon-ads .carbon-img {
+  float: left;
+  margin-right: 1rem;
+  border: 1px solid #eaecef;
+}
+
+.carbon-ads .carbon-img img {
+  display: block;
+}
+
+.carbon-ads .carbon-poweredby {
+  color: #999;
+  display: block;
+  margin-top: 0.5em;
+}
+
+@media (max-width: 719px) {
+  .carbon-ads .carbon-img img {
+    width: 100px;
+    height: 77px;
+  }
 }
