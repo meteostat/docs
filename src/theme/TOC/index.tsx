@@ -4,7 +4,7 @@ import TOCItems from "@theme/TOCItems";
 import type { Props } from "@theme/TOC";
 
 import styles from "./styles.module.css";
-import Ad from "@site/src/components/Ad";
+import CarbonAds from "@site/src/components/Ad";
 
 // Using a custom className
 // This prevents TOCInline/TOCCollapsible getting highlighted by mistake
@@ -19,7 +19,7 @@ export default function TOC({ className, ...props }: Props): ReactNode {
         linkClassName={LINK_CLASS_NAME}
         linkActiveClassName={LINK_ACTIVE_CLASS_NAME}
       />
-      <Ad />
+      <CarbonAds />
     </div>
   );
 }

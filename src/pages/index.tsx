@@ -7,7 +7,6 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
-import Ad from "../components/Ad";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -22,9 +21,6 @@ function HomepageHeader() {
           <Link className="button button--secondary button--lg" to="/overview">
             Documentation →
           </Link>
-        </div>
-        <div className={styles.ads}>
-          <Ad />
         </div>
       </div>
     </header>
