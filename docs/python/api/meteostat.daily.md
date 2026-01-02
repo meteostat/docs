@@ -1,6 +1,6 @@
 ---
 title: meteostat.daily | API Reference | Python Library
-sidebar_label: meteostat.daily
+sidebar_label: ms.daily
 sidebar_position: 1
 ---
 

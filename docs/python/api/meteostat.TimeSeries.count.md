@@ -1,6 +1,6 @@
 ---
 title: meteostat.TimeSeries.count | API Reference | Python Library
-sidebar_label: meteostat.TimeSeries.count
+sidebar_label: ms.TimeSeries.count
 sidebar_position: 6
 ---
 

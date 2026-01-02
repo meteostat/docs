@@ -1,6 +1,6 @@
 ---
 title: meteostat.TimeSeries.fetch | API Reference | Python Library
-sidebar_label: meteostat.TimeSeries.fetch
+sidebar_label: ms.TimeSeries.fetch
 sidebar_position: 5
 ---
 

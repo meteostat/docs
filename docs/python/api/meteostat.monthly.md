@@ -1,6 +1,6 @@
 ---
 title: meteostat.monthly | API Reference | Python Library
-sidebar_label: meteostat.monthly
+sidebar_label: ms.monthly
 sidebar_position: 2
 ---
 

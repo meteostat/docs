@@ -1,6 +1,6 @@
 ---
 title: meteostat.hourly | API Reference | Python Library
-sidebar_label: meteostat.hourly
+sidebar_label: ms.hourly
 sidebar_position: 0
 ---
 

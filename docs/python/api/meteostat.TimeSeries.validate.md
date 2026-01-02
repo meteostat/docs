@@ -1,6 +1,6 @@
 ---
 title: meteostat.TimeSeries.validate | API Reference | Python Library
-sidebar_label: meteostat.TimeSeries.validate
+sidebar_label: ms.TimeSeries.validate
 sidebar_position: 8
 ---
 

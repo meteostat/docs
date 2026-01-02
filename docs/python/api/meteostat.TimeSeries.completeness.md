@@ -1,6 +1,6 @@
 ---
 title: meteostat.TimeSeries.completeness | API Reference | Python Library
-sidebar_label: meteostat.TimeSeries.completeness
+sidebar_label: ms.TimeSeries.completeness
 sidebar_position: 7
 ---
 
