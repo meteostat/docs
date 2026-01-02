@@ -1,0 +1,10 @@
+{
+  "position": 14,
+  "label": "API Reference",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "python-api-overview"
+  }
+}

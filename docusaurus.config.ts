@@ -77,6 +77,16 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
+    algolia: {
+      appId: "LUYJ4VXG2A",
+      // Public API key: it is safe to commit it
+      apiKey: "afea5bf10e5660cdd92a0c5ffd6817a6",
+      indexName: "meteostat",
+      contextualSearch: true,
+      searchParameters: {},
+      searchPagePath: "search",
+      insights: false,
+    },
     navbar: {
       title: "Meteostat Developers",
       logo: {
