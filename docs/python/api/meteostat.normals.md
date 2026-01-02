@@ -1,7 +1,7 @@
 ---
 title: meteostat.normals | API Reference | Python Library
 sidebar_label: meteostat.normals
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # meteostat.normals
