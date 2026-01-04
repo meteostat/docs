@@ -1,7 +1,7 @@
 ---
 title: meteostat.merge | API Reference | Python Library
 sidebar_label: ms.merge
-sidebar_position: 10
+sidebar_position: 9
 ---
 
 # meteostat.merge

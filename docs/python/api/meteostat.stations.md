@@ -8,7 +8,7 @@ sidebar_position: 12
 
 Access to the comprehensive database of weather stations worldwide.
 
-**Type:** _Module_
+**Type:** _Singleton_
 
 ## Methods
 

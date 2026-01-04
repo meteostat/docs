@@ -1,7 +1,7 @@
 ---
 title: meteostat.interpolate | API Reference | Python Library
 sidebar_label: ms.interpolate
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 # meteostat.interpolate

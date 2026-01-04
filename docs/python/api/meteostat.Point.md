@@ -1,7 +1,7 @@
 ---
 title: meteostat.Point | API Reference | Python Library
 sidebar_label: ms.Point
-sidebar_position: 11
+sidebar_position: 17
 ---
 
 # meteostat.Point

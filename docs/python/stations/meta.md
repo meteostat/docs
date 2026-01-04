@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Meta Data
 
-Meteostat provides detailed metadata for each weather station in its database. This metadata includes information such as the station's name, location (latitude, longitude, elevation), country, and provider-specific identifiers. Metadata for individual stations can be accessed using the `meta` method. This method retrieves a `Station` object containing all relevant metadata for the specified station.
+Meteostat provides detailed metadata for each weather station in its database. This metadata includes information such as the station's name, location (latitude, longitude, elevation), country, and provider-specific identifiers. Metadata for individual stations can be accessed using the [`meta`](../api/meteostat.stations.meta.md) method. This method retrieves a [`Station`](../api/meteostat.Station.md) object containing all relevant metadata for the specified station.
 
 ## 🚀 Example {#example}
 
@@ -46,22 +46,4 @@ Station(
 
 ## 🔍 API {#api}
 
-### Interface
-
-```
-meteostat.stations.meta
-```
-
-### Parameters
-
-#### `station` {#parameter-station}
-
-The unique identifier of the weather station.
-
-##### Data Type {#parameter-station-type}
-
-`str`
-
-### Return Value
-
-`Station`
+[`meteostat.stations.meta`](../api/meteostat.stations.meta.md)
