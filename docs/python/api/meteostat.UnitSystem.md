@@ -1,7 +1,7 @@
 ---
 title: meteostat.UnitSystem | API Reference | Python Library
 sidebar_label: ms.UnitSystem
-sidebar_position: 20
+sidebar_position: 24
 ---
 
 # meteostat.UnitSystem

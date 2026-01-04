@@ -8,9 +8,8 @@ sidebar_position: 4
 
 A class representing a time series of meteorological data.
 
-**Type:** _Class_
-
-## Overview
+- **Type:** _Class_
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/timeseries.py)
 
 The `TimeSeries` class provides access to weather or climate data for one or multiple weather stations. Time series objects are created through one of the granularity-specific interfaces:
 

@@ -1,7 +1,7 @@
 ---
 title: meteostat.Station | API Reference | Python Library
 sidebar_label: ms.Station
-sidebar_position: 16
+sidebar_position: 17
 ---
 
 # meteostat.Station

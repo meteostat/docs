@@ -8,6 +8,8 @@ sidebar_position: 15
 
 Check data availability for a weather station.
 
+**Type:** _Method_ of [`meteostat.stations`](./meteostat.stations.md)
+
 ## Parameters
 
 | Parameter   | Description                                     | Data Type                  | Default Value |
@@ -17,7 +19,7 @@ Check data availability for a weather station.
 
 ## Returns
 
-`Inventory`
+[`Inventory`](./meteostat.Inventory.md)
 
 ## Example
 

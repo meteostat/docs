@@ -1,7 +1,7 @@
 ---
 title: meteostat.config | API Reference | Python Library
 sidebar_label: ms.config
-sidebar_position: 21
+sidebar_position: 25
 ---
 
 # meteostat.config

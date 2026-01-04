@@ -1,7 +1,7 @@
 ---
 title: meteostat.config.get_env_name | API Reference | Python Library
 sidebar_label: ms.config.get_env_name
-sidebar_position: 23
+sidebar_position: 27
 ---
 
 # meteostat.config.get_env_name()

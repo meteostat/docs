@@ -1,7 +1,7 @@
 ---
 title: meteostat.Parameter | API Reference | Python Library
 sidebar_label: ms.Parameter
-sidebar_position: 18
+sidebar_position: 22
 ---
 
 # meteostat.Parameter

@@ -82,311 +82,113 @@ Meteostat provides access to time series data for thousands of weather stations 
   </TabItem>
 </Tabs>
 
+## 🎯 Location Input {#location-input}
+
+When working with time series data in Meteostat, you can specify weather stations and geographical points as location input. We are using the [`hourly`](/python/timeseries/hourly.md) function as an example, but the same options apply to other time series functions.
+
+:::tip[Performance Tip]
+When working with the default providers, you may specify a new [`Station`](../api/meteostat.Station.md) object with just the station ID. That will improve performance by avoiding unnecessary metadata lookups. Example: `ms.Station(id='10637')`.
+:::
+
+### Station ID
+
+You can access time series data by specifying a weather station using its Meteostat ID:
+
+```python
+ts = ms.hourly('10637', START, END)
+```
+
+You can also provide a list of station IDs to access data from multiple stations simultaneously:
+
+```python
+ts = ms.hourly(['10637', '10635'], START, END)
+```
+
+### Station
+
+You can pass a [`Station`](../api/meteostat.Station.md) object to specify a weather station. This could also be a list of [`Station`](../api/meteostat.Station.md) objects. Passing a [`Station`](../api/meteostat.Station.md) object allows you to specify a station's metadata yourself. This is useful if you want to include stations that are not (yet) part of the Meteostat database.
+
+```python
+STATION = ms.Station(
+    id='10637',
+    name='Frankfurt Airport',
+    country='DE',
+    region='HE',
+    lat=50.05,
+    lon=8.6842,
+    elevation=100
+)
+
+ts = ms.hourly(STATION, START, END)
+```
+
+### DataFrame
+
+You can pass a Pandas [`DataFrame`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) with an index named `id`. This is mainly used for accessing data for a list of nearby weather stations obtained from the [`meteostat.stations.nearby`](../api/meteostat.stations.nearby.md) function.
+
+```python
+# Specify location and time range
+POINT = ms.Point(50.1155, 8.6842, 113)
+
+# Get nearby weather stations as Pandas DataFrame
+stations = ms.stations.nearby(POINT, limit=4)
+
+# Get hourly data
+ts = ms.hourly(stations, START, END)
+```
+
+### Point
+
+You can pass a [`Point`](../api/meteostat.Point.md) object to specify a geographical point. This could also be a list of [`Point`](../api/meteostat.Point.md) objects. Passing a [`Point`](../api/meteostat.Point.md) object allows you to specify a location's metadata yourself. This is useful if you want to access data for a geographical point, not a specific weather station.
+
+:::warning
+Note that when using a [`Point`](../api/meteostat.Point.md) object, only providers that support accessing data by geographical point can be used.
+:::
+
+```python
+POINT = ms.Point(50.05, 8.6842, 100)
+
+ts = ms.hourly(POINT, START, END, providers=[ms.Provider.METNO_FORECAST])
+```
+
+## 🔀 Merging Time Series {#merging}
+
+Meteostat allows you to merge multiple time series objects into a single object using the [`merge`](../api/meteostat.merge.md) function. This is useful when you want to combine data from different sources or time periods into one cohesive dataset. The [`merge`](../api/meteostat.merge.md) function can handle various types of time series data, including hourly, daily, and monthly data. However, it is important to ensure that the time series being merged are compatible in terms of their structure and parameters.
+
+### Requirements {#merging-requirements}
+
+- All time series objects to be merged must have the same granularity (e.g., all hourly, all daily, or all monthly).
+- In case of hourly data, the time zones of the time series objects must match.
+
+### Example {#merging-example}
+
+```python
+from datetime import date
+import meteostat as ms
+
+# Specify time range
+START1 = date(2020, 1, 1)
+END1 = date(2020, 1, 10)
+START2 = date(2020, 1, 11)
+END2 = date(2020, 1, 20)
+
+# Get daily data for two different periods
+ts1 = ms.daily('72503', START1, END1)
+ts2 = ms.daily('72503', START2, END2)
+
+# Merge time series
+ts = ms.merge([ts1, ts2])
+
+# Fetch combined data as Pandas DataFrame
+df = ts.fetch()
+
+print(df)
+```
+
 ## 👀 Learn More {#learn-more}
 
 <DocCardList />
 
-## 📄 Source Code {#source-code}
-
-The source code of the `TimeSeries` class is available on [GitHub](#).
-
 ## 🔍 API {#api}
 
-### Interface
-
-Through one of the following:
-
-- [`meteostat.hourly`](/python/timeseries/hourly.md)
-- [`meteostat.daily`](/python/timeseries/daily.md)
-- [`meteostat.monthly`](/python/timeseries/monthly.md)
-- [`meteostat.normals`](/python/normals.md)
-
-### Parameters
-
-Please refer to the respective [interface documentation](#interface) for a list of accepted parameters.
-
-### Properties
-
-#### `granularity` {#property-granularity}
-
-The time series's granularity.
-
-##### Data Type {#property-granularity-type}
-
-`Granularity`
-
----
-
-#### `stations` {#property-stations}
-
-Included weather stations.
-
-##### Data Type {#property-stations-type}
-
-[`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html)
-
----
-
-#### `start` {#property-start}
-
-Start date of the requested period.
-
-##### Data Type {#property-start-type}
-
-[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime)
-
----
-
-#### `end` {#property-end}
-
-End date of the requested period.
-
-##### Data Type {#property-end-type}
-
-[`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime)
-
----
-
-#### `timezone` {#property-timezone}
-
-Time zone of the period and records (only hourly granularity).
-
-##### Data Type {#property-timezone-type}
-
-`str`
-
----
-
-#### `parameters` {#property-parameters}
-
-Included meteorological parameters.
-
-##### Data Type {#property-parameters-type}
-
-`List[Parameter]`
-
----
-
-#### `freq` {#property-freq}
-
-The time series's frequency (e.g. `1h` in case of hourly granularity).
-
-##### Data Type {#property-freq-type}
-
-`str`
-
----
-
-#### `empty` {#property-empty}
-
-Is the time series empty?
-
-##### Data Type {#property-empty-type}
-
-`bool`
-
----
-
-#### `providers` {#property-providers}
-
-Included data providers.
-
-##### Data Type {#property-providers-type}
-
-`List[Provider]`
-
----
-
-#### `licenses` {#property-licenses}
-
-Applicable licenses.
-
-##### Data Type {#property-licenses-type}
-
-`List[License]`
-
----
-
-#### `attribution` {#property-attribution}
-
-The attribution/copyright string.
-
-##### Data Type {#property-attribution-type}
-
-`str`
-
----
-
-#### `commercial` {#property-commercial}
-
-Can data be used for commercial purposes?
-
-##### Data Type {#property-commercial-type}
-
-`bool`
-
----
-
-#### `valid` {#property-is_valid}
-
-Does the time series pass all quality checks?
-
-##### Data Type {#property-is_valid-type}
-
-`bool`
-
----
-
-#### `lapse_rate` {#property-lapse_rate}
-
-The temperature's lapse rate, if applicable (at least two included weather stations with sufficient data).
-
-##### Data Type {#property-lapse_rate-type}
-
-`float` or `None`
-
-### Methods
-
-#### `validate` {#method-validate}
-
-Check if the time series passes all quality checks.
-
-##### Attributes {#method-validate-attributes}
-
-This method does not accept any attributes.
-
-##### Return Value {#method-validate-return}
-
-`bool`
-
-##### Example {#method-validate-example}
-
-```python
-from datetime import date
-import meteostat as ms
-
-# Specify time range
-START = date(2018, 1, 1)
-END = date(2018, 12, 31)
-
-# Get daily data
-ts = ms.daily('10637', START, END)
-# highlight-next-line
-is_valid = ts.validate()
-
-print(f'Time series valid: {is_valid}')
-```
-
----
-
-#### `fetch` {#method-fetch}
-
-Fetch the actual weather/climate data.
-
-##### Attributes {#method-fetch-attributes}
-
-| **Attribute** | **Description**                                               | **Type**     | **Default**         |
-| :------------ | :------------------------------------------------------------ | :----------- | :------------------ |
-| `squash`      | Squash data from different sources                            | `bool`       | `True`              |
-| `fill`        | Fill missing records                                          | `bool`       | `False`             |
-| `sources`     | Include source columns?                                       | `bool`       | `False`             |
-| `location`    | Add location-related columns (latitude, longitude, elevation) | `bool`       | `False`             |
-| `clean`       | Remove inaccurate data                                        | `bool`       | `True`              |
-| `humanize`    | Humanize data values for wind direction and condition code    | `bool`       | `False`             |
-| `units`       | Unit system for data values (e.g., metric or imperial)        | `UnitSystem` | `UnitSystem.METRIC` |
-
-##### Return Value {#method-fetch-return}
-
-[`DataFrame`](https://pandas.pydata.org/docs/reference/frame.html)
-
-##### Example {#method-fetch-example}
-
-```python
-from datetime import date
-import meteostat as ms
-
-# Specify time range
-START = date(2018, 1, 1)
-END = date(2018, 12, 31)
-
-# Get daily data
-ts = ms.daily('10637', START, END)
-# highlight-next-line
-df = ts.fetch()
-
-# Print the DataFrame
-print(df)
-```
-
----
-
-#### `count` {#method-count}
-
-Get the number of rows in the whole time series or by parameter. `NaN` values are excluded.
-
-##### Attributes {#method-count-attributes}
-
-| **Attribute** | **Description**                                                                      | **Type**             | **Default** |
-| :------------ | :----------------------------------------------------------------------------------- | :------------------- | :---------- |
-| `parameter`   | The parameter which should be counted, if `None` the whole time series is considered | `Parameter` or `str` | `None`      |
-
-##### Return Value {#method-count-return}
-
-`int`
-
-##### Example {#method-count-example}
-
-```python
-from datetime import date
-import meteostat as ms
-
-# Specify time range
-START = date(2018, 1, 1)
-END = date(2018, 12, 31)
-
-# Get daily data
-ts = ms.daily('10637', START, END)
-# highlight-next-line
-count = ts.count(ms.Parameter.PRCP)
-
-# Print the DataFrame
-print(f'{count} rows with precipitation data')
-```
-
----
-
-#### `completeness` {#method-completeness}
-
-The share of non-`NaN` values of the time series's full length.
-
-##### Attributes {#method-completeness-attributes}
-
-| **Attribute** | **Description**                                                          | **Type**                     | **Default** |
-| :------------ | :----------------------------------------------------------------------- | :--------------------------- | :---------- |
-| `parameter`   | The parameter of interest, if `None` the whole time series is considered | `Parameter`, `str` or `None` | `None`      |
-
-##### Return Value {#method-completeness-return}
-
-`float`
-
-- `0` means all data is missing
-- `1` means all data is available
-
-##### Example {#method-completeness-example}
-
-```python
-from datetime import date
-import meteostat as ms
-
-# Specify time range
-START = date(2018, 1, 1)
-END = date(2018, 12, 31)
-
-# Get daily data
-ts = ms.daily('10637', START, END)
-# highlight-next-line
-completeness = ts.completeness(ms.Parameter.PRCP)
-
-# Print the DataFrame
-print(f'Precipitation data completeness: {completeness * 100}%')
-```
+[`meteostat.TimeSeries`](../api/meteostat.TimeSeries.md)

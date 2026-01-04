@@ -1,7 +1,7 @@
 ---
 title: meteostat.Provider | API Reference | Python Library
 sidebar_label: ms.Provider
-sidebar_position: 19
+sidebar_position: 23
 ---
 
 # meteostat.Provider

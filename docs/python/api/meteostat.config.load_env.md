@@ -1,7 +1,7 @@
 ---
 title: meteostat.config.load_env | API Reference | Python Library
 sidebar_label: ms.config.load_env
-sidebar_position: 22
+sidebar_position: 23
 ---
 
 # meteostat.config.load_env()
