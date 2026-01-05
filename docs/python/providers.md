@@ -1,7 +1,7 @@
 ---
 title: Data Providers | Python Library
 sidebar_label: Data Providers
-sidebar_position: 8
+sidebar_position: 6
 ---
 
 # Data Providers

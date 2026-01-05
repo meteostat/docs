@@ -1,0 +1,47 @@
+---
+title: meteostat.hourly | API Reference | Python Library
+sidebar_label: ms.hourly
+sidebar_position: 0
+---
+
+# meteostat.hourly
+
+Get hourly weather data for a specific station or location.
+
+- **Type:** _Function_
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/hourly.py)
+
+## Parameters
+
+| Parameter    | Description                                                   | Data Type                                                                                                                                                                                                                                                     | Default Value                                  |
+| ------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `station`    | Weather station(s) or geographical point(s).                  | `str`, [`Station`](./meteostat.Station.md), [`Point`](./meteostat.Point.md), `List[str]`, [`List[Station]`](./meteostat.Station.md), [`List[Point]`](./meteostat.Point.md), [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) | Required                                       |
+| `start`      | Start date of the desired period.                             | [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime), [`date`](https://docs.python.org/3/library/datetime.html#datetime.date) or `None`                                                                                            | `None`                                         |
+| `end`        | End date of the desired period.                               | [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime), [`date`](https://docs.python.org/3/library/datetime.html#datetime.date) or `None`                                                                                            | `None`                                         |
+| `timezone`   | Time zone of the period and records. If not set, UTC is used. | `str` or `None`                                                                                                                                                                                                                                               | `None` (UTC)                                   |
+| `parameters` | Requested meteorological parameters.                          | [`List[Parameter]`](./meteostat.Parameter.md)                                                                                                                                                                                                                 | [Default parameters](/parameters?g=hourly&d=1) |
+| `providers`  | Requested data providers.                                     | [`List[Provider]`](./meteostat.Provider.md)                                                                                                                                                                                                                   | `[Provider.HOURLY]`                            |
+
+## Returns
+
+[`TimeSeries`](./meteostat.TimeSeries.md)
+
+## Example
+
+```python
+# Import Meteostat library and dependencies
+from datetime import datetime
+import meteostat as ms
+
+# Set time period
+start = datetime(2018, 1, 1)
+end = datetime(2018, 12, 31, 23, 59)
+
+# Get hourly data
+# highlight-next-line
+ts = ms.hourly(ms.Station(id='72219'), start, end)
+df = ts.fetch()
+
+# Print DataFrame
+print(df)
+```
