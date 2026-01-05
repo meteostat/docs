@@ -1,7 +1,7 @@
 import React, { type ReactNode } from "react";
 import clsx from "clsx";
 import { ThemeClassNames } from "@docusaurus/theme-common";
-import { useSidebarBreadcrumbs } from "@docusaurus/plugin-content-docs/client";
+import { useSidebarBreadcrumbsWithContext } from "./useSidebarBreadcrumbsWithContext";
 import { useHomePageRoute } from "@docusaurus/theme-common/internal";
 import Link from "@docusaurus/Link";
 import { translate } from "@docusaurus/Translate";
@@ -9,7 +9,6 @@ import HomeBreadcrumbItem from "@theme/DocBreadcrumbs/Items/Home";
 import DocBreadcrumbsStructuredData from "@theme/DocBreadcrumbs/StructuredData";
 
 import styles from "./styles.module.css";
-import ContextRoot from "@site/src/components/ContextRoot";
 
 // TODO move to design system folder
 function BreadcrumbsItemLink({
@@ -54,7 +53,7 @@ function BreadcrumbsItem({
 }
 
 export default function DocBreadcrumbs(): ReactNode {
-  const breadcrumbs = useSidebarBreadcrumbs();
+  const breadcrumbs = useSidebarBreadcrumbsWithContext();
   const homePageRoute = useHomePageRoute();
 
   if (!breadcrumbs) {
@@ -77,7 +76,6 @@ export default function DocBreadcrumbs(): ReactNode {
       >
         <ul className="breadcrumbs">
           {homePageRoute && <HomeBreadcrumbItem />}
-          <ContextRoot />
           {breadcrumbs.map((item, idx) => {
             const isLast = idx === breadcrumbs.length - 1;
             const href =
