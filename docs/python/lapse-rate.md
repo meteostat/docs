@@ -62,7 +62,7 @@ lapse_rate = ms.lapse_rate(ts)
 print(lapse_rate)
 ```
 
-This would output something like `8.9618535745605`, indicating a decrease of approximately 0.9 °C per 100 meters of elevation gain. This value is slightly higher than the standard lapse rate of 6.5 °C per 1000 meters, which can occur due to local atmospheric conditions.
+This would output something like `8.9618535745605`, indicating a lapse rate of approximately 8.96 °C per 1000 meters (or approximately 0.896 °C per 100 meters) of elevation gain. This value is slightly higher than the standard lapse rate of 6.5 °C per 1000 meters, which can occur due to local atmospheric conditions.
 
 ## 🔍 API {#api}
 
