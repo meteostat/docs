@@ -8,10 +8,11 @@ sidebar_position: 12
 
 Access to the comprehensive database of weather stations worldwide.
 
-**Type:** _Singleton_
+- **Type:** _Singleton_
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/stations.py)
 
 ## Methods
 
-- [`meta()`](./meteostat.stations.meta.md) - Retrieve metadata for a specific weather station
-- [`nearby()`](./meteostat.stations.nearby.md) - Find weather stations near a geographical point
-- [`inventory()`](./meteostat.stations.inventory.md) - Check data availability for a weather station
+- [`meta`](./meteostat.stations.meta.md) - Retrieve metadata for a specific weather station
+- [`nearby`](./meteostat.stations.nearby.md) - Find weather stations near a geographical point
+- [`inventory`](./meteostat.stations.inventory.md) - Check data availability for a weather station

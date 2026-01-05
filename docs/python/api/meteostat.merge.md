@@ -8,13 +8,8 @@ sidebar_position: 9
 
 Merge multiple time series objects into a single object.
 
-**Type:** _Function_
-
-## Parameters
-
-| Parameter | Description                                                          | Data Type          | Default Value |
-| --------- | -------------------------------------------------------------------- | ------------------ | ------------- |
-| `objs`    | A list of [`TimeSeries`](./meteostat.TimeSeries.md) objects to merge | `List[TimeSeries]` | Required      |
+- **Type**: _Function_
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/merge.py)
 
 :::warning[Requirements]
 
@@ -23,11 +18,17 @@ Merge multiple time series objects into a single object.
 
 :::
 
+## Parameters
+
+| Parameter | Description                                                          | Data Type                                       | Default Value |
+| --------- | -------------------------------------------------------------------- | ----------------------------------------------- | ------------- |
+| `objs`    | A list of [`TimeSeries`](./meteostat.TimeSeries.md) objects to merge | [`List[TimeSeries]`](./meteostat.TimeSeries.md) | Required      |
+
 ## Returns
 
 [`TimeSeries`](./meteostat.TimeSeries.md)
 
-A new `TimeSeries` object representing the merged time series.
+The merged time series object.
 
 ## Example
 
@@ -35,7 +36,7 @@ A new `TimeSeries` object representing the merged time series.
 from datetime import date
 import meteostat as ms
 
-# Specify time ranges
+# Specify time range
 START1 = date(2020, 1, 1)
 END1 = date(2020, 1, 10)
 START2 = date(2020, 1, 11)
@@ -47,10 +48,10 @@ ts2 = ms.daily('72503', START2, END2)
 
 # Merge time series
 # highlight-next-line
-ts_combined = ms.merge([ts1, ts2])
+ts = ms.merge([ts1, ts2])
 
 # Fetch combined data as Pandas DataFrame
-df = ts_combined.fetch()
+df = ts.fetch()
 
 print(df)
 ```

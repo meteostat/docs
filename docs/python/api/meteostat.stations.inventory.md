@@ -8,14 +8,15 @@ sidebar_position: 15
 
 Check data availability for a weather station.
 
-**Type:** _Method_ of [`meteostat.stations`](./meteostat.stations.md)
+- **Type:** _Method_ of [`meteostat.stations`](./meteostat.stations.md)
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/stations.py)
 
 ## Parameters
 
-| Parameter   | Description                                     | Data Type                  | Default Value |
-| ----------- | ----------------------------------------------- | -------------------------- | ------------- |
-| `station`   | The unique identifier(s) of the weather station | `str` or `List[str]`       | Required      |
-| `providers` | Data provider(s) to filter inventory by         | `Optional[List[Provider]]` | `None`        |
+| Parameter   | Description                                     | Data Type                                             | Default Value |
+| ----------- | ----------------------------------------------- | ----------------------------------------------------- | ------------- |
+| `station`   | The unique identifier(s) of the weather station | `str` or `List[str]`                                  | Required      |
+| `providers` | Data provider(s) to filter inventory by         | [`List[Provider]`](./meteostat.Provider.md) or `None` | `None`        |
 
 ## Returns
 

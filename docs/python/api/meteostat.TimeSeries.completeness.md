@@ -8,11 +8,14 @@ sidebar_position: 7
 
 The share of non-`NaN` values of the time series's full length.
 
+- **Type:** _Method_ of [`TimeSeries`](./meteostat.TimeSeries.md)
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/timeseries.py#L280)
+
 ## Parameters
 
-| Parameter   | Description                                                              | Type                         | Default |
-| ----------- | ------------------------------------------------------------------------ | ---------------------------- | ------- |
-| `parameter` | The parameter of interest, if `None` the whole time series is considered | `Parameter`, `str` or `None` | `None`  |
+| Parameter   | Description                                                              | Type                                              | Default |
+| ----------- | ------------------------------------------------------------------------ | ------------------------------------------------- | ------- |
+| `parameter` | The parameter of interest, if `None` the whole time series is considered | [`Parameter`](./meteostat.Parameter.md) or `None` | `None`  |
 
 ## Returns
 

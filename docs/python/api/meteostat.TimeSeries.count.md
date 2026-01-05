@@ -8,11 +8,14 @@ sidebar_position: 6
 
 Get the number of rows in the whole time series or by parameter. `NaN` values are excluded.
 
+- **Type:** _Method_ of [`TimeSeries`](./meteostat.TimeSeries.md)
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/timeseries.py#L255)
+
 ## Parameters
 
-| Parameter   | Description                                                                          | Type                 | Default |
-| ----------- | ------------------------------------------------------------------------------------ | -------------------- | ------- |
-| `parameter` | The parameter which should be counted, if `None` the whole time series is considered | `Parameter` or `str` | `None`  |
+| Parameter   | Description                                                                          | Type                                              | Default |
+| ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------- | ------- |
+| `parameter` | The parameter which should be counted, if `None` the whole time series is considered | [`Parameter`](./meteostat.Parameter.md) or `None` | `None`  |
 
 ## Returns
 

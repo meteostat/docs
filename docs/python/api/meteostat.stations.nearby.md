@@ -8,6 +8,9 @@ sidebar_position: 14
 
 Find weather stations near a geographical point.
 
+- **Type:** _Method_ of [`meteostat.stations`](./meteostat.stations.md)
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/stations.py)
+
 ## Parameters
 
 | Parameter | Description                                          | Data Type                       | Default Value   |

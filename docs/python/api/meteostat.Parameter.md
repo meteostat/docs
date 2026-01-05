@@ -1,14 +1,15 @@
 ---
 title: meteostat.Parameter | API Reference | Python Library
 sidebar_label: ms.Parameter
-sidebar_position: 22
+sidebar_position: 19
 ---
 
 # meteostat.Parameter
 
 Enumeration of meteorological parameters available in Meteostat.
 
-**Type:** _Enumeration_
+- **Type:** _Enumeration_
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/enumerations.py#L29)
 
 The `Parameter` enumeration defines all available meteorological parameters that can be retrieved from Meteostat. Different parameters are available for different data granularities (hourly, daily, monthly, normals). Use these enumeration values to specify which parameters you want to retrieve in your requests.
 

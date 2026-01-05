@@ -6,7 +6,7 @@ sidebar_position: 9
 
 # Configuration
 
-The Meteostat Python library allows you to customize its behavior through a configuration system. You can set various options that affect how data is retrieved, cached, and processed. The configuration can be modified at runtime using the `meteostat.config` module.
+The Meteostat Python library allows you to customize its behavior through a configuration system. You can set various options that affect how data is retrieved, cached, and processed. The configuration can be modified at runtime using the [`meteostat.config`](./api/meteostat.config.md) module.
 
 ## 🚀 Example {#example}
 

@@ -1,14 +1,15 @@
 ---
 title: meteostat.Point | API Reference | Python Library
 sidebar_label: ms.Point
-sidebar_position: 20
+sidebar_position: 17
 ---
 
 # meteostat.Point
 
 A class representing a geographical point with latitude, longitude, and optional elevation.
 
-**Type:** _Class_
+- **Type:** _Class_
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/point.py)
 
 ## Parameters
 
@@ -16,22 +17,18 @@ A class representing a geographical point with latitude, longitude, and optional
 | ----------- | ----------------------------------------------------------------- | --------------- | ------------- |
 | `latitude`  | The latitude of the geographical point in decimal degrees         | `float`         | Required      |
 | `longitude` | The longitude of the geographical point in decimal degrees        | `float`         | Required      |
-| `elevation` | The elevation of the geographical point in meters above sea level | `Optional[int]` | `None`        |
+| `elevation` | The elevation of the geographical point in meters above sea level | `int` or `None` | `None`        |
 
-## Properties
-
-| Property    | Description                             | Type            |
-| ----------- | --------------------------------------- | --------------- |
-| `latitude`  | The latitude of the geographical point  | `float`         |
-| `longitude` | The longitude of the geographical point | `float`         |
-| `elevation` | The elevation of the geographical point | `int` or `None` |
-
-:::warning[Validation]
+:::info[Validation]
 
 - Latitude must be between -90 and 90 degrees
 - Longitude must be between -180 and 180 degrees
 
 :::
+
+## Properties
+
+All parameters are available as properties of the `Point` class.
 
 ## Example
 

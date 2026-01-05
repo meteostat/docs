@@ -6,7 +6,10 @@ sidebar_position: 8
 
 # meteostat.TimeSeries.validate
 
-Check if the time series passes all quality checks.
+Check if the time series passes all quality checks. Values which fail any of the checks can be set to `NaN` when fetching data (using the [`clean`](./meteostat.TimeSeries.fetch.md#parameters) parameter).
+
+- **Type:** _Method_ of [`TimeSeries`](./meteostat.TimeSeries.md)
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/timeseries.py#L309)
 
 ## Parameters
 

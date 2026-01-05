@@ -8,30 +8,19 @@ sidebar_position: 17
 
 A class representing a weather station with its metadata and geographic location.
 
-**Type:** _Class_
-
-## Parameters
-
-| Parameter   | Description                                            | Data Type | Default Value |
-| ----------- | ------------------------------------------------------ | --------- | ------------- |
-| `id`        | The unique Meteostat identifier of the station         | `str`     | Required      |
-| `name`      | The name of the weather station                        | `str`     | `None`        |
-| `country`   | ISO 3166-1 alpha-2 country code (e.g., "DE")           | `str`     | `None`        |
-| `region`    | ISO 3166-2 state or region code (e.g., "HE")           | `str`     | `None`        |
-| `latitude`  | The latitude of the station in decimal degrees         | `float`   | `None`        |
-| `longitude` | The longitude of the station in decimal degrees        | `float`   | `None`        |
-| `elevation` | The elevation of the station in meters above sea level | `int`     | `None`        |
-| `timezone`  | The time zone of the station (e.g., "Europe/Berlin")   | `str`     | `None`        |
+- **Type:** _Dataclass_
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/typing.py#L21)
 
 ## Properties
 
-| Property    | Description                            | Type    |
-| ----------- | -------------------------------------- | ------- |
-| `id`        | The unique Meteostat identifier        | `str`   |
-| `name`      | The name of the weather station        | `str`   |
-| `country`   | ISO 3166-1 alpha-2 country code        | `str`   |
-| `region`    | ISO 3166-2 state or region code        | `str`   |
-| `latitude`  | The latitude of the station            | `float` |
-| `longitude` | The longitude of the station           | `float` |
-| `elevation` | The elevation of the station in meters | `int`   |
-| `timezone`  | The time zone of the station           | `str`   |
+| Property      | Description                                                              | Type              |
+| ------------- | ------------------------------------------------------------------------ | ----------------- |
+| `id`          | The Meteostat station ID (e.g., "10637" or "$0001" for virtual stations) | `str`             |
+| `name`        | The (usually English) name of the station                                | `str` or `None`   |
+| `country`     | ISO 3166-1 alpha-2 country code                                          | `str` or `None`   |
+| `region`      | ISO 3166-2 state or region code                                          | `str` or `None`   |
+| `identifiers` | Provider identifiers mapping                                             | `dict[str, str]`  |
+| `latitude`    | The latitude in degrees                                                  | `float` or `None` |
+| `longitude`   | The longitude in degrees                                                 | `float` or `None` |
+| `elevation`   | The elevation in meters                                                  | `int` or `None`   |
+| `timezone`    | The IANA timezone name                                                   | `str` or `None`   |

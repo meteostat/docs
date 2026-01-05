@@ -8,6 +8,9 @@ sidebar_position: 13
 
 Retrieve metadata for a specific weather station.
 
+- **Type:** _Method_ of [`meteostat.stations`](./meteostat.stations.md)
+- **Source Code:** [GitHub](https://github.com/meteostat/meteostat/blob/main/meteostat/api/stations.py)
+
 ## Parameters
 
 | Parameter | Description                                  | Data Type | Default Value |
@@ -16,7 +19,7 @@ Retrieve metadata for a specific weather station.
 
 ## Returns
 
-`Station`
+[`Station`](./meteostat.Station.md)
 
 ## Example
 
