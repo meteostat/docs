@@ -31,15 +31,13 @@
 .carbon-ads {
   min-height: 102px;
   margin-top: 1.5rem;
-  padding: 1rem;
   font-size: 0.75rem;
   line-height: 1.4;
   text-align: left;
-  background-color: #f8f9fa;
 }
 
 .carbon-ads a {
-  color: #444;
+  color: var(--ifm-toc-link-color);
   font-weight: 400;
   display: inline;
 }
@@ -47,7 +45,7 @@
 .carbon-ads .carbon-img {
   float: left;
   margin-right: 1rem;
-  border: 1px solid #eaecef;
+  border: 1px solid var(--ifm-toc-border-color);
 }
 
 .carbon-ads .carbon-img img {
