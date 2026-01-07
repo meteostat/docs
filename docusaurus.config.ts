@@ -72,6 +72,8 @@ const config: Config = {
     ],
   ],
 
+  plugins: ["docusaurus-plugin-matomo"],
+
   themeConfig: {
     // Replace with your project's social card
     image: "img/meteostat-social-card.jpg",
