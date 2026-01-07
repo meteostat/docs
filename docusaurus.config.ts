@@ -85,6 +85,12 @@ const config: Config = {
       searchPagePath: "search",
       insights: false,
     },
+    matomo: {
+      matomoUrl: "https://analytics.meteostat.org/",
+      siteId: "3",
+      phpLoader: "matomo.php",
+      jsLoader: "matomo.js",
+    },
     navbar: {
       title: "Meteostat Developers",
       logo: {
