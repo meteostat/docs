@@ -25,7 +25,7 @@ You must give credit to Meteostat and its meteorological data providers. Example
 
 > Source: [Meteostat](https://meteostat.net), [Deutscher Wetterdienst](https://www.dwd.de)
 
-All datasets published by Meteostat include information on the original data providers. If you're using the [Python Library](/python), please use the [`attribution`](/python/timeseries#property-attribution) feature.
+All datasets published by Meteostat include information on the original data providers. If you're using the [Python Library](/python), please use the [`attribution`](/python/api/meteostat.TimeSeries#properties) feature.
 
 If, for some reason, you're not able to determine the original data providers, consider providing attribution, such as:
 
