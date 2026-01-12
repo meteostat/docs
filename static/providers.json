@@ -275,58 +275,5 @@
       "cldc",
       "coco"
     ]
-  },
-  {
-    "id": "synop",
-    "name": "SYNOP Legacy",
-    "granularity": "hourly",
-    "parameters": [
-      "temp",
-      "rhum",
-      "prcp",
-      "snow",
-      "snwd",
-      "wdir",
-      "wspd",
-      "wpgt",
-      "pres",
-      "tsun",
-      "sghi",
-      "sdni",
-      "sdhi",
-      "cldc",
-      "vsby",
-      "coco"
-    ]
-  },
-  {
-    "id": "metar_legacy",
-    "name": "METAR Legacy",
-    "granularity": "hourly",
-    "parameters": [
-      "temp",
-      "rhum",
-      "wdir",
-      "wspd",
-      "pres",
-      "coco"
-    ]
-  },
-  {
-    "id": "model",
-    "name": "Legacy Model",
-    "granularity": "hourly",
-    "parameters": [
-      "temp",
-      "rhum",
-      "prcp",
-      "wdir",
-      "wspd",
-      "wpgt",
-      "pres",
-      "tsun",
-      "cldc",
-      "coco"
-    ]
   }
 ]
