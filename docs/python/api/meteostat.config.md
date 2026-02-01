@@ -41,6 +41,7 @@ For default values, please refer to the [source code](https://github.com/meteost
 | `aviationweather_user_agent` | User agent for Aviation Weather API.                                                                                                                                                  | `str` or `None`                               |
 | `metno_forecast_endpoint`    | Met.no forecast API endpoint.                                                                                                                                                         | `str`                                         |
 | `metno_user_agent`           | User agent for Met.no APIs. Please refer to the [Met.no API documentation](https://api.met.no/doc/TermsOfService) for more information.                                               | `str` or `None`                               |
+| `gsa_api_base_url`           | Base URL for the GeoSphere Austria API.                                                                                                                                               | `str`                                         |
 
 ## Methods
 
