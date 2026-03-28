@@ -1,0 +1,10 @@
+{
+  "position": 2,
+  "label": "Python",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "cookbook-python-overview"
+  }
+}

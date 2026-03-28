@@ -15,6 +15,10 @@ const CONTEXT_MAP = {
     label: "JSON API",
     href: "/api",
   },
+  cookbook: {
+    label: "Cookbook",
+    href: "/cookbook",
+  },
 };
 
 export function useSidebarBreadcrumbsWithContext():

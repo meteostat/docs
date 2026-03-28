@@ -72,7 +72,7 @@ const config: Config = {
     ],
   ],
 
-  plugins: ["docusaurus-plugin-matomo"],
+  plugins: ["docusaurus-plugin-matomo", "./src/plugins/docTagsPlugin.ts"],
 
   themeConfig: {
     // Replace with your project's social card
@@ -123,6 +123,11 @@ const config: Config = {
           sidebarId: "apiSidebar",
           position: "left",
           label: "API",
+        },
+        {
+          to: "/cookbook",
+          position: "left",
+          label: "Cookbook",
         },
         {
           href: "https://meteostat.net",
