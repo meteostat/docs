@@ -114,6 +114,12 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "cliSidebar",
+          position: "left",
+          label: "CLI",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "dataSidebar",
           position: "left",
           label: "Data",
@@ -154,6 +160,10 @@ const config: Config = {
             {
               label: "Python Library",
               to: "/python",
+            },
+            {
+              label: "CLI",
+              to: "/cli",
             },
             {
               label: "Bulk Data",

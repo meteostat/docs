@@ -1,0 +1,10 @@
+{
+  "position": 3,
+  "label": "Meteostat CLI",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Meteostat CLI"
+  }
+}
