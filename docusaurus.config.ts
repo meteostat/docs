@@ -72,7 +72,7 @@ const config: Config = {
     ],
   ],
 
-  plugins: ["docusaurus-plugin-matomo"],
+  plugins: ["docusaurus-plugin-matomo", "./src/plugins/docTagsPlugin.ts"],
 
   themeConfig: {
     // Replace with your project's social card
@@ -114,6 +114,12 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "cliSidebar",
+          position: "left",
+          label: "CLI",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "dataSidebar",
           position: "left",
           label: "Data",
@@ -123,6 +129,11 @@ const config: Config = {
           sidebarId: "apiSidebar",
           position: "left",
           label: "API",
+        },
+        {
+          to: "/cookbook",
+          position: "left",
+          label: "Cookbook",
         },
         {
           href: "https://meteostat.net",
@@ -149,6 +160,10 @@ const config: Config = {
             {
               label: "Python Library",
               to: "/python",
+            },
+            {
+              label: "CLI",
+              to: "/cli",
             },
             {
               label: "Bulk Data",

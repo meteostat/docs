@@ -1,0 +1,10 @@
+{
+  "position": 3,
+  "label": "Time Series",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "cli-ts-overview"
+  }
+}
