@@ -17,13 +17,19 @@ The Meteostat CLI gives you direct access to weather and climate data from the t
 Install the CLI via [PyPI](https://pypi.org/project/meteostat-cli/):
 
 ```bash
-pip install --user meteostat-cli
+uv tool install meteostat-cli
 ```
 
-For plotting support (`png`/`svg` output), install the `plot` extra:
+For plotting capabilities (`png` and `svg` output), install the `plot` extra:
 
 ```bash
-pip install --user meteostat-cli[plot]
+uv tool install "meteostat-cli[plot]"
+```
+
+Alternatively, you can use `uvx`:
+
+```bash
+uvx --from meteostat-cli meteo
 ```
 
 ## 🚀 Usage
