@@ -72,6 +72,16 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: "https://context7.com/widget.js",
+      async: true,
+      "data-library": "/websites/dev_meteostat_net",
+      "data-color": "#0678be",
+      "data-position": "bottom-right",
+    },
+  ],
+
   plugins: ["docusaurus-plugin-matomo", "./src/plugins/docTagsPlugin.ts"],
 
   themeConfig: {
