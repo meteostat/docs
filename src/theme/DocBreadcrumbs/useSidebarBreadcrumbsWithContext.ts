@@ -15,6 +15,10 @@ const CONTEXT_MAP = {
     label: "JSON API",
     href: "/api",
   },
+  cli: {
+    label: "CLI",
+    href: "/cli",
+  },
   cookbook: {
     label: "Cookbook",
     href: "/cookbook",
