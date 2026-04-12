@@ -57,6 +57,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
+      id: "ai",
+    },
+    {
+      type: "doc",
       id: "faq",
     },
   ],
