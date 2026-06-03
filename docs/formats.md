@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Formats & Units
 
-Meteostat uses the metric system. Both the JSON API and the Bulk Data interface use the formats and units listed below.
+Meteostat uses the metric system. All interfaces use the formats and units listed below.
 
 ## Time Format
 

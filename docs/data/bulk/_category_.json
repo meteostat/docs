@@ -1,0 +1,10 @@
+{
+  "position": 3,
+  "label": "Bulk Data",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "data-bulk-overview"
+  }
+}

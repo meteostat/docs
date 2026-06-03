@@ -176,7 +176,7 @@ const config: Config = {
               to: "/cli",
             },
             {
-              label: "Bulk Data",
+              label: "Data Access",
               to: "/data",
             },
             {

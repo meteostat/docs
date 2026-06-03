@@ -1,5 +1,5 @@
 ---
-title: Weather Stations | Bulk Data
+title: Weather Stations | Data Access
 sidebar_label: Weather Stations
 sidebar_position: 4
 ---
