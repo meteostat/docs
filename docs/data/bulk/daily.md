@@ -14,7 +14,7 @@ This interface is currently in beta. We are actively working on improving it and
 
 ## Endpoints
 
-Annual data dumps, including model data as substitute for missing observations, are available here:
+Annual data dumps, including model data as a substitute for missing observations, are available here:
 
 ```
 https://data.meteostat.net/daily/{year}.parquet
