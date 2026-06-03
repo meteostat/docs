@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: "Bulk Data",
+    title: "Data Access",
     to: "/data",
     Svg: require("@site/static/img/undraw_visual-data_1eya.svg").default,
     description: (
