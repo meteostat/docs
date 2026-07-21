@@ -1,5 +1,5 @@
 ---
-title: Daily Bulk Data | Data Access
+title: Daily Bulk Data | Datasets
 sidebar_label: Daily Data
 sidebar_position: 2
 ---

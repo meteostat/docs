@@ -1,5 +1,5 @@
 ---
-title: Monthly Data | Data Access
+title: Monthly Data | Datasets
 sidebar_label: Monthly Data
 sidebar_position: 3
 ---

@@ -1,10 +1,10 @@
 {
   "position": 2,
-  "label": "Data Access",
+  "label": "Datasets",
   "collapsible": true,
   "collapsed": true,
   "link": {
     "type": "generated-index",
-    "title": "Data Access"
+    "title": "Datasets"
   }
 }

@@ -1,5 +1,7 @@
 ---
-title: Location Input
+title: Location Input | Python Library Cookbook
+sidebar_label: Location Input
+sidebar_position: 1
 description: Learn how to specify a location for fetching weather data using the Meteostat Python library.
 tags:
   - Python

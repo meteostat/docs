@@ -1,5 +1,7 @@
 ---
-title: Merging Time Series
+title: Merging Time Series | Python Library Cookbook
+sidebar_label: Merging Time Series
+sidebar_position: 2
 description: Learn how to merge multiple time series objects into a single one using the Meteostat Python library.
 tags:
   - Python

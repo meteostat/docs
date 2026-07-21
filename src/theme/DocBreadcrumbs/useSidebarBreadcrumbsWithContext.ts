@@ -4,7 +4,7 @@ import { useLocation } from "@docusaurus/router";
 
 const CONTEXT_MAP = {
   data: {
-    label: "Data Access",
+    label: "Datasets",
     href: "/data",
   },
   python: {

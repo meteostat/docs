@@ -1,5 +1,5 @@
 ---
-title: Python | Cookbook
+title: Python Library Cookbook
 sidebar_label: Overview
 id: cookbook-python-overview
 slug: /cookbook/python

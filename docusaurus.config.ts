@@ -32,6 +32,10 @@ const config: Config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
+  markdown: {
+    mermaid: true,
+  },
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -84,7 +88,15 @@ const config: Config = {
 
   plugins: ["docusaurus-plugin-matomo", "./src/plugins/docTagsPlugin.ts"],
 
+  themes: ["@docusaurus/theme-mermaid"],
+
   themeConfig: {
+    mermaid: {
+      theme: { light: "neutral", dark: "dark" },
+      options: {
+        securityLevel: "loose",
+      },
+    },
     // Replace with your project's social card
     image: "img/meteostat-social-card.jpg",
     algolia: {
@@ -132,7 +144,7 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "dataSidebar",
           position: "left",
-          label: "Data",
+          label: "Datasets",
         },
         {
           type: "docSidebar",
@@ -176,7 +188,7 @@ const config: Config = {
               to: "/cli",
             },
             {
-              label: "Data Access",
+              label: "Datasets",
               to: "/data",
             },
             {

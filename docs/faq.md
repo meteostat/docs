@@ -41,7 +41,7 @@ Meteostat is not a public or governmental service, and it is not affiliated with
 <details>
 <summary>Under which license is Meteostat data distributed?</summary>
 
-Meteostat data is distributed under the terms of the CC BY-NC 4.0 license. See [Terms](/terms) for details.
+Meteostat data is distributed under the terms of the CC BY 4.0 license. See [License](/license) for details.
 
 </details>
 

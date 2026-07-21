@@ -1,5 +1,5 @@
 ---
-title: Bulk Data | Data Access
+title: Bulk Data | Datasets
 sidebar_label: Overview
 id: data-bulk-overview
 slug: /data/bulk

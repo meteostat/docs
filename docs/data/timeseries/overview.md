@@ -1,5 +1,5 @@
 ---
-title: Time Series | Data Access
+title: Time Series | Datasets
 sidebar_label: Overview
 id: data-timeseries-overview
 slug: /data/timeseries
