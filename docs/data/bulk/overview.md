@@ -16,7 +16,7 @@ The Meteostat bulk data interface provides access to weather and climate data ac
 This interface is currently in beta. We are actively working on improving it and adding new features. The formats and data structures may change in the future. We recommend checking back regularly for updates and improvements.
 :::
 
-## 🔌 Access
+## 🔌 Access {#access}
 
 This interface does not require an API key. However, when using this service you must comply with our [terms of service](/terms). Please make sure to cache data if possible and forbear from sending malicious calls to this service.
 
@@ -30,7 +30,7 @@ Data is available in three different granularities:
 Years without data will return an HTTP `404` status code.
 :::
 
-## 🚀 Quick Start
+## 🚀 Quick Start {#quick-start}
 
 The download of annual data dumps is dead simple and doesn’t even require an API key:
 
@@ -38,9 +38,23 @@ The download of annual data dumps is dead simple and doesn’t even require an A
 curl "https://data.meteostat.net/hourly/2024.parquet" --output "2024.parquet"
 ```
 
-## 🔄 Update Cycle
+## 🔄 Update Cycle {#update-cycle}
 
 The dumps are updated regularly, depending on the granularity of records. Recent hourly data should be available after a maximum of 24 hours.
+
+## 📚 Specification {#specification}
+
+This dataset **is not versioned**. Therefore, clients **must be able to handle changes in the data structure**.
+
+- New columns may be added to the datasets **without prior notice**.
+- The order of columns may change **without prior notice**.
+- Changes to the data types of columns are **not communicated ahead of time** if types can be cast automatically (e.g., integer to float).
+- Existing columns may be removed or renamed with a **minimum 90-day notice**.
+- Breaking changes will be announced ahead of time in the [changelog](#changelog).
+
+## 📝 Changelog {#changelog}
+
+No changes have been made to this dataset so far.
 
 ## 👀 Learn More {#learn-more}
 

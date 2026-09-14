@@ -12,7 +12,7 @@ tags:
 
 # Animated Temperature Heatmap
 
-This recipe walks through creating an animated GIF of Germany's daily maximum temperature (`tmax`) for a given month. It combines Meteostat's [bulk data endpoints](/data/bulk/daily) with SciPy spatial interpolation and Matplotlib rendering to produce a smooth, day-by-day temperature map.
+This recipe walks through creating an animated GIF of Germany's daily maximum temperature (`tmax`) for a given month. It combines Meteostat's [daily Parquet dataset](/data/bulk/daily) with SciPy spatial interpolation and Matplotlib rendering to produce a smooth, day-by-day temperature map.
 
 <details>
 
@@ -397,7 +397,7 @@ TEMP_COLORS = [
 VMIN, VMAX = -5, 35
 ```
 
-Change `YEAR` and `MONTH` to render any month covered by the bulk data archive.
+Change `YEAR` and `MONTH` to render any month covered by the dataset.
 
 ## Station Metadata {#station-metadata}
 
