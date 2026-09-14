@@ -1,5 +1,5 @@
 ---
-title: Python | Cookbook
+title: Python Library Cookbook
 sidebar_label: Overview
 id: cookbook-python-overview
 slug: /cookbook/python
@@ -8,7 +8,7 @@ sidebar_position: 1
 
 import DocCardList from '@theme/DocCardList';
 
-# Python Cookbook
+# Python Library Cookbook
 
 A collection of recipes and examples for working with Meteostat weather and climate data using the Python library.
 

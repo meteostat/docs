@@ -1,5 +1,5 @@
 ---
-title: Daily Data | Data Access
+title: Daily Data | Datasets
 sidebar_label: Daily Data
 sidebar_position: 2
 ---

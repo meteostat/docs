@@ -1,5 +1,5 @@
 ---
-title: Hourly Data | Data Access
+title: Hourly Data | Datasets
 sidebar_label: Hourly Data
 sidebar_position: 1
 ---
