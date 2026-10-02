@@ -20,7 +20,10 @@ meteo config [KEY VALUE] [OPTIONS]
 meteo config --list                         # Show all current settings
 meteo config cache_enable false             # Disable caching
 meteo config interpolation_radius 25000     # Set interpolation radius to 25 km
+meteo config stations_repo ~/weather-stations  # Path to local stations repository
 ```
+
+The `stations_repo` key is used by the [contributor commands](/cli/stations/contributing#repository-path).
 
 ## Options
 

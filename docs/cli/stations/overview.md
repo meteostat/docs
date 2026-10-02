@@ -44,6 +44,8 @@ Check what data is available for a station:
 meteo inventory 10637
 ```
 
+Want to improve the station directory? Check out the [contributor commands](/cli/stations/contributing).
+
 ## 👀 Learn More
 
 <DocCardList />
