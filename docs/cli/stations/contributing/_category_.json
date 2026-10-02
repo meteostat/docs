@@ -1,0 +1,10 @@
+{
+  "position": 5,
+  "label": "Contributing",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "cli-contributing-overview"
+  }
+}
