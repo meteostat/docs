@@ -7,14 +7,11 @@ sidebar_position: 1
 ---
 
 import DocCardList from '@theme/DocCardList';
+import Changelog from '@site/src/components/Changelog';
 
 # Bulk Data
 
 The Meteostat bulk data interface provides access to weather and climate data across **all** weather stations in **Parquet** format. It's especially useful for large-scale, spatial analysis. Users are **not required to sign up** for this service.
-
-:::warning[Beta]
-This interface is currently in beta. We are actively working on improving it and adding new features. The formats and data structures may change in the future. We recommend checking back regularly for updates and improvements.
-:::
 
 ## 🔌 Access {#access}
 
@@ -54,7 +51,7 @@ This dataset **is not versioned**. Therefore, clients **must be able to handle c
 
 ## 📝 Changelog {#changelog}
 
-No changes have been made to this dataset so far.
+<Changelog id="bulk" />
 
 ## 👀 Learn More {#learn-more}
 
