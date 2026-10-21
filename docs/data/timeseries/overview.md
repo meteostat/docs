@@ -7,6 +7,7 @@ sidebar_position: 1
 ---
 
 import DocCardList from '@theme/DocCardList';
+import Changelog from '@site/src/components/Changelog';
 
 # Time Series
 
@@ -59,7 +60,7 @@ CSV readers that rely on the order of columns may break when new columns are add
 
 ## 📝 Changelog {#changelog}
 
-No changes have been made to this dataset so far.
+<Changelog id="timeseries" />
 
 ## 👀 Learn More {#learn-more}
 

@@ -8,10 +8,6 @@ sidebar_position: 3
 
 This endpoint provides **a single Parquet file** containing historical monthly data for all weather stations.
 
-:::warning[Beta]
-This interface is currently in beta. We are actively working on improving it and adding new features. The formats and data structures may change in the future. We recommend checking back regularly for updates and improvements.
-:::
-
 ## Endpoints
 
 The historical monthly data, including model data as a substitute for missing observations, for all weather stations is available here:

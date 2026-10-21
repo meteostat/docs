@@ -21,6 +21,9 @@
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "docusaurus-plugin-matomo": "^0.0.8",
+    "feed": "^4.2.2",
+    "gray-matter": "^4.0.3",
+    "marked": "^16.4.2",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -44,6 +47,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   }
 }

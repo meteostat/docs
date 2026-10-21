@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import type { ChangelogPluginOptions } from "./src/plugins/changelogPlugin";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -86,7 +87,29 @@ const config: Config = {
     },
   ],
 
-  plugins: ["docusaurus-plugin-matomo", "./src/plugins/docTagsPlugin.ts"],
+  plugins: [
+    "docusaurus-plugin-matomo",
+    "./src/plugins/docTagsPlugin.ts",
+    [
+      "./src/plugins/changelogPlugin.ts",
+      {
+        changelogs: [
+          {
+            id: "bulk",
+            title: "Bulk Data",
+            path: "docs/data/bulk/_changelog",
+            permalink: "/data/bulk",
+          },
+          {
+            id: "timeseries",
+            title: "Time Series",
+            path: "docs/data/timeseries/_changelog",
+            permalink: "/data/timeseries",
+          },
+        ],
+      } satisfies ChangelogPluginOptions,
+    ],
+  ],
 
   themes: ["@docusaurus/theme-mermaid"],
 

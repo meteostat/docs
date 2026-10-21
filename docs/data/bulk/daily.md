@@ -8,10 +8,6 @@ sidebar_position: 2
 
 This endpoint provides **one Parquet file per year**.
 
-:::warning[Beta]
-This interface is currently in beta. We are actively working on improving it and adding new features. The formats and data structures may change in the future. We recommend checking back regularly for updates and improvements.
-:::
-
 ## Endpoints
 
 Annual data dumps, including model data as a substitute for missing observations, are available here:
