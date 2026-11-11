@@ -11,6 +11,7 @@ type Provider = {
   name: string;
   granularity: string;
   parameters: string[];
+  enumeration?: string | null;
 };
 
 const ProvidersTable: React.FC = () => {
@@ -83,7 +84,13 @@ const ProvidersTable: React.FC = () => {
             {filtered.map((p) => (
               <tr key={p.id}>
                 <td><code className={styles.code}>{p.id}</code></td>
-                <td><code className={styles.code}>Provider.{p.id.toUpperCase()}</code></td>
+                <td>
+                  {p.enumeration === null ? (
+                    '—'
+                  ) : (
+                    <code className={styles.code}>Provider.{p.id.toUpperCase()}</code>
+                  )}
+                </td>
                 <td>{p.name}</td>
                 <td>{capitalize(p.granularity)}</td>
                 <td>

@@ -233,6 +233,23 @@
     ]
   },
   {
+    "id": "ghcnh",
+    "name": "NOAA GHCN-Hourly",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "dwpt",
+      "rhum",
+      "pres",
+      "wdir",
+      "wspd",
+      "wpgt",
+      "prcp",
+      "snwd",
+      "vsby"
+    ]
+  },
+  {
     "id": "climat",
     "name": "DWD CLIMAT",
     "granularity": "monthly",
@@ -275,5 +292,88 @@
       "cldc",
       "coco"
     ]
+  },
+  {
+    "id": "gsa_hourly",
+    "name": "GeoSphere Austria Hourly",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "prcp",
+      "pres",
+      "wspd",
+      "wdir",
+      "rhum",
+      "tsun"
+    ]
+  },
+  {
+    "id": "gsa_synop",
+    "name": "GeoSphere Austria SYNOP",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "pres",
+      "rhum",
+      "wspd",
+      "wdir",
+      "prcp"
+    ]
+  },
+  {
+    "id": "gsa_daily",
+    "name": "GeoSphere Austria Daily",
+    "granularity": "daily",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp",
+      "pres",
+      "rhum",
+      "wspd",
+      "tsun"
+    ]
+  },
+  {
+    "id": "gsa_monthly",
+    "name": "GeoSphere Austria Monthly",
+    "granularity": "monthly",
+    "parameters": [
+      "temp",
+      "tmin",
+      "tmax",
+      "prcp",
+      "pres",
+      "tsun"
+    ]
+  },
+  {
+    "id": "era5",
+    "name": "ERA5-Land",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "dwpt",
+      "rhum",
+      "prcp",
+      "snow",
+      "snwd",
+      "wdir",
+      "wspd"
+    ]
+  },
+  {
+    "id": "reanalysis",
+    "name": "ERA5-Land (Bias-Corrected)",
+    "granularity": "hourly",
+    "parameters": [
+      "temp",
+      "rhum",
+      "wspd",
+      "snwd",
+      "wdir"
+    ],
+    "enumeration": null
   }
 ]
